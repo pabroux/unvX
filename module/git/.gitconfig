@@ -1,0 +1,24 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Sulfyderz
+	email = Sulfyderz@live.fr
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	br = branch
+	sw = switch
+	ph = push
+	pl = pull
+[push]
+	default = matching
+[http]
+	sslVerify = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

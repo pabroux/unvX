@@ -1,0 +1,238 @@
+######## skhd version 0.3.5 ########
+
+# mode available
+:: default
+:: silence
+
+# change mode
+default < ctrl + fn - s ; silence
+silence < ctrl + fn - s ; default
+
+# change ratio (ultrawide monitor only)
+default < ctrl + fn - 0x12 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:12:12; fi
+default < ctrl + fn - 0x13 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:600:600; fi
+default < ctrl + fn - 0x14 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:1200:1200; fi
+
+# focus window
+default < lalt - h : yabai -m window --focus west
+default < lalt - j : yabai -m window --focus south
+default < lalt - k : yabai -m window --focus north
+default < lalt - l : yabai -m window --focus east
+
+# focus display
+default < lcmd + lalt - h : yabai -m display --focus west
+default < lcmd + lalt - j : yabai -m display --focus south
+default < lcmd + lalt - k : yabai -m display --focus north
+default < lcmd + lalt - l : yabai -m display --focus east
+
+# focus desktop
+default < lcmd - h : idbeg=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | cut -d' ' -f 1);\
+		ids=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
+		if [[ $ids != $idbeg ]]; then yabai -m space --focus prev; fi
+default < lcmd - l : idend=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | rev | cut -d' ' -f 1 | rev);\
+                ids=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
+                if [[ $ids != $idend ]]; then yabai -m space --focus next; fi
+default < lcmd - 0x12 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+		yabai -m space --focus $(echo $ids| cut -d' ' -f 1);
+default < lcmd - 0x13 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+		maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+		maxs=$(echo $(($maxs+1)));\
+		if [[ "2" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f 1); else yabai -m space --focus $(echo $ids| cut -d' ' -f 2); fi
+default < lcmd - 0x14 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+		maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+		if [[ "3" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 3); fi
+default < lcmd - 0x15 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "4" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 4); fi
+default < lcmd - 0x17 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "5" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 5); fi
+default < lcmd - 0x16 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "6" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 6); fi
+default < lcmd - 0x1A : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "7" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 7); fi
+default < lcmd - 0x1C : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "8" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 8); fi
+default < lcmd - 0x19 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "9" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 9); fi
+default < lcmd - 0x1D : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                maxs=$(echo $(($maxs+1)));\
+                if [[ "10" -gt "$maxs" ]]; then yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs); else yabai -m space --focus $(echo $ids| cut -d' ' -f 10); fi
+
+# create desktop, move window and follow focus
+default < lshift + ctrl + fn - c : yabai -m space --create;\
+                  id=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' );\
+                  yabai -m window --space $(echo $id | rev | cut -d' ' -f 1 | rev);\
+                  yabai -m space --focus $(echo $id | rev | cut -d' ' -f 1 | rev)
+
+# create desktop and follow focus
+default < ctrl + fn - c : yabai -m space --create;\
+                id=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' );\
+                yabai -m space --focus $(echo $id | rev | cut -d' ' -f 1 | rev)
+
+# destroy desktop
+default < ctrl + fn - w : natfulState=$(yabai -m query --windows --space | grep "native");\
+		if [[ $natfulState != *"true"* ]]; then yabai -m space --destroy; fi
+
+# move window
+default < fn + lalt - h : yabai -m window --warp west
+default < fn + lalt - j : yabai -m window --warp south
+default < fn + lalt - k : yabai -m window --warp north
+default < fn + lalt - l : yabai -m window --warp east
+
+# swap window
+default < lshift + fn + lalt - h : yabai -m window --swap west
+default < lshift + fn + lalt - j : yabai -m window --swap south
+default < lshift + fn + lalt - k : yabai -m window --swap north
+default < lshift + fn + lalt - l : yabai -m window --swap east
+
+# send window to desktop and follow focus
+## for no animation, add this in the condition: wis=$(yabai -m query --windows --window "${wid}" | grep "space" | sed 's/[^0-9]*//g');\ yabai -m space --focus "${wis}"; 
+default < fn + lcmd - h : idbeg=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | cut -d' ' -f 1);\
+                 ids=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
+				 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ $ids != $idbeg ]]; then yabai -m window "${wid}" --space prev; yabai -m window --focus "${wid}"; fi
+## for no animation, add this in the condition: wis=$(yabai -m query --windows --window "${wid}" | grep "space" | sed 's/[^0-9]*//g');\ yabai -m space --focus "${wis}"; 
+default < fn + lcmd - l : idend=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | rev | cut -d' ' -f 1 | rev);\
+                 ids=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
+		 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ $ids != $idend ]]; then yabai -m window "${wid}" --space next; yabai -m window --focus "${wid}"; fi
+default < fn + lcmd - 0x12 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "1" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 1); yabai -m space --focus $(echo $ids| cut -d' ' -f 1); fi
+default < fn + lcmd - 0x13 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "2" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 2); yabai -m space --focus $(echo $ids| cut -d' ' -f 2); fi
+default < fn + lcmd - 0x14 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "3" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 3); yabai -m space --focus $(echo $ids| cut -d' ' -f 3); fi
+default < fn + lcmd - 0x15 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "4" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 4); yabai -m space --focus $(echo $ids| cut -d' ' -f 4); fi
+default < fn + lcmd - 0x17 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "5" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 5); yabai -m space --focus $(echo $ids| cut -d' ' -f 5); fi
+default < fn + lcmd - 0x16 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "6" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 6); yabai -m space --focus $(echo $ids| cut -d' ' -f 6); fi
+default < fn + lcmd - 0x1A : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "7" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 7); yabai -m space --focus $(echo $ids| cut -d' ' -f 7); fi
+default < fn + lcmd - 0x1C :ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "8" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 8); yabai -m space --focus $(echo $ids| cut -d' ' -f 8); fi
+default < fn + lcmd - 0x19 : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+                 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "9" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+                 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 9); yabai -m space --focus $(echo $ids| cut -d' ' -f 9); fi
+default < fn + lcmd - 0x1D : ids=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+                 maxs=$(echo $ids | tr -cd ' \t' |wc -c);\
+                 maxs=$(echo $(($maxs+1)));\
+		 wid=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
+                 if [[ "10" -gt "$maxs" ]]; then yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f $maxs); yabai -m space --focus $(echo $ids| cut -d' ' -f $maxs);\
+		 else yabai -m window "${wid}" --space $(echo $ids| cut -d' ' -f 10); yabai -m space --focus $(echo $ids| cut -d' ' -f 10); fi
+
+# send window to display and follow focus
+default < fn + lcmd + lalt - h : yabai -m window --display west; yabai -m display --focus west
+default < fn + lcmd + lalt - j : yabai -m window --display south; yabai -m display --focus south
+default < fn + lcmd + lalt - k : yabai -m window --display north; yabai -m display --focus north
+default < fn + lcmd + lalt - l : yabai -m window --display east; yabai -m display --focus east
+
+# balance size of windows
+default < fn - 0x27 : yabai -m space --balance
+
+# increase window size
+default < fn - h : yabai -m window --resize left:-20:0
+default < fn - j : yabai -m window --resize bottom:0:20
+default < fn - k : yabai -m window --resize top:0:-20
+default < fn - l : yabai -m window --resize right:20:0
+default < fn - m : yabai -m window --resize top_left:-20:-20;\
+                  yabai -m window --resize bottom_right:20:20
+
+# decrease window size
+default < lshift + fn - h : yabai -m window --resize left:20:0
+default < lshift + fn - j : yabai -m window --resize bottom:0:-20
+default < lshift + fn - k : yabai -m window --resize top:0:20
+default < lshift + fn - l : yabai -m window --resize right:-20:0
+default < lshift + fn - m : yabai -m window --resize top_left:20:20;\
+                  yabai -m window --resize bottom_right:-20:-20
+
+# set insertion point in focused container
+default < ctrl + fn - h : yabai -m window --insert west
+default < ctrl + fn - j : yabai -m window --insert south
+default < ctrl + fn - k : yabai -m window --insert north
+default < ctrl + fn - l : yabai -m window --insert east
+
+# rotate tree
+default < fn - r : yabai -m space --rotate 270
+default < shift + fn - r : yabai -m space --rotate 90
+
+# mirror tree y-axis
+default < fn - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+default < fn - x : yabai -m space --mirror x-axis
+
+# balance all windows
+default < fn - b : yabai -m space --balance
+
+# toggle window parent zoom
+default < fn - d : yabai -m window --toggle zoom-parent
+
+# toggle window fullscreen zoom
+default < fn - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window native fullscreen
+default < lshift + fn - f : yabai -m window --toggle native-fullscreen
+
+# toggle window split type
+default < fn - e : yabai -m window --toggle split
+
+# float / unfloat window and center on screen
+default < fn - t : yabai -m window --toggle float;\
+	yabai -m window --grid 5:5:1:1:3:3
+
+# toggle float
+default < fn - s : yabai -m window --toggle float
+
+# change layout of desktop
+default < ctrl + fn - a : yabai -m space --layout bsp
+default < ctrl + fn - d : yabai -m space --layout float
