@@ -19,6 +19,7 @@
 	"fzf"
 	"git"
 	"homebrew"
+	"nodejs"
 	"skhd"
 	"starship"
 	"tmux"
