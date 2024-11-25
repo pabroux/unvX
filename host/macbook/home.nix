@@ -19,6 +19,7 @@
 	"fzf"
 	"git"
 	"homebrew"
+	"htop"
 	"nodejs"
 	"skhd"
 	"starship"
