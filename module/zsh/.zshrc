@@ -35,8 +35,8 @@ setopt hist_ignore_dups
 
 # Key binding
 ## Completion using arrow keys based on history
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
 # Software
 ## homebrew
