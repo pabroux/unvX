@@ -5,7 +5,7 @@ set fileencoding=utf-8
 " Plugins
 "" Vundle configuration
 filetype off
-set rtp+=$HOME/.nix-profile/share/vim/bundle/Vundle.vim
+set rtp+=$HOME/.nix-profile/share/vim-plugins/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "" Theme

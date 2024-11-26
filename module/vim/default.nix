@@ -5,8 +5,8 @@
 		(pkgs.vimPlugins.Vundle-vim.overrideAttrs (oldAttrs: {
     		installPhase = "
       			# Add your custom commands here
-	  			mkdir -p $out/share/vim/bundle/Vundle.vim
-      			mv autoload doc ftplugin syntax test $out/share/vim/bundle/Vundle.vim
+	  			mkdir -p $out/share/vim-plugins/bundle/Vundle.vim
+      			mv autoload doc ftplugin syntax test $out/share/vim-plugins/bundle/Vundle.vim
     		";
   		}))
 	];

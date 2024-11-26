@@ -4,6 +4,7 @@
 	home.packages = [
 		pkgs.tmux
 		pkgs.tmuxPlugins.resurrect
+		pkgs.tmuxPlugins.yank
 	];
 	
 	home.file = {
