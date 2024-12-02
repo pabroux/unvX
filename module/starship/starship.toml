@@ -134,7 +134,7 @@ symbol = "hg "
 [hostname]
 format = '@[$hostname]($style)'
 ssh_only = false
-ssh_symbol = ' ⛬ '	
+ssh_symbol = '⛬ '	
 style = 'bold fg:203'
 
 [java]
@@ -144,6 +144,9 @@ symbol = "java "
 [julia]
 format = '\[[$symbol($version)]($style)\]'
 symbol = "jl "
+
+[jobs]
+style = 'bold fg:white'
 
 [kotlin]
 format = '\[[$symbol($version)]($style)\]'
