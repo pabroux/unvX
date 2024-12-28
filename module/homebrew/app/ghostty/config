@@ -1,0 +1,10 @@
+# Font
+font-family = "SF Mono"
+font-style = "Regular"
+font-thicken = true
+font-size = 11
+
+quick-terminal-position = "center"
+
+# Key binding
+keybind = cmd+shift+n=toggle_quick_terminal
