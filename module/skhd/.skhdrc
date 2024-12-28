@@ -187,9 +187,6 @@ default < fn + lcmd + lalt - j : yabai -m window --display south; yabai -m displ
 default < fn + lcmd + lalt - k : yabai -m window --display north; yabai -m display --focus north
 default < fn + lcmd + lalt - l : yabai -m window --display east; yabai -m display --focus east
 
-## Balance size of windows
-default < fn - 0x27 : yabai -m space --balance
-
 ## Increase window size
 default < fn - h : yabai -m window --resize left:-20:0
 default < fn - j : yabai -m window --resize bottom:0:20
@@ -222,7 +219,7 @@ default < fn - y : yabai -m space --mirror y-axis
 ## Mirror tree x-axis
 default < fn - x : yabai -m space --mirror x-axis
 
-## Balance all windows
+## Balance size of all windows
 default < fn - b : yabai -m space --balance
 
 ## Toggle window parent zoom
