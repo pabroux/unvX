@@ -27,6 +27,16 @@ in
 
 	home.activation = {
 		installHomebrewCasks = lib.hm.dag.entryAfter ["writeBoundary"] 
-		(lib.strings.concatLines (map (x: "/opt/homebrew/bin/brew install --quiet --cask " + x) casks));
+			(lib.strings.concatLines
+				(map 
+					(x: 
+						"(
+							PATH=/opt/homebrew/bin:$PATH
+							brew install --quiet --cask ${x}
+			 			 )"
+					)
+					casks
+				)
+			);
 	};
 }

@@ -1,5 +1,6 @@
 " Plugin
 " ◆ Vundle configuration
+set nocompatible
 filetype off
 set rtp+=$HOME/.nix-profile/share/vim-plugins/bundle/Vundle.vim
 call vundle#begin()

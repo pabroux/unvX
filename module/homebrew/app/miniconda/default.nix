@@ -3,7 +3,10 @@
 {
 	home.activation = {
 		setupMiniconda = lib.hm.dag.entryAfter ["installHomebrewCasks"]
-		("/opt/homebrew/bin/conda config --set auto_activate_base false
-		/opt/homebrew/bin/conda config --set changeps1 false");
+			"(
+				PATH=/opt/homebrew/bin:$PATH
+				conda config --set auto_activate_base false
+				conda config --set changeps1 false
+			 )";
 	};
 }
