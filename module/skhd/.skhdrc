@@ -1,111 +1,143 @@
-######## skhd version 0.3.5 ########
-
-# Available modes
+# Skhd
+# ◆ Available mode
 :: default
 :: silence
-
-# Change mode
-default < ctrl + fn - s ; silence
-silence < ctrl + fn - s ; default
+#
+# ◆ Change mode
+default < fn + ctrl + lalt + lshift - s ; silence
+silence < fn + ctrl + lalt + lshift - s ; default
 
 
 # Yabai
-## Change ratio (ultrawide monitor only)
-default < ctrl + fn - 0x12 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:12:12; fi
-default < ctrl + fn - 0x13 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:600:600; fi
-default < ctrl + fn - 0x14 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:1200:1200; fi
-
-## Focus window
-default < lalt - h : yabai -m window --focus west
-default < lalt - j : yabai -m window --focus south
-default < lalt - k : yabai -m window --focus north
-default < lalt - l : yabai -m window --focus east
-
-## Focus display
-default < lcmd + lalt - h : yabai -m display --focus west
-default < lcmd + lalt - j : yabai -m display --focus south
-default < lcmd + lalt - k : yabai -m display --focus north
-default < lcmd + lalt - l : yabai -m display --focus east
-
-## Focus space
-default < lcmd - h : id_space_first=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | cut -d' ' -f 1);\
+# ◆ Configure Yabai (modifier: fn + ctrl + lalt + lcmd)
+# ↳ Change layout of space
+default < fn + ctrl + lalt + lcmd - a : yabai -m space --layout bsp
+default < fn + ctrl + lalt + lcmd - d : yabai -m space --layout float
+#
+# ◆ Global (modifier: fn)
+# ↳ Set insertion point in focused container
+default < fn - h : yabai -m window --insert west
+default < fn - j : yabai -m window --insert south
+default < fn - k : yabai -m window --insert north
+default < fn - l : yabai -m window --insert east
+# ↳ Toggle float
+default < fn - s : yabai -m window --toggle float
+# ↳ Float / unfloat window and center on screen
+default < fn - t : yabai -m window --toggle float;\
+		yabai -m window --grid 5:5:1:1:3:3
+# ↳ Toggle window parent zoom
+default < fn - d : yabai -m window --toggle zoom-parent
+# ↳ Toggle window fullscreen zoom
+default < fn - f : yabai -m window --toggle zoom-fullscreen
+# ↳ Toggle window native fullscreen
+default < fn + lshift - f : yabai -m window --toggle native-fullscreen
+#
+# ◆ Select (modifier: fn + lalt)
+# ↳ Select window
+default < fn + lalt - h : yabai -m window --focus west
+default < fn + lalt - j : yabai -m window --focus south
+default < fn + lalt - k : yabai -m window --focus north
+default < fn + lalt - l : yabai -m window --focus east
+# ↳ Select space
+default < fn + lalt - y : id_space_first=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | cut -d' ' -f 1);\
 		id_space_curr=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
 		if [[ $id_space_curr != $id_space_first ]]; then yabai -m space --focus prev; fi
-default < lcmd - l : id_space_last=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | rev | cut -d' ' -f 1 | rev);\
+default < fn + lalt - o : id_space_last=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | rev | cut -d' ' -f 1 | rev);\
 		id_space_curr=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
 		if [[ $id_space_curr != $id_space_last ]]; then yabai -m space --focus next; fi
-default < lcmd - 0x12 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x12 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
 		yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 1);
-default < lcmd - 0x13 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x13 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
 		nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
 		nb_spaces=$(echo $(($nb_spaces+1)));\
 		if [[ "2" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 1); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 2); fi
-default < lcmd - 0x14 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x14 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
 		nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
 		nb_spaces=$(echo $(($nb_spaces+1)));\
 		if [[ "3" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 3); fi
-default < lcmd - 0x15 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x15 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
         nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
         nb_spaces=$(echo $(($nb_spaces+1)));\
         if [[ "4" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 4); fi
-default < lcmd - 0x17 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x17 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
         nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
         nb_spaces=$(echo $(($nb_spaces+1)));\
         if [[ "5" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 5); fi
-default < lcmd - 0x16 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x16 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
         nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
         nb_spaces=$(echo $(($nb_spaces+1)));\
         if [[ "6" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 6); fi
-default < lcmd - 0x1A : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x1A : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
         nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
         nb_spaces=$(echo $(($nb_spaces+1)));\
         if [[ "7" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 7); fi
-default < lcmd - 0x1C : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x1C : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
         nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
         nb_spaces=$(echo $(($nb_spaces+1)));\
         if [[ "8" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 8); fi
-default < lcmd - 0x19 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x19 : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
 		nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
         nb_spaces=$(echo $(($nb_spaces+1)));\
         if [[ "9" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 9); fi
-default < lcmd - 0x1D : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
+default < fn + lalt - 0x1D : id_space_curr=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g');\
 		nb_spaces=$(echo $id_space_curr | tr -cd ' \t' |wc -c);\
 		nb_spaces=$(echo $(($nb_spaces+1)));\
 		if [[ "10" -gt "$nb_spaces" ]]; then yabai -m space --focus $(echo $id_space_curr | cut -d' ' -f $nb_spaces); else yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 10); fi
-
-## Create space, move window and follow focus
-default < lshift + ctrl + fn - c : yabai -m space --create;\
-		id=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' );\
-        yabai -m window --space $(echo $id | rev | cut -d' ' -f 1 | rev);\
-        yabai -m space --focus $(echo $id | rev | cut -d' ' -f 1 | rev)
-
-## Create space and follow focus
-default < ctrl + fn - c : yabai -m space --create;\
-		id=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' );\
-        yabai -m space --focus $(echo $id | rev | cut -d' ' -f 1 | rev)
-
-## Destroy space
-default < ctrl + fn - w : natfulState=$(yabai -m query --windows --space | grep "native");\
-		if [[ $natfulState != *"true"* ]]; then yabai -m space --destroy; fi
-
-## Move window
-default < fn + lalt - h : yabai -m window --warp west
-default < fn + lalt - j : yabai -m window --warp south
-default < fn + lalt - k : yabai -m window --warp north
-default < fn + lalt - l : yabai -m window --warp east
-
-## Swap window
-default < lshift + fn + lalt - h : yabai -m window --swap west
-default < lshift + fn + lalt - j : yabai -m window --swap south
-default < lshift + fn + lalt - k : yabai -m window --swap north
-default < lshift + fn + lalt - l : yabai -m window --swap east
-
-## Send window to space and follow focus
-default < fn + lcmd - h : id_space_first=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | cut -d' ' -f 1);\
+# ↳ Select display
+default < fn + lalt + lshift - y : yabai -m display --focus west
+default < fn + lalt + lshift - u : yabai -m display --focus south
+default < fn + lalt + lshift - i : yabai -m display --focus north
+default < fn + lalt + lshift - o : yabai -m display --focus east
+#
+# ◆ Resize (modifier: fn + ctrl)
+# ↳ Change ratio (ultrawide monitor only)
+default < fn + ctrl - 0x12 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:12:12; fi
+default < fn + ctrl - 0x13 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:600:600; fi
+default < fn + ctrl - 0x14 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:1200:1200; fi
+# ↳ Increase window size
+default < fn + ctrl - h : yabai -m window --resize left:-20:0
+default < fn + ctrl - j : yabai -m window --resize bottom:0:20
+default < fn + ctrl - k : yabai -m window --resize top:0:-20
+default < fn + ctrl - l : yabai -m window --resize right:20:0
+default < fn + ctrl - m : yabai -m window --resize top_left:-20:-20;\
+		yabai -m window --resize bottom_right:20:20
+# ↳ Decrease window size
+default < fn + ctrl + lshift - h : yabai -m window --resize left:20:0
+default < fn + ctrl + lshift - j : yabai -m window --resize bottom:0:-20
+default < fn + ctrl + lshift - k : yabai -m window --resize top:0:20
+default < fn + ctrl + lshift - l : yabai -m window --resize right:-20:0
+default < fn + ctrl + lshift - m : yabai -m window --resize top_left:20:20;\
+		yabai -m window --resize bottom_right:-20:-20
+# ↳ Balance size of all windows
+default < fn + ctrl - 0x2C : yabai -m space --balance
+#
+# ◆ Move (modifier: fn + lcmd)
+# ↳ Rotate tree clockwise
+default < fn + lcmd - r : yabai -m space --rotate 270
+# ↳ Rotate tree counter-clockwise
+default < fn + lcmd + lshift - r : yabai -m space --rotate 90
+# ↳ Mirror tree x-axis
+default < fn + lcmd - m : yabai -m space --mirror x-axis
+# ↳ Mirror tree y-axis
+default < fn + lcmd + lshift - m : yabai -m space --mirror y-axis
+# ↳ Toggle window split type
+default < fn + lcmd - e : yabai -m window --toggle split
+# ↳ Move window
+default < fn + lcmd - h : yabai -m window --warp west
+default < fn + lcmd - j : yabai -m window --warp south
+default < fn + lcmd - k : yabai -m window --warp north
+default < fn + lcmd - l : yabai -m window --warp east
+# ↳ Swap window
+default < fn + lcmd + lshift - h : yabai -m window --swap west
+default < fn + lcmd + lshift - j : yabai -m window --swap south
+default < fn + lcmd + lshift - k : yabai -m window --swap north
+default < fn + lcmd + lshift - l : yabai -m window --swap east
+# ↳ Send window to space and follow focus
+default < fn + lcmd - y : id_space_first=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | cut -d' ' -f 1);\
 		id_space_curr=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
 		id_window=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
         if [[ $id_space_curr != $id_space_first ]]; then yabai -m window "${id_window}" --space prev; yabai -m window --focus "${id_window}"; fi
-default < fn + lcmd - l : id_space_last=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | rev | cut -d' ' -f 1 | rev);\
+default < fn + lcmd - o : id_space_last=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' | rev | cut -d' ' -f 1 | rev);\
         id_space_curr=$(yabai -m query --spaces --space | grep "index" | sed 's/[^0-9]*//g');\
 		id_window=$(yabai -m query --windows --window | grep '"id"' | sed 's/[^0-9]*//g');\
         if [[ $id_space_curr != $id_space_last ]]; then yabai -m window "${id_window}" --space next; yabai -m window --focus "${id_window}"; fi
@@ -179,68 +211,20 @@ default < fn + lcmd - 0x1D : id_space_curr=$(yabai -m query --displays --display
         if [[ "10" -gt "$nb_spaces" ]]; then yabai -m window "${id_window}" --space $(echo $id_space_curr| cut -d' ' -f $nb_spaces); yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f $nb_spaces);\
 		else yabai -m window "${id_window}" --space $(echo $id_space_curr| cut -d' ' -f 10); yabai -m space --focus $(echo $id_space_curr| cut -d' ' -f 10); fi;\
 		yabai -m window --focus "${id_window}";
-
-
-## Send window to display and follow focus
-default < fn + lcmd + lalt - h : yabai -m window --display west; yabai -m display --focus west
-default < fn + lcmd + lalt - j : yabai -m window --display south; yabai -m display --focus south
-default < fn + lcmd + lalt - k : yabai -m window --display north; yabai -m display --focus north
-default < fn + lcmd + lalt - l : yabai -m window --display east; yabai -m display --focus east
-
-## Increase window size
-default < fn - h : yabai -m window --resize left:-20:0
-default < fn - j : yabai -m window --resize bottom:0:20
-default < fn - k : yabai -m window --resize top:0:-20
-default < fn - l : yabai -m window --resize right:20:0
-default < fn - m : yabai -m window --resize top_left:-20:-20;\
-		yabai -m window --resize bottom_right:20:20
-
-## Decrease window size
-default < lshift + fn - h : yabai -m window --resize left:20:0
-default < lshift + fn - j : yabai -m window --resize bottom:0:-20
-default < lshift + fn - k : yabai -m window --resize top:0:20
-default < lshift + fn - l : yabai -m window --resize right:-20:0
-default < lshift + fn - m : yabai -m window --resize top_left:20:20;\
-		yabai -m window --resize bottom_right:-20:-20
-
-## Set insertion point in focused container
-default < ctrl + fn - h : yabai -m window --insert west
-default < ctrl + fn - j : yabai -m window --insert south
-default < ctrl + fn - k : yabai -m window --insert north
-default < ctrl + fn - l : yabai -m window --insert east
-
-## Rotate tree
-default < fn - r : yabai -m space --rotate 270
-default < shift + fn - r : yabai -m space --rotate 90
-
-## Mirror tree y-axis
-default < fn - y : yabai -m space --mirror y-axis
-
-## Mirror tree x-axis
-default < fn - x : yabai -m space --mirror x-axis
-
-## Balance size of all windows
-default < fn - b : yabai -m space --balance
-
-## Toggle window parent zoom
-default < fn - d : yabai -m window --toggle zoom-parent
-
-## Toggle window fullscreen zoom
-default < fn - f : yabai -m window --toggle zoom-fullscreen
-
-## Toggle window native fullscreen
-default < lshift + fn - f : yabai -m window --toggle native-fullscreen
-
-## Toggle window split type
-default < fn - e : yabai -m window --toggle split
-
-## Float / unfloat window and center on screen
-default < fn - t : yabai -m window --toggle float;\
-		yabai -m window --grid 5:5:1:1:3:3
-
-## Toggle float
-default < fn - s : yabai -m window --toggle float
-
-## Change layout of space
-default < ctrl + fn - a : yabai -m space --layout bsp
-default < ctrl + fn - d : yabai -m space --layout float
+# ↳ Send window to display and follow focus
+default < fn + lcmd + lshift - y : yabai -m window --display west; yabai -m display --focus west
+default < fn + lcmd + lshift - u : yabai -m window --display south; yabai -m display --focus south
+default < fn + lcmd + lshift - i : yabai -m window --display north; yabai -m display --focus north
+default < fn + lcmd + lshift - o : yabai -m window --display east; yabai -m display --focus east
+# ↳ Create space and follow focus
+default < fn + lcmd - n : yabai -m space --create;\
+		id=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' );\
+        yabai -m space --focus $(echo $id | rev | cut -d' ' -f 1 | rev)
+# ↳ Create space, move window and follow focus
+default < fn + lcmd + lshift - n : yabai -m space --create;\
+		id=$(yabai -m query --displays --display | grep "spaces" | sed 's/.*\[//g' | sed 's/].*//g' | sed 's/,//g' );\
+        yabai -m window --space $(echo $id | rev | cut -d' ' -f 1 | rev);\
+        yabai -m space --focus $(echo $id | rev | cut -d' ' -f 1 | rev)
+# ↳ Destroy space
+default < fn + lcmd - w : natfulState=$(yabai -m query --windows --space | grep "native");\
+		if [[ $natfulState != *"true"* ]]; then yabai -m space --destroy; fi

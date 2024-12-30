@@ -14,7 +14,13 @@ alias tat="tmux attach -t"
 alias tkill="tmux kill-session -t"
 alias tls="tmux list-sessions"
 
-# Color
+# Key binding
+# ◆ Completion using arrow keys based on history
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
+# Option
+# ◆ Color
 export CLICOLOR=1
 export PS1="%F{15}[%f%F{51}%n%f%F{15}@%f%F{203}%m%f%F{15}:%f%F{220}%~%f%F{15}]%#%f"
 export PS2="%F{15}%_>%f"
@@ -24,8 +30,8 @@ export TERM=xterm-256color
 autoload -Uz compinit
 compinit
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# History
+#
+# ◆ History
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
@@ -33,27 +39,25 @@ setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 
-# Key binding
-## Completion using arrow keys based on history
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
-
 # Software
-## homebrew
+# ◆ High priority
+# ↳ homebrew
 eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)" 
-## nix 
+# ↳ nix 
 source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' 2> /dev/null
-## conda
+#
+# ◆ Normal priority
+# ↳ miniconda
 eval "$($(brew --prefix)/Caskroom/miniconda/base/bin/conda "shell.zsh" "hook" 2> /dev/null)"
-## fzf
+# ↳ fzf
 export FZF_ALT_C_COMMAND='find . -type d | sed '\''s/^.\///'\'''
 export FZF_DEFAULT_OPTS='--height 30% -m --border --reverse --prompt="❯ " --pointer="❯" --marker="❯" --color="prompt:15,spinner:203,info:203,marker:203,pointer:51"'
 source $HOME/.nix-profile/share/fzf/completion.zsh 2> /dev/null
 source $HOME/.nix-profile/share/fzf/key-bindings.zsh 2> /dev/null
-## starship
+# ↳ starship
 eval "$(starship init zsh 2> /dev/null)"
-## zoxide
+# ↳ zoxide
 eval "$(zoxide init zsh)"
-## zsh-autosuggestions 
+# ↳ zsh-autosuggestions 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
