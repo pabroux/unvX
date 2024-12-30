@@ -47,13 +47,15 @@ eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)"
 source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' 2> /dev/null
 #
 # ◆ Normal priority
-# ↳ miniconda
-eval "$($(brew --prefix)/Caskroom/miniconda/base/bin/conda "shell.zsh" "hook" 2> /dev/null)"
 # ↳ fzf
 export FZF_ALT_C_COMMAND='find . -type d | sed '\''s/^.\///'\'''
 export FZF_DEFAULT_OPTS='--height 30% -m --border --reverse --prompt="❯ " --pointer="❯" --marker="❯" --color="prompt:15,spinner:203,info:203,marker:203,pointer:51"'
 source $HOME/.nix-profile/share/fzf/completion.zsh 2> /dev/null
 source $HOME/.nix-profile/share/fzf/key-bindings.zsh 2> /dev/null
+# ↳ git
+export GIT_CONFIG_SYSTEM=$HOME/.config/git/gitconfig
+# ↳ miniconda
+eval "$($(brew --prefix)/Caskroom/miniconda/base/bin/conda "shell.zsh" "hook" 2> /dev/null)"
 # ↳ starship
 eval "$(starship init zsh 2> /dev/null)"
 # ↳ zoxide
