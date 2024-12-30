@@ -1,5 +1,14 @@
 # Key binding
+# ◆ Jump to prompt
+# ↳ Backward
+keybind = "cmd+p=jump_to_prompt:-1"
+# ↳ Forward
+keybind = "cmd+shift+p=jump_to_prompt:1"
+#
+# ◆ Toggle quick terminal
 keybind = "cmd+shift+n=toggle_quick_terminal"
+#
+# ◆ Zoom a split
 keybind = "cmd+enter=toggle_split_zoom"
 
 
@@ -17,12 +26,18 @@ font-style = "Regular"
 font-thicken = true
 font-size = 11
 #
-# ◆ Mouse
-mouse-hide-while-typing = true
-#
 # ◆ Quick terminal
 quick-terminal-position = "center"
 quick-terminal-animation-duration = 0.1
 #
+# ◆ Mouse
+mouse-hide-while-typing = true
+#
+# ◆ Resize overlay
+resize-overlay = never
+#
 # ◆ Shell integration
 shell-integration-features = "no-cursor"
+#
+# ◆ Window padding
+window-padding-color = "extend-always"
