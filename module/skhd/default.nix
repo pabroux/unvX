@@ -6,8 +6,9 @@
 	];
 	
 	home.file = {
-		".skhdrc" = {
-			source = config.lib.file.mkOutOfStoreSymlink ./.skhdrc;
+		"skhdrc" = {
+			source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
+			target = ".config/skhd/skhdrc";
 		};
 	};
 }

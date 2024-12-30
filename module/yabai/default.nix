@@ -6,8 +6,9 @@
 	];
 	
 	home.file = {
-		".yabairc" = {
-			source = config.lib.file.mkOutOfStoreSymlink ./.yabairc;
+		"yabairc" = {
+			source = config.lib.file.mkOutOfStoreSymlink ./yabairc;
+			target = ".config/yabai/yabairc";
 		};
 	};
 

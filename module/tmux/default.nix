@@ -8,8 +8,9 @@
 	];
 	
 	home.file = {
-		".tmux.conf" = {
-			source = config.lib.file.mkOutOfStoreSymlink ./.tmux.conf;
+		"tmux.conf" = {
+			source = config.lib.file.mkOutOfStoreSymlink ./tmux.conf;
+			target = ".config/tmux/tmux.conf";
 		};
 	};
 }
