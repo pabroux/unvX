@@ -57,6 +57,7 @@ export GIT_CONFIG_SYSTEM=$HOME/.config/git/gitconfig
 # ↳ miniconda
 eval "$($(brew --prefix)/Caskroom/miniconda/base/bin/conda "shell.zsh" "hook" 2> /dev/null)"
 # ↳ starship
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init zsh 2> /dev/null)"
 # ↳ zoxide
 eval "$(zoxide init zsh)"

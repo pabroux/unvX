@@ -8,7 +8,7 @@
 	home.file = {
 		"starship.toml" = {
 			source = config.lib.file.mkOutOfStoreSymlink ./starship.toml;
-			target = ".config/starship.toml";
+			target = ".config/starship/starship.toml";
 		};
 	};
 }
