@@ -40,4 +40,4 @@ resize-overlay = never
 shell-integration-features = "no-cursor"
 #
 # ◆ Window padding
-window-padding-color = "extend-always"
+window-padding-color = "extend"
