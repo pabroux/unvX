@@ -16,6 +16,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = map (x: ../../module + "/${x}") [
+	"coreutils"
 	"fzf"
 	"git"
 	"homebrew"
