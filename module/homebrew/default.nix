@@ -32,7 +32,7 @@ in
 					(x: 
 						"(
 							PATH=/opt/homebrew/bin:$PATH
-							brew install --quiet --cask ${x}
+							brew install --quiet --cask ${x} > /dev/null
 			 			 )"
 					)
 					casks
