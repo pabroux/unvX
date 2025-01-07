@@ -4,8 +4,10 @@
 	home.packages = [
 		(pkgs.vimPlugins.Vundle-vim.overrideAttrs (oldAttrs: {
     		installPhase = "
-	  			mkdir -p $out/share/vim-plugins/bundle/Vundle.vim
+	  			runHook preInstall
+				mkdir -p $out/share/vim-plugins/bundle/Vundle.vim
       			mv autoload doc ftplugin syntax test $out/share/vim-plugins/bundle/Vundle.vim
+				runHook postInstall
     		";
   		}))
 	];
