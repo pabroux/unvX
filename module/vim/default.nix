@@ -8,8 +8,8 @@
 				mkdir -p $out/share/vim-plugins/bundle/Vundle.vim
       			mv autoload doc ftplugin syntax test $out/share/vim-plugins/bundle/Vundle.vim
 				runHook postInstall
-    		";
-  		}))
+    		";})
+		)
 	];
 	
 	home.file = {
