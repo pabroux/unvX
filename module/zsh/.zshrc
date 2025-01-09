@@ -2,18 +2,31 @@
 # Aliases
 ###############################################################################
 
+# ◆ Zoxide
 alias cd="z"
+
+# ◆ Miniconda
 alias co="conda"
 alias coa="conda activate"
 alias cod="conda deactivate"
 alias cols="conda list"
+
+# ◆ Docker
 alias dk="docker"
 alias dkc="docker compose"
+
+# ◆ Home-manager
 alias hms="home-manager switch"
 alias hmsq="yes 'n' | hms"
+
+# ◆ Coreutils
 alias ls="gls --color --group-directories-first"
+
+# ◆ Nix
 alias nxg="nix-collect-garbage"
 alias nxu="nix-channel --update"
+
+# ◆ Tmux
 alias tx="tmux"
 alias txa="tmux attach"
 alias txat="tmux attach -t"
@@ -59,26 +72,26 @@ setopt hist_ignore_dups
 ###############################################################################
 
 # ◆ High priority
-# ↳ homebrew
+# ↳ Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)" 
-# ↳ nix 
+# ↳ Nix 
 source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' 2> /dev/null
 
 # ◆ Normal priority
-# ↳ fzf
+# ↳ Fzf
 export FZF_ALT_C_COMMAND='find . -type d | sed '\''s/^.\///'\'''
 export FZF_DEFAULT_OPTS='--height 30% -m --border --reverse --prompt="❯ " --pointer="❯" --marker="❯" --color="prompt:15,spinner:203,info:203,marker:203,pointer:51"'
 source $HOME/.nix-profile/share/fzf/completion.zsh 2> /dev/null
 source $HOME/.nix-profile/share/fzf/key-bindings.zsh 2> /dev/null
-# ↳ git
+# ↳ Git
 export GIT_CONFIG_SYSTEM=$HOME/.config/git/gitconfig
-# ↳ miniconda
+# ↳ Miniconda
 eval "$($(brew --prefix)/Caskroom/miniconda/base/bin/conda "shell.zsh" "hook" 2> /dev/null)"
-# ↳ starship
+# ↳ Starship
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init zsh 2> /dev/null)"
-# ↳ zoxide
+# ↳ Zoxide
 eval "$(zoxide init zsh)"
-# ↳ zsh-autosuggestions 
+# ↳ Zsh-autosuggestions 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
