@@ -1,10 +1,17 @@
 #!/usr/bin/env zsh
 
-# Adding the script
+###############################################################################
+# Scripting Addition
+###############################################################################
+
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-# Configuring
+
+###############################################################################
+# Options
+###############################################################################
+
 yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          off
 yabai -m config window_opacity               on
@@ -24,7 +31,11 @@ yabai -m config left_padding                 12
 yabai -m config right_padding                12
 yabai -m config window_gap                   12
 
+
+###############################################################################
 # Rules
+###############################################################################
+
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
@@ -32,10 +43,18 @@ yabai -m rule --add app="^Digital Colour Meter$" manage=off
 yabai -m rule --add app="^Finder$" title="(Copy|Connect|Move|Trash)" manage=off
 yabai -m rule --apply
 
+
+###############################################################################
 # Signals
+###############################################################################
+
 yabai -m signal --add event=display_removed action="for display in \$(yabai -m query --displays | grep '\"id\":' | cut -d':' -f2 | cut -d',' -f1); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do yabai -m space \$space --padding abs:12:12:12:12; done; fi; done"
 yabai -m signal --add event=display_resized action="for display in \$(yabai -m query --displays | grep '\"id\":' | cut -d':' -f2 | cut -d',' -f1); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do yabai -m space \$space --padding abs:12:12:12:12; done; fi; done"
 yabai -m signal --add event=space_created action="for display in \$(yabai -m query --displays | grep '\"id\":' | cut -d':' -f2 | cut -d',' -f1); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do yabai -m space \$space --padding abs:12:12:12:12; done; fi; done"
 
+
+###############################################################################
+# Logs
+###############################################################################
 
 echo "Yabai configuration loaded."

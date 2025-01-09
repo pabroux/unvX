@@ -1,19 +1,25 @@
+###############################################################################
 # Skhd
+###############################################################################
+
 # ◆ Available mode
 :: default
 :: silence
-#
+
 # ◆ Change mode
 default < fn + ctrl + lalt + lshift - s ; silence
 silence < fn + ctrl + lalt + lshift - s ; default
 
 
+###############################################################################
 # Yabai
+###############################################################################
+
 # ◆ Configure Yabai (modifier: fn + ctrl + lalt + lcmd)
 # ↳ Change layout of space
 default < fn + ctrl + lalt + lcmd - a : yabai -m space --layout bsp
 default < fn + ctrl + lalt + lcmd - d : yabai -m space --layout float
-#
+
 # ◆ Global (modifier: fn)
 # ↳ Set insertion point in focused container
 default < fn - h : yabai -m window --insert west
@@ -31,7 +37,7 @@ default < fn - d : yabai -m window --toggle zoom-parent
 default < fn - f : yabai -m window --toggle zoom-fullscreen
 # ↳ Toggle window native fullscreen
 default < fn + lshift - f : yabai -m window --toggle native-fullscreen
-#
+
 # ◆ Select (modifier: fn + lalt)
 # ↳ Select window
 default < fn + lalt - h : yabai -m window --focus west
@@ -88,7 +94,7 @@ default < fn + lalt + lshift - y : yabai -m display --focus west
 default < fn + lalt + lshift - u : yabai -m display --focus south
 default < fn + lalt + lshift - i : yabai -m display --focus north
 default < fn + lalt + lshift - o : yabai -m display --focus east
-#
+
 # ◆ Resize (modifier: fn + ctrl)
 # ↳ Change ratio (ultrawide monitor only)
 default < fn + ctrl - 0x12 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:12:12; fi
@@ -110,7 +116,7 @@ default < fn + ctrl + lshift - m : yabai -m window --resize top_left:20:20;\
 		yabai -m window --resize bottom_right:-20:-20
 # ↳ Balance size of all windows
 default < fn + ctrl - 0x2C : yabai -m space --balance
-#
+
 # ◆ Move (modifier: fn + lcmd)
 # ↳ Rotate tree clockwise
 default < fn + lcmd - r : yabai -m space --rotate 270

@@ -1,4 +1,7 @@
-# Alias
+###############################################################################
+# Aliases
+###############################################################################
+
 alias cd="z"
 alias co="conda"
 alias coa="conda activate"
@@ -16,12 +19,20 @@ alias txat="tmux attach -t"
 alias txkill="tmux kill-session -t"
 alias txls="tmux list-sessions"
 
-# Key binding
+
+###############################################################################
+# Key Bindings
+###############################################################################
+
 # ◆ Completion using arrow keys based on history
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
-# Option
+
+###############################################################################
+# Options
+###############################################################################
+
 # ◆ Color
 export CLICOLOR=1
 export PS1="%F{15}[%f%F{51}%B%n%b%f%F{15}@%f%F{203}%B%m%b%f%F{15}:%f%F{220}%B%~%b%f%F{15}]%#%f "
@@ -32,7 +43,7 @@ export TERM=xterm-256color
 autoload -Uz compinit
 compinit
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-#
+
 # ◆ History
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
@@ -41,13 +52,17 @@ setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 
+
+###############################################################################
 # Software
+###############################################################################
+
 # ◆ High priority
 # ↳ homebrew
 eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)" 
 # ↳ nix 
 source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' 2> /dev/null
-#
+
 # ◆ Normal priority
 # ↳ fzf
 export FZF_ALT_C_COMMAND='find . -type d | sed '\''s/^.\///'\'''
