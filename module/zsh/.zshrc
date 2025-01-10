@@ -2,31 +2,31 @@
 # Aliases
 ###############################################################################
 
-# ◆ Zoxide
+# Zoxide
 alias cd="z"
 
-# ◆ Miniconda
+# Miniconda
 alias co="conda"
 alias coa="conda activate"
 alias cod="conda deactivate"
 alias cols="conda list"
 
-# ◆ Docker
+# Docker
 alias dk="docker"
 alias dkc="docker compose"
 
-# ◆ Home-manager
+# Home Manager
 alias hms="home-manager switch"
 alias hmsq="yes 'n' | hms"
 
-# ◆ Coreutils
+# Coreutils
 alias ls="gls --color --group-directories-first"
 
-# ◆ Nix
+# Nix
 alias nxg="nix-collect-garbage"
 alias nxu="nix-channel --update"
 
-# ◆ Tmux
+# Tmux
 alias tx="tmux"
 alias txa="tmux attach"
 alias txat="tmux attach -t"
@@ -38,7 +38,7 @@ alias txls="tmux list-sessions"
 # Key Bindings
 ###############################################################################
 
-# ◆ Completion using arrow keys based on history
+# Completion using arrow keys based on history
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
@@ -47,7 +47,7 @@ bindkey '^[[B' history-beginning-search-forward
 # Options
 ###############################################################################
 
-# ◆ Color
+# Color
 export CLICOLOR=1
 export PS1="%F{15}[%f%F{51}%B%n%b%f%F{15}@%f%F{203}%B%m%b%f%F{15}:%f%F{220}%B%~%b%f%F{15}]%#%f "
 export PS2="%F{15}%_>%f"
@@ -58,7 +58,7 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# ◆ History
+# History
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
@@ -71,13 +71,13 @@ setopt hist_ignore_dups
 # Software
 ###############################################################################
 
-# ◆ High priority
+# High priority
 # ↳ Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)" 
 # ↳ Nix 
 source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' 2> /dev/null
 
-# ◆ Normal priority
+# Normal priority
 # ↳ Fzf
 export FZF_ALT_C_COMMAND='find . -type d | sed '\''s/^.\///'\'''
 export FZF_DEFAULT_OPTS='--height 30% -m --border --reverse --prompt="❯ " --pointer="❯" --marker="❯" --color="prompt:15,spinner:203,info:203,marker:203,pointer:51"'
