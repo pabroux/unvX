@@ -6,9 +6,9 @@
 			"(
 				PATH=/usr/bin:$PATH
 		  		echo -n 'Do you want to import raycast config? [y/n]: '
-		  		read -r REPLY
+		  		read -r reply
 		  		[ ! -t 0 ] && echo
-		  		if [[ $REPLY =~ ^[Yy]$ ]]; then
+		  		if [[ $reply =~ ^[Yy]$ ]]; then
 		  			open ${toString (./. + "/raycast.rayconfig")}
 		  		fi
 			 )";

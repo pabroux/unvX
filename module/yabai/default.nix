@@ -17,9 +17,9 @@
 			"(
 				PATH=$(realpath $HOME)/.nix-profile/bin:/usr/bin:/bin:$PATH
 				echo -n 'Do you want to setup the yabai scripting addition (superuser privileges required)? [y/n]: '
-				read -r REPLY
+				read -r reply
 				[ ! -t 0 ] && echo
-				if [[ $REPLY =~ ^[Yy]$ ]]; then
+				if [[ $reply =~ ^[Yy]$ ]]; then
 					echo \"$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d ' ' -f 1) $(which yabai) --load-sa\" | sudo tee /private/etc/sudoers.d/yabai > /dev/null
 				fi
 			 )";

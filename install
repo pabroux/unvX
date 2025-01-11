@@ -5,7 +5,7 @@
 ###############################################################################
 
 # Current directory absolute path
-curDir=$(dirname "$(realpath "$0")")
+cur_dir_abs_path=$(dirname "$(realpath "$0")")
 
 
 ###############################################################################
@@ -47,7 +47,7 @@ install_home_manager() {
 # Link with Home Manager
 link_with_home_manager() {
 	echo "Linking with Home Manager..."
-	ln -sf $curDir/host/macbook/home.nix $HOME/.config/home-manager/home.nix
+	ln -sf $cur_dir_abs_path/host/macbook/home.nix $HOME/.config/home-manager/home.nix
 }
 
 
