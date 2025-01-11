@@ -47,21 +47,25 @@ bindkey '^[[B' history-beginning-search-forward
 # Options
 ###############################################################################
 
-# Color
+# Color environment variable
 export CLICOLOR=1
 export PS1="%F{15}[%f%F{51}%B%n%b%f%F{15}@%f%F{203}%B%m%b%f%F{15}:%f%F{220}%B%~%b%f%F{15}]%#%f "
 export PS2="%F{15}%_>%f"
 export LSCOLORS="GxgxxxxxxxxxxxxxxxHxHx"
 export LS_COLORS="di=1;36:ln=36:so=0:pi=0:ex=0:bd=0:cd=0:su=0:sg=0:tw=1;37:ow=1;37:no=0:fi=0:do=0:or=0:mi=0:st=0"
 export TERM=xterm-256color
+
+# Completion
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-dirs-first true
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # History
 HISTFILE=$HOME/.zhistory
+HISTSIZE=1000
 SAVEHIST=1000
-HISTSIZE=999
 setopt share_history 
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
