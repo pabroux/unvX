@@ -32,7 +32,7 @@ in
 					(x: 
 						"(
 							PATH=/opt/homebrew/bin:$PATH
-							HOMEBREW_NO_ENV_HINTS=true
+							export HOMEBREW_NO_ENV_HINTS=true
 							brew install --quiet --cask ${x} > /dev/null
 			 			 )"
 					)
