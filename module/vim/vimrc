@@ -6,8 +6,9 @@
 set nocompatible
 filetype off
 set rtp+=$HOME/.nix-profile/share/vim-plugins/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin("$HOME/.config/vim/plugins/vundle")
 Plugin 'VundleVim/Vundle.vim'
+" ↳ Plugins
 Plugin 'fatih/molokai'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-commentary'
@@ -17,6 +18,9 @@ call vundle#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Backspace
+set backspace=indent,eol,start
 
 " Color activation
 syntax enable
@@ -31,18 +35,18 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " Indentation
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set noerrorbells
 set novisualbell
 set number
 set autoindent
 
-" Make backspace sane
-set backspace=indent,eol,start
-
 " Mouse support
 set mouse=a
+
+" Netrw
+let g:netrw_liststyle=3
 
 " Search
 set ignorecase
@@ -55,7 +59,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Split
+" Split windows
 set splitbelow
 set splitright
 
