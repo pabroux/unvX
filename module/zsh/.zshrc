@@ -19,8 +19,17 @@ alias dkc="docker compose"
 alias hms="home-manager switch"
 alias hmsq="yes 'n' | hms"
 
+# Kubernetes
+alias kbc="kubectl"
+
 # Coreutils
 alias ls="gls --color --group-directories-first"
+
+# Minikube
+alias mnkb="minikube"
+
+# Neovim
+alias nv="nvim"
 
 # Nix
 alias nxg="nix-collect-garbage"
