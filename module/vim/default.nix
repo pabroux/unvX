@@ -5,9 +5,9 @@
 		(pkgs.vimPlugins.Vundle-vim.overrideAttrs (oldAttrs: {
     		installPhase = "
 	  			runHook preInstall
-				mkdir -p $out/share/vim-plugins/bundle/Vundle.vim
-      			mv autoload doc ftplugin syntax test $out/share/vim-plugins/bundle/Vundle.vim
-				runHook postInstall
+					mkdir -p $out/share/vim-plugins/Vundle.vim
+      		mv autoload doc ftplugin syntax test $out/share/vim-plugins/Vundle.vim
+					runHook postInstall
     		";})
 		)
 	];
