@@ -6,7 +6,7 @@
 set nocompatible
 filetype off
 set rtp+=$HOME/.nix-profile/share/vim-plugins/Vundle.vim
-call vundle#begin("$HOME/.config/vim/plugins/Vundle.vim")
+call vundle#begin("$HOME/.local/share/vim/")
 Plugin 'VundleVim/Vundle.vim'
 " ↳ Plugins
 Plugin 'fatih/molokai'
