@@ -69,6 +69,7 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-dirs-first true
+zstyle ':completion:*:descriptions' format '%B%U%d%u%b'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # History
