@@ -65,4 +65,5 @@ set splitright
 
 " Status line
 set laststatus=2
+set noshowmode
 set showcmd
