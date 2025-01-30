@@ -17,6 +17,7 @@ alias dkc="docker compose"
 
 # Home Manager
 alias hms="home-manager switch"
+alias hmsv="home-manager -v switch"
 alias hmsq="yes 'n' | hms"
 
 # Kubernetes
