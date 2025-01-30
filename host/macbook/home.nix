@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sulfyderz";
@@ -16,20 +18,23 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = map (x: ../../module + "/${x}") [
-	"coreutils"
-	"fzf"
-	"git"
-	"homebrew"
-	"htop"
-	"nodejs"
-	"skhd"
-	"starship"
-	"tmux"
-	"vim"
-	"yabai"
-	"zoxide"
-	"zsh"
-	"zsh-autosuggestions"
+    "coreutils"
+    "fzf"
+    "git"
+    "homebrew"
+    "htop"
+    "minikube"
+    "neovim"
+    "nodejs"
+    "ollama"
+    "skhd"
+    "starship"
+    "tmux"
+    "vim"
+    "yabai"
+    "zoxide"
+    "zsh"
+    "zsh-autosuggestions"
   ];
 
   # Let Home Manager install and manage itself.

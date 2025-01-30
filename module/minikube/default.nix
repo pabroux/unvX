@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-	home.packages = [
-		pkgs.minikube
-	];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.minikube
+  ];
 }

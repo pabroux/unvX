@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-	home.packages = [
-		pkgs.zoxide
-	];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.zoxide
+  ];
 }

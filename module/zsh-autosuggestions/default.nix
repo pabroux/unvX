@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-	home.packages = [
-		pkgs.zsh-autosuggestions
-	];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.zsh-autosuggestions
+  ];
 }

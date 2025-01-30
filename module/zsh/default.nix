@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-
 {
-	home.file = {
-		".zshrc" = {
-			source = config.lib.file.mkOutOfStoreSymlink ./.zshrc;
-		};
-	};
+  config,
+  pkgs,
+  ...
+}: {
+  home.file = {
+    ".zshrc" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./.zshrc;
+    };
+  };
 }

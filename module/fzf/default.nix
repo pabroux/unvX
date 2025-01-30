@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-	home.packages = [
-		pkgs.fzf
-	];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.fzf
+  ];
 }

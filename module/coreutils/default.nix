@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-	home.packages = [
-		pkgs.coreutils-prefixed
-	];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.coreutils-prefixed
+  ];
 }

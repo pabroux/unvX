@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-	home.packages = [
-		pkgs.htop
-	];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.htop
+  ];
 }
