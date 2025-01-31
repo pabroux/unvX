@@ -5,49 +5,75 @@
 ###############################################################################
 
 # Current directory absolute path
-cur_dir_abs_path=$(dirname "$(realpath "$0")")
+DIR_CUR=$(dirname "$(realpath "$0")")
 
+# Strings to output
+STR_CONF="Configuring"
+STR_DONE="\033[38;2;12;188;121;51mDone\033[0m"
+STR_INPROG="\033[38;2;68;121;177;51mIn progress...\033[0m"
+STR_INSTL="Installing"
+STR_LINK="Linking"
+STR_SKIP="\033[38;2;4;152;154;51mSkipped (already installed)\033[0m"
+STR_UNVX="\033[1munvX\033[0m"
 
 ###############################################################################
 # Function Declaration
 ###############################################################################
 
+# Install Git hook scripts
+configure_git_hook_scripts() {
+	echo -e '#!/usr/bin/env nix-shell'\
+			 		'\n#! nix-shell -i bash'\
+					'\n#! nix-shell -p pre-commit'\
+					'\n'\
+					'\nARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=pre-commit)'\
+					'\nHERE="$(cd "$(dirname "$0")" && pwd)"'\
+					'\nARGS+=(--hook-dir "$HERE" -- "$@")'\
+					'\n'\
+					'\nexec pre-commit "${ARGS[@]}"' > $DIR_CUR/.git/hooks/pre-commit
+	echo -e "$STR_UNVX $STR_CONF Git Hook Scripts: $STR_DONE"
+}
+
+# Install Home Manager
+install_home_manager() {
+  if ! nix-env --query --installed | grep -q home-manager; then
+    echo -e "$STR_UNVX $STR_INSTL Home Manager: $STR_INPROG"
+    nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
+    nix-channel --update
+    nix-shell '<home-manager>' -A install
+		echo -e "$STR_UNVX $STR_INSTL Home Manager: $STR_DONE"
+	else
+		echo -e "$STR_UNVX $STR_INSTL Home Manager: $STR_SKIP"
+	fi
+}
+
 # Install Homebrew
 install_homebrew() {
 	if ! command -v brew &> /dev/null; then
-    	echo "Installing Homebrew..."
+		echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_INPROG"
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_DONE"
 	else
-    	echo "Homebrew is already installed."
+		echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_SKIP"
 	fi
 }
 
 # Install Nix
 install_nix() {
-    if [ ! -e "/Library/LaunchDaemons/org.nixos.darwin-store.plist" ] && ! command -v nix &> /dev/null; then
-		echo "Installing Nix..."
-    	sh <(curl -L https://nixos.org/nix/install) --daemon
+  if [ ! -e "/Library/LaunchDaemons/org.nixos.darwin-store.plist" ] && ! command -v nix &> /dev/null; then
+		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_INPROG"
+    sh <(curl -L https://nixos.org/nix/install) --daemon
+		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_DONE"
 	else
-    	echo "Nix is already installed."
+		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_SKIP"
 	fi
 }
 
-# Install Home Manager
-install_home_manager() {
-    if ! nix-env --query --installed | grep -q home-manager; then
-    	echo "Installing Home Manager..."
-    	nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
-    	nix-channel --update
-    	nix-shell '<home-manager>' -A install
-	else
-    	echo "Home Manager is already installed."
-	fi
-}
 
 # Link with Home Manager
 link_with_home_manager() {
-	echo "Linking with Home Manager..."
-	ln -sf $cur_dir_abs_path/host/macbook/home.nix $HOME/.config/home-manager/home.nix
+	ln -sf $DIR_CUR/host/macbook/home.nix $HOME/.config/home-manager/home.nix
+	echo -e "$STR_UNVX $STR_LINK Home Manager: $STR_DONE"
 }
 
 
@@ -60,8 +86,8 @@ install_homebrew
 install_nix
 install_home_manager
 
-# Link with Home Manager
-link_with_home_manager
+# Configure
+configure_git_hook_scripts
 
-# Log
-echo "Installation complete."
+# Link
+link_with_home_manager
