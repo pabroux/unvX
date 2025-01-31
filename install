@@ -21,7 +21,7 @@ STR_UNVX="\033[1munvX\033[0m"
 ###############################################################################
 
 # Install Git hook scripts
-configure_git_hook_scripts() {
+configure_git_hooks() {
 	echo -e '#!/usr/bin/env nix-shell'\
 			 		'\n#! nix-shell -i bash'\
 					'\n#! nix-shell -p pre-commit'\
@@ -31,7 +31,7 @@ configure_git_hook_scripts() {
 					'\nARGS+=(--hook-dir "$HERE" -- "$@")'\
 					'\n'\
 					'\nexec pre-commit "${ARGS[@]}"' > $DIR_CUR/.git/hooks/pre-commit
-	echo -e "$STR_UNVX $STR_CONF Git Hook Scripts: $STR_DONE"
+	echo -e "$STR_UNVX $STR_CONF Git Hooks: $STR_DONE"
 }
 
 # Install Home Manager
@@ -87,7 +87,7 @@ install_nix
 install_home_manager
 
 # Configure
-configure_git_hook_scripts
+configure_git_hooks
 
 # Link
 link_with_home_manager
