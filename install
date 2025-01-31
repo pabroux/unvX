@@ -31,6 +31,7 @@ configure_git_hooks() {
 					'\nARGS+=(--hook-dir "$HERE" -- "$@")'\
 					'\n'\
 					'\nexec pre-commit "${ARGS[@]}"' > $DIR_CUR/.git/hooks/pre-commit
+	chmod a+x $DIR_CUR/.git/hooks/pre-commit
 	echo -e "$STR_UNVX $STR_CONF Git Hooks: $STR_DONE"
 }
 
