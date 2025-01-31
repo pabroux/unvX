@@ -1,4 +1,9 @@
-# <img width="20" height="20" src="https://gitlab.com/uploads/-/system/project/avatar/64765455/pulsar.png?width=96" alt="Banner"> unvX
+<p align="center">
+  <img width=275 src="https://github.com/user-attachments/assets/72b67ecd-8e96-4733-9a6f-f0e32e13f817">
+</p>
+<p align="center">
+  <b>A simple Home Manager configuration</b>
+</p>
 
 
 ## About 
@@ -10,17 +15,17 @@ unvX is a [Home Manager](https://github.com/nix-community/home-manager) configur
 ## Install
 To install, use the following command inside the unvX repository:
 ```
-❯ ./install
+./install
 ```
 
 <details><summary>Detailed explanation</summary>
 
-This command will install [Homebrew](https://brew.sh), [Nix](https://nixos.org) and [Home Manager](https://github.com/nix-community/home-manager) if they are not yet installed. It will also link your Home Manager configuration (i.e. the <code>host/macbook/home.nix</code> file) no matter where your repository is.
+This command will install [Homebrew](https://brew.sh), [Nix](https://nixos.org) and [Home Manager](https://github.com/nix-community/home-manager) if they are not yet installed. Additionally, it will configure your Git Hooks with [pre-commit](https://pre-commit.com).  Lastly, it will link your Home Manager configuration (i.e. the <code>host/macbook/home.nix</code> file) regardless of the location of your unvX repository.
 
 </details>
 
 ## Usage
 As any [Home Manager](https://github.com/nix-community/home-manager) configuration, call the following command to apply it:
 ```
-❯ home-manager switch
+home-manager switch
 ```
