@@ -4,6 +4,11 @@
 <p align="center">
   <b>A simple Home Manager configuration</b>
 </p>
+<p align="center">
+  <a href="https://github.com//Sulfyderz/unvX/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/Sulfyderz/unvX.svg" alt="License Badge">
+  </a>
+</p>
 
 
 ## About 
