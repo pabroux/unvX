@@ -4,7 +4,6 @@ repos:
     -   id: alejandra
         name: Alejandra
         description: This hook checks Nix modules with Alejandra.
-        entry: /bin/bash -c 'nix-shell -p alejandra --run "alejandra ." 2>&1 | grep "Formatted" | cut -d " " -f 2'
-        language: script
-        always_run: true
-        pass_filenames: false
+        entry: bash -c 'nix-shell -p alejandra --run "alejandra ${@}" 2>&1 | grep "Formatted" | cut -d " " -f 2' -- 
+        language: system
+        files: \.nix$
