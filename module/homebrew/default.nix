@@ -25,7 +25,7 @@
     "whatsapp"
   ];
 in {
-  imports = builtins.filter (x: builtins.pathExists x) (map (x: ./. + "/app/${x}") casks);
+  imports = builtins.filter (caskConfigDir: builtins.pathExists caskConfigDir) (map (caskConfigDir: ./. + "/app/${caskConfigDir}") casks);
 
   home.activation = {
     installHomebrewCasks =
@@ -35,14 +35,14 @@ in {
         (
           map
           (
-            x: "(
+            cask: "(
 							PATH=/opt/homebrew/bin:$PATH
 							if [[ -v DRY_RUN ]]; then
-								echo 'brew install --cask ${x}'
+								echo 'brew install --cask ${cask}'
 							elif [[ -v VERBOSE ]]; then
-								brew install --cask ${x}
+								brew install --cask ${cask}
 							else
-								brew install --quiet --cask ${x} &> /dev/null
+								brew install --quiet --cask ${cask} &> /dev/null
 							fi
 			 			 )"
           )
