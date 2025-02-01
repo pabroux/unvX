@@ -1,2 +1,2 @@
-require("core.keymaps")
+require("core.keybinds")
 require("core.options")
