@@ -1,9 +1,15 @@
 repos:
--   repo: local 
+  - repo: local 
     hooks:
-    -   id: alejandra
-        name: Alejandra
-        description: This hook checks Nix modules with Alejandra.
-        entry: bash -c 'nix-shell -p alejandra --run "alejandra ${@}" 2>&1 | grep "Formatted" | cut -d " " -f 2' -- 
+      - id: alejandra
+        name: Alejandra (Nix formatter)
+        description: This hook checks Nix files with Alejandra.
+        entry: bash -c 'nix-shell -p alejandra --run "alejandra -q ${@}"' -- 
         language: system
         files: \.nix$
+      - id: stylua
+        name: Stylua (Lua formatter)
+        description: This hook checks Lua files with Stylua.
+        entry: bash -c 'nix-shell -p stylua --run "stylua ${@}"' --
+        language: system
+        files: \.lua$
