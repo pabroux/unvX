@@ -32,10 +32,13 @@
       	PATH=$HOME/.nix-profile/bin/:$PATH
 				if [[ -v DRY_RUN ]]; then
 					echo \"nvim --headless '+Lazy! sync' +qa &> /dev/null\"
+					echo \"nvim --headless '+Lazy! install' +qa &> /dev/null\"
 				elif [[ -v VERBOSE ]]; then
 					nvim --headless '+Lazy! sync' +qa
+					nvim --headless '+Lazy! install' +qa
 				else
       		nvim --headless '+Lazy! sync' +qa &> /dev/null
+					nvim --headless '+Lazy! install' +qa &> /dev/null
 				fi
        )";
   };
