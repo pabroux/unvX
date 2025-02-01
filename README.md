@@ -14,8 +14,8 @@
 ## About 
 unvX is a [Home Manager](https://github.com/nix-community/home-manager) configuration for installing software and managing dotfiles without using Nix flakes. It employs symlinks for dotfile management, allowing immediate feedback on any changes made without generating additional files from Nix sources.
 
-> ⓘ Note: Currently, it is a configuration for macOS only. Since [Homebrew](https://brew.sh) is better suited to install applications for that OS (e.g. [Raycast](https://www.raycast.com)), that configuration uses it in the background. Thus, you don't have to worry about managing two commands to update everything.
-</details>
+> [!NOTE]
+> Currently, it is a configuration for macOS only. Since [Homebrew](https://brew.sh) is better suited to install applications for that OS (e.g. [Raycast](https://www.raycast.com)), that configuration uses it in the background. Thus, you don't have to worry about managing two commands to update everything.
 
 ## Install
 To install, use the following command inside the unvX repository:
