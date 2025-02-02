@@ -6,6 +6,7 @@
 }: {
   home.packages = [
     pkgs.neovim
+    pkgs.cowsay
   ];
 
   home.file =
@@ -27,7 +28,7 @@
 
   home.activation = {
     installNeovimPlugins =
-      lib.hm.dag.entryAfter ["linkGeneration"]
+      lib.hm.dag.entryAfter ["installPackages"]
       "(
       	PATH=$HOME/.nix-profile/bin/:$PATH
 				if [[ -v DRY_RUN ]]; then

@@ -26,7 +26,7 @@
 
   home.activation = {
     installVimPlugins =
-      lib.hm.dag.entryAfter ["linkGeneration"]
+      lib.hm.dag.entryAfter ["installPackages"]
       "(
 				PATH=/usr/bin/:$PATH
 				if [[ -v DRY_RUN ]]; then

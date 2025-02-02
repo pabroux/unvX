@@ -29,7 +29,7 @@ in {
 
   home.activation = {
     installHomebrewCasks =
-      lib.hm.dag.entryAfter ["writeBoundary"]
+      lib.hm.dag.entryAfter ["installPackages"]
       (
         lib.strings.concatLines
         (
