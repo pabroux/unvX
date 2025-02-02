@@ -12,7 +12,7 @@
 
 
 ## About 
-unvX is a [Home Manager](https://github.com/nix-community/home-manager) configuration for installing software and managing dotfiles without using Nix flakes. It employs symlinks for dotfile management, allowing immediate feedback on any changes made without generating additional files from Nix sources.
+unvX is a [Home Manager](https://github.com/nix-community/home-manager) configuration for installing software and managing dotfiles without using [Nix flakes](https://nix.dev/concepts/flakes#why-are-flakes-controversial). It employs symlinks for dotfile management, allowing immediate feedback on any changes made without generating additional files from Nix sources.
 
 > [!IMPORTANT]
 > unvX serves as a source of inspiration. The `module` folder contains Nix modules, each dedicated to a specific software. These modules handle both the installation and configuration of the software and its extensions. The `host` folder includes Home Manager entry points for individual machines, specifying which module to use.
