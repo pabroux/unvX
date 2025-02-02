@@ -20,9 +20,6 @@ unvX is a [Home Manager](https://github.com/nix-community/home-manager) configur
 > [!NOTE]
 > Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything.
 
-> [!NOTE]
-> Currently, there is only an entry point for a macOS machine (i.e. the <code>host/macbook/home.nix</code> file). More to come.
-
 ## Install
 To install, use the following command inside the unvX repository:
 ```
