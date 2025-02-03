@@ -13,3 +13,9 @@ repos:
         entry: bash -c 'for arg in "$@"; do nix-shell -p stylua --run "stylua $arg"; done;' --
         language: system
         files: \.lua$
+      - id: gitleaks
+        name: Gitleaks (Secret scanner)
+        description: This hook checks the existence of secrets.
+        entry: bash -c 'nix-shell -p gitleaks --run "gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null"'
+        language: system
+        pass_filenames: false
