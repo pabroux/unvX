@@ -6,13 +6,14 @@
 	name = Sulfyderz
 	email = Sulfyderz@live.fr
 [alias]
+	br = branch
 	ci = commit
 	co = checkout
-	st = status
-	br = branch
-	sw = switch
-	ph = push
+ 	ph = push
 	pl = pull
+	sh = stash
+	st = status
+	sw = switch
 [push]
 	default = matching
 [http]
