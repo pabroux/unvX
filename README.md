@@ -33,7 +33,7 @@ This command will install [Homebrew](https://brew.sh), [Nix](https://nixos.org) 
 </details>
 
 ## Usage
-As any [Home Manager](https://github.com/nix-community/home-manager) configuration, call the following command to apply it:
+As any Home Manager configuration, call the following command to apply it:
 ```
 home-manager switch
 ```
