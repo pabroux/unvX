@@ -3,8 +3,8 @@
 	status = auto
 	branch = auto
 [user]
-	name = Sulfyderz
-	email = Sulfyderz@live.fr
+	name = pabroux
+	email = pierre-alexandrebroux@live.fr
 [alias]
 	br = branch
 	ci = commit
