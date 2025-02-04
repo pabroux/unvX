@@ -4,8 +4,9 @@
   ...
 }: {
   home.file = {
-    ".zshrc" = {
+    "zsh/.zshrc" = {
       source = config.lib.file.mkOutOfStoreSymlink ./.zshrc;
+      target = ".zshrc";
     };
   };
 }

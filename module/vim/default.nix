@@ -18,7 +18,7 @@
   ];
 
   home.file = {
-    "vimrc" = {
+    "vim/vimrc" = {
       source = config.lib.file.mkOutOfStoreSymlink ./vimrc;
       target = ".config/vim/vimrc";
     };

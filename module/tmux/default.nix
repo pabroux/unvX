@@ -11,7 +11,7 @@
   ];
 
   home.file = {
-    "tmux.conf" = {
+    "tmux/tmux.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink ./tmux.conf;
       target = ".config/tmux/tmux.conf";
     };

@@ -8,7 +8,7 @@
   ];
 
   home.file = {
-    "skhdrc" = {
+    "skhd/skhdrc" = {
       source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
       target = ".config/skhd/skhdrc";
     };

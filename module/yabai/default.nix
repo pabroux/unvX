@@ -9,7 +9,7 @@
   ];
 
   home.file = {
-    "yabairc" = {
+    "yabai/yabairc" = {
       source = config.lib.file.mkOutOfStoreSymlink ./yabairc;
       target = ".config/yabai/yabairc";
     };

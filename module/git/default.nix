@@ -9,7 +9,7 @@
   ];
 
   home.file = {
-    "gitconfig" = {
+    "git/gitconfig" = {
       source = config.lib.file.mkOutOfStoreSymlink ./gitconfig;
       target = ".config/git/gitconfig";
     };
