@@ -21,6 +21,7 @@
     "coreutils"
     "fzf"
     "git"
+    "github-cli"
     "homebrew"
     "htop"
     "minikube"
