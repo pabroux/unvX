@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = [
+    pkgs.git-filter-repo
     pkgs.git-lfs
   ];
 
