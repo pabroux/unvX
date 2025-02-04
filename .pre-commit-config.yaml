@@ -25,4 +25,3 @@ repos:
         entry: bash -c 'nix-shell -p gitleaks --run "gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null"'
         language: system
         pass_filenames: false
-     
