@@ -9,6 +9,7 @@
 	br = branch
 	ci = commit
 	co = checkout
+	lg = log
  	ph = push
 	pl = pull
 	sh = stash
