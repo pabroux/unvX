@@ -7,6 +7,12 @@ repos:
         entry: bash -c 'for arg in "$@"; do nix-shell -p alejandra --run "alejandra -q $arg"; done;' --
         language: system
         files: \.nix$
+      - id: shfmt
+        name: Sh (Shell formatter)
+        description: This hook checks shell files with Stylua.
+        entry: bash -c 'for arg in "$@"; do nix-shell -p shfmt --run "shfmt -w $arg"; done;' --
+        language: system
+        files: ^install$
       - id: stylua
         name: Stylua (Lua formatter)
         description: This hook checks Lua files with Stylua.
@@ -19,3 +25,4 @@ repos:
         entry: bash -c 'nix-shell -p gitleaks --run "gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null"'
         language: system
         pass_filenames: false
+     
