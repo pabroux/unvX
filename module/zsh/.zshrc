@@ -34,6 +34,7 @@ alias nv="nvim"
 
 # Nix
 alias nxg="nix-collect-garbage"
+alias nxgf="nix-collect-garbage --delete-old"
 alias nxs="nix-shell --command zsh"
 alias nxu="nix-channel --update"
 
