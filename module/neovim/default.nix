@@ -6,25 +6,19 @@
 }: {
   home.packages = [
     pkgs.neovim
-    pkgs.cowsay
   ];
 
-  home.file =
-    {
-      "init.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink ./init.lua;
-        target = ".config/nvim/init.lua";
-      };
-    }
-    // lib.genAttrs (builtins.filter
-      (file: builtins.readFileType (./. + "/${file}") == "regular")
-      (lib.lists.flatten
-        (map (dir: (map (file: "${dir}/" + file) (builtins.attrNames (builtins.readDir (./. + "/${dir}")))))
-          ["core" "plugins" "plugins/specs"])))
-    (file: {
-      source = config.lib.file.mkOutOfStoreSymlink ./. + "/${file}";
-      target = ".config/nvim/lua/${file}";
-    });
+  home.file = {
+    "neovim/init.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./init.lua;
+      target = ".config/nvim/init.lua";
+    };
+    "neovim/lua/" = {
+      source = ./lua;
+      target = ".config/nvim/lua/";
+      recursive = true;
+    };
+  };
 
   home.activation = {
     installNeovimPlugins =
