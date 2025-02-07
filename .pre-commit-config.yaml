@@ -4,24 +4,24 @@ repos:
       - id: alejandra
         name: Alejandra (Nix formatter)
         description: This hook checks Nix files with Alejandra.
-        entry: bash -c 'for arg in "$@"; do nix-shell -p alejandra --run "alejandra -q $arg"; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#alejandra --command alejandra -q $arg; done;' --
         language: system
         files: \.nix$
       - id: shfmt
         name: Sh (Shell formatter)
         description: This hook checks shell files with Stylua.
-        entry: bash -c 'for arg in "$@"; do nix-shell -p shfmt --run "shfmt -w $arg"; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#shfmt --command shfmt -w $arg; done;' --
         language: system
         files: ^install$
       - id: stylua
         name: Stylua (Lua formatter)
         description: This hook checks Lua files with Stylua.
-        entry: bash -c 'for arg in "$@"; do nix-shell -p stylua --run "stylua $arg"; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#stylua --command stylua $arg; done;' --
         language: system
         files: \.lua$
       - id: gitleaks
         name: Gitleaks (Secret scanner)
         description: This hook checks the existence of secrets.
-        entry: bash -c 'nix-shell -p gitleaks --run "gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null"'
+        entry: bash -c 'nix shell nixpkgs#gitleaks --command gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null'
         language: system
         pass_filenames: false
