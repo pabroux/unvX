@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unvX,
   ...
 }: {
   home.packages = [
@@ -9,7 +10,7 @@
 
   home.file = {
     "skhd/skhdrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/skhd/skhdrc";
       target = ".config/skhd/skhdrc";
     };
   };

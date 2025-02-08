@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unvX,
   ...
 }: {
   home.packages = [
@@ -9,7 +10,7 @@
 
   home.file = {
     "starship/starship.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./starship.toml;
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/starship/starship.toml";
       target = ".config/starship/starship.toml";
     };
   };

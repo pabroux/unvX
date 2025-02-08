@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  unvX,
   ...
 }: {
   home.packages = [
@@ -10,13 +11,36 @@
 
   home.file = {
     "neovim/init.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./init.lua;
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/init.lua";
       target = ".config/nvim/init.lua";
     };
-    "neovim/lua/" = {
-      source = ./lua;
-      target = ".config/nvim/lua/";
-      recursive = true;
+    "neovim/lua/core/init.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/init.lua";
+      target = ".config/nvim/lua/core/init.lua";
+    };
+    "neovim/lua/core/keybinds.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/keybinds.lua";
+      target = ".config/nvim/lua/core/keybinds.lua";
+    };
+    "neovim/lua/core/options.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/options.lua";
+      target = ".config/nvim/lua/core/options.lua";
+    };
+    "neovim/lua/plugins/init.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/init.lua";
+      target = ".config/nvim/lua/plugins/init.lua";
+    };
+    "neovim/lua/plugins/lazy.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/lazy.lua";
+      target = ".config/nvim/lua/plugins/lazy.lua";
+    };
+    "neovim/lua/plugins/specs/plenary.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/plenary.lua";
+      target = ".config/nvim/lua/plugins/specs/plenary.lua";
+    };
+    "neovim/lua/plugins/specs/smart-splits.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/smart-splits.lua";
+      target = ".config/nvim/lua/plugins/specs/smart-splits.lua";
     };
   };
 

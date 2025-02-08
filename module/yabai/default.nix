@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  unvX,
   ...
 }: {
   home.packages = [
@@ -10,7 +11,7 @@
 
   home.file = {
     "yabai/yabairc" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./yabairc;
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yabai/yabairc";
       target = ".config/yabai/yabairc";
     };
   };

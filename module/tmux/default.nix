@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unvX,
   ...
 }: {
   home.packages = [
@@ -12,7 +13,7 @@
 
   home.file = {
     "tmux/tmux.conf" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./tmux.conf;
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/tmux/tmux.conf";
       target = ".config/tmux/tmux.conf";
     };
   };

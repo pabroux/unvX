@@ -45,7 +45,6 @@ alias txat="tmux attach -t"
 alias txkill="tmux kill-session -t"
 alias txls="tmux list-sessions"
 
-
 ###############################################################################
 # Key Bindings
 ###############################################################################
@@ -53,7 +52,6 @@ alias txls="tmux list-sessions"
 # Completion using arrow keys based on history
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
-
 
 ###############################################################################
 # Options
@@ -83,7 +81,6 @@ SAVEHIST=1000
 setopt share_history 
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
-
 
 ###############################################################################
 # Software

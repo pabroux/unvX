@@ -35,7 +35,7 @@ configure_git_hooks() {
 }
 
 # Install Homebrew
-install_homebrew() {
+uninstall_homebrew() {
 	if ! command -v brew &>/dev/null; then
 		echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_INPROG"
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -46,7 +46,7 @@ install_homebrew() {
 }
 
 # Install Nix
-install_nix() {
+uninstall_nix() {
 	if [ ! -e "/Library/LaunchDaemons/org.nixos.darwin-store.plist" ] && ! command -v nix &>/dev/null; then
 		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_INPROG"
 		sh <(curl -L https://nixos.org/nix/install) --daemon
@@ -58,7 +58,8 @@ install_nix() {
 
 # Link with Home Manager
 link_with_home_manager() {
-	ln -sf "$DIR_CUR"/flake.nix "$HOME"/.config/home-manager/flake.nix
+	mkdir -p "$HOME"/.config/home-manager
+	ln -sf "$DIR_CUR"/flake.niix "$HOME"/.config/home-manager/flake.nix
 	ln -sf "$DIR_CUR"/flake.lock "$HOME"/.config/home-manager/flake.lock
 	echo -e "$STR_UNVX $STR_LINK Home Manager: $STR_DONE"
 }

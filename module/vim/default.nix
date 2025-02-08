@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  unvX,
   ...
 }: {
   home.packages = [
@@ -19,7 +20,7 @@
 
   home.file = {
     "vim/vimrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./vimrc;
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/vim/vimrc";
       target = ".config/vim/vimrc";
     };
   };
