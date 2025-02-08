@@ -100,6 +100,7 @@ install_nix() {
 
 # Link with Home Manager
 link_with_home_manager() {
+	mkdir -p "$HOME"/.config/home-manager/
 	ln -sf "$DIR_CUR"/flake.nix "$HOME"/.config/home-manager/flake.nix
 	ln -sf "$DIR_CUR"/flake.lock "$HOME"/.config/home-manager/flake.lock
 	echo -e "$STR_UNVX $STR_LINK with Home Manager: $STR_DONE"
