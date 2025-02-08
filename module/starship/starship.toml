@@ -172,8 +172,9 @@ format = '\[[$symbol($version)]($style)\]'
 symbol = "nim "
 
 [nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-symbol = "nix "
+format = '\[[$symbol( $state)( \($name\))]($style)\]'
+symbol = "nix"
+heuristic = true
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\]'

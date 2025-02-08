@@ -12,7 +12,6 @@ keybind = "cmd+shift+n=toggle_quick_terminal"
 # Zoom a split
 keybind = "cmd+enter=toggle_split_zoom"
 
-
 ###############################################################################
 # Options
 ###############################################################################
