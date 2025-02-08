@@ -12,7 +12,7 @@ repos:
         description: This hook checks shell files with Stylua.
         entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#shfmt --command shfmt -w $arg; done;' --
         language: system
-        files: ^install$
+        files: ^(install|uninstall)$
       - id: stylua
         name: Stylua (Lua formatter)
         description: This hook checks Lua files with Stylua.
