@@ -2,8 +2,9 @@
   description = "unvX: a simple Home Manager configuration";
 
   inputs = {
-    # nixpkgs, home-manager, flake-utils not required since they are available
-    # in the global flake registry
+    # nixpkgs, home-manager and flake-utils are by default loaded since they are
+    # available in the global flake registry.
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -13,17 +14,17 @@
     ...
   }:
     flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: {
-      # Specify all your configurations
-      # By default, Home Manager will match first `$USER@$(hostname)` then `$USER`
+      # Specify all your configurations. Home Manager will by default match first
+      # `$USER@$(hostname)`. If not found, it will then default to `$USER`.
       packages.homeConfigurations = {
         "sulfyderz@Sulfyderz-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
 
-          # Specify your Home Manager entry point
+          # Specify your Home Manager entry point.
           modules = [./host/Sulfyderz-MacBook-Pro/user/sulfyderz/home.nix];
 
           # Optionally use extraSpecialArgs to pass through arguments
-          # to your entry point
+          # to your entry point.
         };
       };
     });
