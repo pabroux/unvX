@@ -35,8 +35,9 @@ alias nv="nvim"
 # Nix
 alias nxg="nix-collect-garbage"
 alias nxgf="nix-collect-garbage --delete-old"
-alias nxs="nix-shell --command zsh"
-alias nxu="nix-channel --update"
+alias nxf="nix flake"
+alias nxr="nix run"
+alias nxs="nix shell"
 
 # Tmux
 alias tx="tmux"
@@ -89,8 +90,6 @@ setopt hist_ignore_dups
 # High priority
 # ↳ Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)" 
-# ↳ Nix 
-source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' 2> /dev/null
 
 # Normal priority
 # ↳ Fzf
