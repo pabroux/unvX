@@ -26,10 +26,10 @@
         "sulfyderz@Sulfyderz-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
 
-          # Specify your Home Manager entry point.
+          # Specify your Home Manager configurations.
           modules = [./host/Sulfyderz-MacBook-Pro/user/sulfyderz/home.nix];
 
-          # Specify extra arguments to pass through your entry point.
+          # Specify extra arguments to pass through your configurations.
           extraSpecialArgs = {inherit unvX;};
         };
       };
