@@ -13,11 +13,7 @@ DIR_CUR=$(dirname "$(realpath "$0")")
 STR_CONF="Configure"
 STR_DONE="\033[38;2;12;188;121;51mDone\033[0m"
 STR_GEN="Generate"
-STR_INPROG="\033[38;2;68;121;177;51mIn progress...\033[0m"
-STR_INSTL="Install"
 STR_LINK="Link"
-STR_SKIP="\033[38;2;4;152;154;51mSkipped (already installed)\033[0m"
-STR_SKIP_MANUAL="\033[38;2;4;152;154;51mSkipped\033[0m"
 STR_TIP="Tip"
 STR_UNVX="\033[1munvX\033[0m"
 
@@ -68,36 +64,6 @@ generate_unvx_nix() {
 	echo -e "$STR_UNVX $STR_GEN unvX.nix: $STR_DONE"
 }
 
-# Install Homebrew
-install_homebrew() {
-	if ! command -v brew &>/dev/null; then
-		echo -n "$STR_UNVX Do you want to install Homebrew (optional)? [y/n]: "
-		read -r reply
-		[ ! -t 0 ] && echo
-		if [[ $reply =~ ^[Yy]$ ]]; then
-			echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_INPROG"
-			/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-			echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_DONE"
-		else
-			echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_SKIP_MANUAL"
-		fi
-	else
-		echo -e "$STR_UNVX $STR_INSTL Homebrew: $STR_SKIP"
-	fi
-}
-
-# Install Nix
-install_nix() {
-	if ! command -v nix &>/dev/null; then
-		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_INPROG"
-		curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix |
-			sh -s -- install
-		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_DONE"
-	else
-		echo -e "$STR_UNVX $STR_INSTL Nix: $STR_SKIP"
-	fi
-}
-
 # Link with Home Manager
 link_with_home_manager() {
 	mkdir -p "$HOME"/.config/home-manager/
@@ -109,10 +75,6 @@ link_with_home_manager() {
 ###############################################################################
 # Executable
 ###############################################################################
-
-# Install
-install_homebrew
-install_nix
 
 # Configure
 configure_git_hooks
