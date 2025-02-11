@@ -42,6 +42,9 @@ set novisualbell
 set number
 set autoindent
 
+" Line wrapping
+set nowrap
+
 " Mouse support
 set mouse=a
 
