@@ -92,9 +92,10 @@ default < fn + lalt + lshift - o : yabai -m display --focus east
 
 # Resize (modifier: fn + ctrl)
 # ↳ Change ratio (ultrawide monitor only)
-default < fn + ctrl - 0x12 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:12:12; fi
-default < fn + ctrl - 0x13 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:600:600; fi
-default < fn + ctrl - 0x14 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:1200:1200; fi
+default < fn + ctrl - 0x12 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:1800:1800; fi
+default < fn + ctrl - 0x13 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:1200:1200; fi
+default < fn + ctrl - 0x14 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:600:600; fi
+default < fn + ctrl - 0x15 : if [ $(yabai -m query --displays --space | grep '"w":' | cut -d':' -f2 | cut -d'.' -f1) -ge 3440 ]; then yabai -m space --padding abs:12:12:12:12; fi
 # ↳ Increase window size
 default < fn + ctrl - h : yabai -m window --resize left:-20:0
 default < fn + ctrl - j : yabai -m window --resize bottom:0:20
