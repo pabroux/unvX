@@ -19,6 +19,7 @@
 
   imports = map (x: ../../../../module + "/${x}") [
     "coreutils"
+    "deno"
     "fzf"
     "git"
     "github-cli"
