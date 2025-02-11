@@ -1,8 +1,8 @@
 add_newline = false
 
 [aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-symbol = "aws"
+format = '\[[$symbol( $profile)(\($region\))(\[$duration\])]($style)\]'
+symbol = "aws "
 
 [azure]
 format = '\[[$symbol($subscription)]($style)\]'
