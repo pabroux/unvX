@@ -24,11 +24,19 @@ yabai -m config mouse_modifier ctrl
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m config layout bsp
-yabai -m config top_padding 12
-yabai -m config bottom_padding 12
-yabai -m config left_padding 12
-yabai -m config right_padding 12
 yabai -m config window_gap 12
+
+# Padding
+for display in $(yabai -m query --displays | grep '\"index\":' | cut -d':' -f2 | cut -d',' -f1); do 
+  for space in $(yabai -m query --displays --display $display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do
+    if [ $(yabai -m query --displays --display $display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then
+      yabai -m space $space --padding abs:12:12:12:12;
+    else
+      yabai -m space $space --padding abs:12:12:1200:1200;
+    fi
+  done
+done
+
 
 ###############################################################################
 # Rules
@@ -45,9 +53,6 @@ yabai -m rule --apply
 # Signals
 ###############################################################################
 
-yabai -m signal --add event=display_removed action="for display in \$(yabai -m query --displays | grep '\"id\":' | cut -d':' -f2 | cut -d',' -f1); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do yabai -m space \$space --padding abs:12:12:12:12; done; fi; done"
-yabai -m signal --add event=display_resized action="for display in \$(yabai -m query --displays | grep '\"id\":' | cut -d':' -f2 | cut -d',' -f1); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do yabai -m space \$space --padding abs:12:12:12:12; done; fi; done"
-yabai -m signal --add event=space_created action="for display in \$(yabai -m query --displays | grep '\"id\":' | cut -d':' -f2 | cut -d',' -f1); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do yabai -m space \$space --padding abs:12:12:12:12; done; fi; done"
-
-# Log
-echo "Yabai configuration loaded."
+yabai -m signal --add event=display_removed action="for display in \$(yabai -m query --displays | grep '\"index\":' | cut -d':' -f2 | cut -d',' -f1); do for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then yabai -m space \$space --padding abs:12:12:12:12; else yabai -m space \$space --padding abs:12:12:1200:1200; fi; done; done"
+yabai -m signal --add event=display_resized action="for display in \$(yabai -m query --displays | grep '\"index\":' | cut -d':' -f2 | cut -d',' -f1); do for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then yabai -m space \$space --padding abs:12:12:12:12; else yabai -m space \$space --padding abs:12:12:1200:1200; fi; done; done"
+yabai -m signal --add event=space_created action="for display in \$(yabai -m query --displays | grep '\"index\":' | cut -d':' -f2 | cut -d',' -f1); do for space in \$(yabai -m query --displays --display \$display | grep '\"spaces\":' | cut -d'[' -f2 | cut -d']' -f1 | tr -d ','); do if [ \$(yabai -m query --displays --display \$display | grep '\"w\":' | cut -d':' -f2 | cut -d'.' -f1) -lt 3440 ]; then yabai -m space \$space --padding abs:12:12:12:12; else yabai -m space \$space --padding abs:12:12:1200:1200; fi; done; done"
