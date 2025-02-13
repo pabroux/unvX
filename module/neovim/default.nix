@@ -42,6 +42,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/smart-splits.lua";
       target = ".config/nvim/lua/plugins/specs/smart-splits.lua";
     };
+    "neovim/lua/plugins/specs/tokyonight.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/tokyonight.lua";
+      target = ".config/nvim/lua/plugins/specs/tokyonight.lua";
+    };
   };
 
   home.activation = {
@@ -51,13 +55,10 @@
       	PATH=$HOME/.nix-profile/bin/:$PATH
 				if [[ -v DRY_RUN ]]; then
 					echo \"nvim --headless '+Lazy! sync' +qa &> /dev/null\"
-					echo \"nvim --headless '+Lazy! install' +qa &> /dev/null\"
 				elif [[ -v VERBOSE ]]; then
 					nvim --headless '+Lazy! sync' +qa
-					nvim --headless '+Lazy! install' +qa
 				else
       		nvim --headless '+Lazy! sync' +qa &> /dev/null
-					nvim --headless '+Lazy! install' +qa &> /dev/null
 				fi
        )";
   };
