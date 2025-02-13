@@ -12,6 +12,9 @@
 	lg = log
  	ph = push
 	pl = pull
+	re = restore
+	reu = restore --staged
+	rt = reset
 	sh = stash
 	st = status
 	sw = switch
