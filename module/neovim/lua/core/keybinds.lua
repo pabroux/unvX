@@ -5,7 +5,9 @@ vim.g.mapleader = " "
 
 -- Normal mode
 -- ↳ Clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights." })
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>", { desc = "Clear search highlights." })
+-- ↳ Explorer
+keymap.set("n", "<leader>ex", "<cmd>Explore<CR>", { desc = "Clear search highlights." })
 -- ↳ Increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number." })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number." })
