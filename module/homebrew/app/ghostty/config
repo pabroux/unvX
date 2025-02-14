@@ -17,7 +17,8 @@ keybind = "cmd+enter=toggle_split_zoom"
 ###############################################################################
 
 # Color
-background = "#18191B"
+background = "#011628"
+split-divider-color = "#000f1c"
 
 # Cursor
 cursor-style = "block"
