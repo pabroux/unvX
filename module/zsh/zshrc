@@ -75,6 +75,10 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# Editor
+export EDITOR=nvim
+export VISUAL=nvim
+
 # History
 HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
