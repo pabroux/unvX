@@ -34,6 +34,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/lazy.lua";
       target = ".config/nvim/lua/plugins/lazy.lua";
     };
+    "neovim/lua/plugins/specs/nvim-tree.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-tree.lua";
+      target = ".config/nvim/lua/plugins/specs/nvim-tree.lua";
+    };
     "neovim/lua/plugins/specs/plenary.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/plenary.lua";
       target = ".config/nvim/lua/plugins/specs/plenary.lua";
@@ -46,6 +50,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/tokyonight.lua";
       target = ".config/nvim/lua/plugins/specs/tokyonight.lua";
     };
+    "neovim/lua/plugins/specs/which-key.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/which-key.lua";
+      target = ".config/nvim/lua/plugins/specs/which-key.lua";
+    };
   };
 
   home.activation = {
@@ -54,11 +62,11 @@
       "(
       	PATH=$HOME/.nix-profile/bin/:$PATH
 				if [[ -v DRY_RUN ]]; then
-					echo \"nvim --headless '+Lazy! sync' +qa &> /dev/null\"
+          echo \"nvim --headless '+Lazy! sync' +qa &> /dev/null\"
 				elif [[ -v VERBOSE ]]; then
-					nvim --headless '+Lazy! sync' +qa
+          nvim --headless '+Lazy! sync' +qa
 				else
-      		nvim --headless '+Lazy! sync' +qa &> /dev/null
+          nvim --headless '+Lazy! sync' +qa &> /dev/null
 				fi
        )";
   };
