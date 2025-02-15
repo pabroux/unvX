@@ -17,7 +17,6 @@ return {
 			"<cmd>NvimTreeFindFileToggle<CR>",
 			{ desc = "Toggle file explorer on current file" }
 		)
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 
 		local function on_attach(bufnr)
 			local api = require("nvim-tree.api")
@@ -77,6 +76,7 @@ return {
 				ignore = false,
 			},
 			on_attach = on_attach,
+			sync_root_with_cwd = true,
 		})
 
 		-- Recommended settings from nvim-tree documentation
