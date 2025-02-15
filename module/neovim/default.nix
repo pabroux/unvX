@@ -46,6 +46,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/smart-splits.lua";
       target = ".config/nvim/lua/plugins/specs/smart-splits.lua";
     };
+    "neovim/lua/plugins/specs/telescope.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/telescope.lua";
+      target = ".config/nvim/lua/plugins/specs/telescope.lua";
+    };
     "neovim/lua/plugins/specs/tokyonight.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/tokyonight.lua";
       target = ".config/nvim/lua/plugins/specs/tokyonight.lua";

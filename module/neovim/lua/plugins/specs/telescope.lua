@@ -15,12 +15,7 @@ return {
 		-- Key Bindings
 		-------------------------------------------------------------------------------
 
-		keymap.set(
-			"n",
-			"<leader>ff",
-			"<cmd>Telescope find_files follow=true hidden=true<cr>",
-			{ desc = "Fuzzy find files in cwd" }
-		)
+		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
@@ -37,6 +32,18 @@ return {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
+				},
+			},
+			pickers = {
+				find_files = {
+					follow = true,
+					hidden = true,
+				},
+				live_grep = {
+					additional_args = { "-L" },
+				},
+				grep_string = {
+					additional_args = { "-L" },
 				},
 			},
 		})
