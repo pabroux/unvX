@@ -29,6 +29,7 @@
     "neovim"
     "nodejs"
     "ollama"
+    "ripgrep"
     "skhd"
     "starship"
     "tmux"
