@@ -12,7 +12,7 @@
 
 
 ## About 
-unvX is a standalone [Home Manager](https://github.com/nix-community/home-manager) configuration using Nix flakes to install software and manage dotfiles. It employs symlinks for dotfile management, allowing immediate feedback on any changes made.
+unvX is a standalone [Home Manager](https://github.com/nix-community/home-manager) configuration using Nix flakes to install software and manage dotfiles. It employs symlinks for dotfile management, allowing immediate feedback on any change made.
 
 > [!IMPORTANT]
 > unvX serves as a source of inspiration.
