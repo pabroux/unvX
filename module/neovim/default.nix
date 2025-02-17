@@ -60,14 +60,14 @@
     installNeovimPlugins =
       lib.hm.dag.entryAfter ["installPackages"]
       "(
-      	PATH=$HOME/.nix-profile/bin/:$PATH
-				if [[ -v DRY_RUN ]]; then
+        PATH=$HOME/.nix-profile/bin/:$PATH
+        if [[ -v DRY_RUN ]]; then
           echo \"nvim --headless '+Lazy! sync' +qa &> /dev/null\"
-				elif [[ -v VERBOSE ]]; then
+        elif [[ -v VERBOSE ]]; then
           nvim --headless '+Lazy! sync' +qa
-				else
+        else
           nvim --headless '+Lazy! sync' +qa &> /dev/null
-				fi
-       )";
+        fi
+      )";
   };
 }
