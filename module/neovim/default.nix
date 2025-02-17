@@ -38,10 +38,6 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-tree.lua";
       target = ".config/nvim/lua/plugins/specs/nvim-tree.lua";
     };
-    "neovim/lua/plugins/specs/plenary.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/plenary.lua";
-      target = ".config/nvim/lua/plugins/specs/plenary.lua";
-    };
     "neovim/lua/plugins/specs/smart-splits.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/smart-splits.lua";
       target = ".config/nvim/lua/plugins/specs/smart-splits.lua";
