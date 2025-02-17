@@ -52,14 +52,6 @@ return {
 				indent_markers = {
 					enable = true,
 				},
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "",
-							arrow_open = "",
-						},
-					},
-				},
 			},
 			-- Disable window_picker for explorer to work well with window splits
 			actions = {
