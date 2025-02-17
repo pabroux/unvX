@@ -34,12 +34,13 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " Indentation
-set tabstop=2
-set shiftwidth=2
+set autoindent
+set expandtab
 set noerrorbells
 set novisualbell
 set number
-set autoindent
+set shiftwidth=2
+set tabstop=2
 
 " Line wrapping
 set nowrap
@@ -51,10 +52,10 @@ set mouse=a
 let g:netrw_liststyle=3
 
 " Search
-set ignorecase
-set smartcase
-set incsearch
 set hlsearch
+set ignorecase
+set incsearch
+set smartcase
 
 " Settings
 filetype on
