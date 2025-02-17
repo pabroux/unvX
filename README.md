@@ -68,7 +68,7 @@ Here is a brief description of the structure:
 - `unvX.nix`: Generated during the installation, a file that contains information about your unvX installation, such as the unvX location on your host machine. The content of that file is configured to be read by Home Manager and to be passed into all your Nix module under the `unvX` attribute name. `unvX.nix` is mainly used to symlink your dotfiles.
 
 > [!NOTE]
-> Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a `homebrew` Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything. If you plan to use it, make sur to have Homebrew installed.
+> Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a `homebrew` Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything. If you plan to use the `homebrew` Nix module, make sure to have Homebrew installed.
 
 ## Resources
 
