@@ -75,6 +75,8 @@ Here is a brief description of the structure:
 Useful resources to learn Nix:
 
 - [Nix language basics](https://nix.dev/tutorials/nix-language);
+- [Packaging existing software with Nix](https://nix.dev/tutorials/packaging-existing-software);
+- [Nix modules](https://nix.dev/tutorials/module-system/);
 - [Nix flakes](https://zero-to-nix.com/concepts/flakes/). 
 
 
