@@ -2,8 +2,9 @@ name: Deployment
 on:
   workflow_dispatch:
 jobs:
-  build:
+  cleanup:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
      - name: Delete deployment
        uses: strumwolf/delete-deployment-environment@v2
