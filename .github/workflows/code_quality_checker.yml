@@ -16,7 +16,7 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
       - name: Check format of Nix files
         run: nix shell nixpkgs#alejandra --command alejandra -q -c .
-      - name: Check format of Shell files
+      - name: Check format of shell files
         run: nix shell nixpkgs#shfmt --command shfmt -d .
       - name: Check format of Lua files
         run: nix shell nixpkgs#stylua --command stylua -c .
