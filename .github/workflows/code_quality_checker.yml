@@ -4,20 +4,19 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  build:
+  code-quality-checker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
-  nix-format:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check Nix file format
+      - name: Check format of Nix files
         run: nix shell nixpkgs#alejandra --command alejandra -q -c .
+      - name: Check format of Shell files
+        run: nix shell nixpkgs#shfmt --command shfmt -d .
+      - name: Check format of Lua files
+        run: nix shell nixpkgs#stylua --command stylua -c .
