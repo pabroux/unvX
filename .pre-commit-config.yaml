@@ -8,7 +8,7 @@ repos:
         language: system
         files: \.nix$
       - id: shfmt
-        name: Sh (Shell formatter)
+        name: Sh (shell formatter)
         description: This hook checks shell files with Stylua.
         entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#shfmt --command shfmt -w $arg; done;' --
         language: system
@@ -19,9 +19,15 @@ repos:
         entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#stylua --command stylua $arg; done;' --
         language: system
         files: \.lua$
-      - id: gitleaks
-        name: Gitleaks (Secret scanner)
-        description: This hook checks the existence of secrets.
+      - id: gitleaks-git
+        name: Gitleaks Git (secret scanner)
+        description: This hook checks the existence of secrets in Git.
         entry: bash -c 'nix shell nixpkgs#gitleaks --command gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null'
+        language: system
+        pass_filenames: false
+      - id: gitleaks-dir
+        name: Gitleaks Dir (secret scanner)
+        description: This hook checks the existence of secrets in a directory.
+        entry: bash -c 'nix shell nixpkgs#gitleaks --command gitleaks dir --redact --no-banner --verbose 2> /dev/null'
         language: system
         pass_filenames: false
