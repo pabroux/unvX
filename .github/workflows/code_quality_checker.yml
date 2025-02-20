@@ -1,0 +1,23 @@
+name: Code quality checker
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+  nix-format:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Nix file format
+        run: nix shell nixpkgs#alejandra --command alejandra -q -c .
