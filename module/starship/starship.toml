@@ -20,7 +20,7 @@ format = '\[[$symbol( $version(-$name))]($style)\]'
 symbol = 'C'
 
 [character]
-error_symbol = '[❯](bold fg:203)'
+error_symbol = '[❯](bold fg:#fe605a)'
 success_symbol = '[❯](bold fg:white)'
 
 [cmake]
@@ -58,8 +58,8 @@ symbol = 'deno'
 [directory]
 format = ':[$path]($style)[$read_only]($read_only_style) '
 read_only = ' 🆁'
-read_only_style = 'fg:220'
-style = 'bold fg:220'
+read_only_style = 'fg:#ffd542'
+style = 'bold fg:#ffd542'
 truncate_to_repo = false
 truncation_length = 0
 
@@ -139,7 +139,7 @@ symbol = 'hg'
 format = '@[$hostname]($style)'
 ssh_only = false
 ssh_symbol = '⛬ '	
-style = 'bold fg:203'
+style = 'bold fg:#fe605a'
 
 [java]
 format = '\[[$symbol( $version)]($style)\]'
@@ -271,8 +271,8 @@ format = '\[[$time]($style)\]'
 [username]
 format = '[$user]($style)'
 show_always = true
-style_root = 'bold fg:203'
-style_user = 'bold fg:51'
+style_root = 'bold fg:#fe605a'
+style_user = 'bold fg:#60f6ff'
 
 [vagrant]
 format = '\[[$symbol( $version)]($style)\]'
