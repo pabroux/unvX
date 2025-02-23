@@ -34,6 +34,22 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/lazy.lua";
       target = ".config/nvim/lua/plugins/lazy.lua";
     };
+    "neovim/lua/plugins/specs/alpha-nvim.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/alpha-nvim.lua";
+      target = ".config/nvim/lua/plugins/specs/alpha-nvim.lua";
+    };
+    "neovim/lua/plugins/specs/auto-session.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/auto-session.lua";
+      target = ".config/nvim/lua/plugins/specs/auto-session.lua";
+    };
+    "neovim/lua/plugins/specs/bufferline.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/bufferline.lua";
+      target = ".config/nvim/lua/plugins/specs/bufferline.lua";
+    };
+    "neovim/lua/plugins/specs/lualine.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/lualine.lua";
+      target = ".config/nvim/lua/plugins/specs/lualine.lua";
+    };
     "neovim/lua/plugins/specs/nvim-tree.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-tree.lua";
       target = ".config/nvim/lua/plugins/specs/nvim-tree.lua";
