@@ -42,3 +42,6 @@ opt.hlsearch = true
 -- Split windows
 opt.splitbelow = true
 opt.splitright = true
+
+-- Status line
+opt.showmode = false
