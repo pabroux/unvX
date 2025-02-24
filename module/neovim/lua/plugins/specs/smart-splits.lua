@@ -1,32 +1,28 @@
 return {
 	"mrjones2014/smart-splits.nvim",
-	config = function()
-		local smart_splits = require("smart-splits")
-		local keymap = vim.keymap
-
+	keys = {
 		-------------------------------------------------------------------------------
 		-- Key bindings
 		-------------------------------------------------------------------------------
 
 		-- Resize pane (the following keymaps accept a range)
-		keymap.set("n", "<C-h>", smart_splits.resize_left, { desc = "Resize pane left" })
-		keymap.set("n", "<C-j>", smart_splits.resize_down, { desc = "Resize pane down" })
-		keymap.set("n", "<C-k>", smart_splits.resize_up, { desc = "Resize pane up" })
-		keymap.set("n", "<C-l>", smart_splits.resize_right, { desc = "Resize pane right" })
+		{ mode = { "n" }, "<c-h>", "<cmd>smartresizeleft<cr>", desc = "resize pane left" },
+		{ mode = { "n" }, "<C-j>", "<cmd>SmartResizeDown<cr>", desc = "Resize pane down" },
+		{ mode = { "n" }, "<C-k>", "<cmd>SmartResizeUp<cr>", desc = "Resize pane up" },
+		{ mode = { "n" }, "<C-l>", "<cmd>SmartResizeRight<cr>", desc = "Resize pane right" },
 
 		-- Focus pane (the following keymaps accept a range)
-		keymap.set("n", "Ì", smart_splits.move_cursor_left, { desc = "Focus pane left" })
-		keymap.set("n", "Ï", smart_splits.move_cursor_down, { desc = "Focus pane down" })
-		keymap.set("n", "È", smart_splits.move_cursor_up, { desc = "Focus pane up" })
-		keymap.set("n", "¬", smart_splits.move_cursor_right, { desc = "Focus pane right" })
-
+		{ mode = { "n" }, "Ì", "<cmd>SmartCursorMoveLeft<cr>", desc = "Focus pane left" },
+		{ mode = { "n" }, "Ï", "<cmd>SmartCursorMoveDown<cr>", desc = "Focus pane down" },
+		{ mode = { "n" }, "È", "<cmd>SmartCursorMoveUp<cr>", desc = "Focus pane up" },
+		{ mode = { "n" }, "¬", "<cmd>SmartCursorMoveRight<cr>", desc = "Focus pane right" },
+	},
+	opts = {
 		-------------------------------------------------------------------------------
 		-- Options
 		-------------------------------------------------------------------------------
 
-		smart_splits.setup({
-			at_edge = "stop",
-			multiplexer_integration = false,
-		})
-	end,
+		at_edge = "stop",
+		multiplexer_integration = false,
+	},
 }

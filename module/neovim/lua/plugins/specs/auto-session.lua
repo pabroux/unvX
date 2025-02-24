@@ -1,24 +1,20 @@
 return {
 	"rmagatti/auto-session",
-	config = function()
-		local auto_session = require("auto-session")
-		local keymap = vim.keymap
-
+	keys = {
 		-------------------------------------------------------------------------------
-		-- Key Bindings
+		-- Key bindings
 		-------------------------------------------------------------------------------
 
-		keymap.set("n", "<leader>sl", "<cmd>SessionSearch<cr>", { desc = "List sessions" })
-		keymap.set("n", "<leader>sr", "<cmd>SessionRestore<cr>", { desc = "Restore session for cwd" })
-		keymap.set("n", "<leader>ss", "<cmd>SessionSave<cr>", { desc = "Save session for auto session root dir" })
-
+		{ mode = { "n" }, "<leader>sl", "<cmd>SessionSearch<cr>", desc = "List sessions" },
+		{ mode = { "n" }, "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore session for cwd" },
+		{ mode = { "n" }, "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save session for auto session root dir" },
+	},
+	opts = {
 		-------------------------------------------------------------------------------
 		-- Options
 		-------------------------------------------------------------------------------
 
-		auto_session.setup({
-			auto_restore = false,
-			suppressed_dirs = { "~/", "~/Downloads", "~/Documents", "~/Desktop/", "/" },
-		})
-	end,
+		auto_restore = false,
+		suppressed_dirs = { "~/", "~/Downloads", "~/Documents", "~/Desktop/", "/" },
+	},
 }
