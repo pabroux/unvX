@@ -20,5 +20,5 @@ keymap.set("n", "<leader>T", "<cmd>tabnew %<cr>", { desc = "Open current buffer 
 -- ↳ Window management
 keymap.set("n", "<leader>d", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>D", "<C-w>s", { desc = "Split window horizontally" })
-keymap.set("n", "<leader>=", "<C-w>=", { desc = "Make splits equal size" })
+keymap.set("n", "<C-=>", "<C-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>w", "<cmd>close<cr>", { desc = "Close current split" })
