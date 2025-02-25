@@ -6,7 +6,7 @@ return {
 		-------------------------------------------------------------------------------
 
 		-- Resize pane (the following keymaps accept a range)
-		{ mode = { "n" }, "<c-h>", "<cmd>smartresizeleft<cr>", desc = "resize pane left" },
+		{ mode = { "n" }, "<c-h>", "<cmd>SmartResizeLeft<cr>", desc = "resize pane left" },
 		{ mode = { "n" }, "<C-j>", "<cmd>SmartResizeDown<cr>", desc = "Resize pane down" },
 		{ mode = { "n" }, "<C-k>", "<cmd>SmartResizeUp<cr>", desc = "Resize pane up" },
 		{ mode = { "n" }, "<C-l>", "<cmd>SmartResizeRight<cr>", desc = "Resize pane right" },
