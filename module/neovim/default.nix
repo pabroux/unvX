@@ -58,6 +58,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/smart-splits.lua";
       target = ".config/nvim/lua/plugins/specs/smart-splits.lua";
     };
+    "neovim/lua/plugins/specs/snacks.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/snacks.lua";
+      target = ".config/nvim/lua/plugins/specs/snacks.lua";
+    };
     "neovim/lua/plugins/specs/telescope.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/telescope.lua";
       target = ".config/nvim/lua/plugins/specs/telescope.lua";
@@ -69,6 +73,10 @@
     "neovim/lua/plugins/specs/which-key.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/which-key.lua";
       target = ".config/nvim/lua/plugins/specs/which-key.lua";
+    };
+    "neovim/lua/plugins/specs/zen-mode.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/zen-mode.lua";
+      target = ".config/nvim/lua/plugins/specs/zen-mode.lua";
     };
   };
 
