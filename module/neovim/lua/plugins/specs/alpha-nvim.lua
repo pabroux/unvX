@@ -1,5 +1,6 @@
 return {
 	"goolord/alpha-nvim",
+	dependencies = { "rmagatti/auto-session" },
 	event = "VimEnter",
 	config = function()
 		local alpha = require("alpha")
