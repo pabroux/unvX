@@ -47,10 +47,12 @@ return {
 				width = 35,
 				relativenumber = true,
 			},
-			-- Change folder arrow icons
 			renderer = {
 				indent_markers = {
 					enable = true,
+				},
+				icons = {
+					symlink_arrow = "  ",
 				},
 			},
 			-- Disable window_picker for explorer to work well with window splits
