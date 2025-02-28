@@ -8,13 +8,6 @@ return {
 		-------------------------------------------------------------------------------
 
 		{
-			"<leader>nd",
-			function()
-				Snacks.notifier.hide()
-			end,
-			desc = "Dismiss All Notifications",
-		},
-		{
 			"<leader>ns",
 			function()
 				Snacks.notifier.show_history()
