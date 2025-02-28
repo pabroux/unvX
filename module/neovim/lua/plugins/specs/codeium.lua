@@ -14,8 +14,8 @@ return {
 
 		local keymaps = {
 			accept = "<c-cr>",
-			accept_word = false,
-			accept_line = false,
+			accept_word = "<c-ù>",
+			accept_line = "<c-$>",
 			clear = "<c-bs>",
 			next = "<c-=>",
 			prev = "<c-:>",
