@@ -58,19 +58,19 @@ return {
 
 			if status.state == "idle" then
 				-- Clear output
-				return " "
+				return "󰚩 "
 			end
 
 			if status.state == "waiting" then
 				-- Wait for response
-				return "Waiting..."
+				return "󰚩  󱥸 "
 			end
 
 			if status.state == "completions" and status.total > 0 then
-				return string.format("%d/%d", status.current, status.total)
+				return string.format("󰚩  %d/%d", status.current, status.total)
 			end
 
-			return " 0 "
+			return "󰚩  0"
 		end
 
 		-- configure lualine with modified theme
