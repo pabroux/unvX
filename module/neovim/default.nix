@@ -46,17 +46,37 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/bufferline.lua";
       target = ".config/nvim/lua/plugins/specs/bufferline.lua";
     };
+    "neovim/lua/plugins/specs/codeium.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/codeium.lua";
+      target = ".config/nvim/lua/plugins/specs/codeium.lua";
+    };
+    "neovim/lua/plugins/specs/comment.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/comment.lua";
+      target = ".config/nvim/lua/plugins/specs/comment.lua";
+    };
+    "neovim/lua/plugins/specs/indent-blankline.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/indent-blankline.lua";
+      target = ".config/nvim/lua/plugins/specs/indent-blankline.lua";
+    };
     "neovim/lua/plugins/specs/lualine.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/lualine.lua";
       target = ".config/nvim/lua/plugins/specs/lualine.lua";
     };
-    "neovim/lua/plugins/specs/nvim-treesitter.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-treesitter.lua";
-      target = ".config/nvim/lua/plugins/specs/nvim-treesitter.lua";
+    "neovim/lua/plugins/specs/nvim-autopairs.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-autopairs.lua";
+      target = ".config/nvim/lua/plugins/specs/nvim-autopairs.lua";
+    };
+    "neovim/lua/plugins/specs/nvim-cmp.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-cmp.lua";
+      target = ".config/nvim/lua/plugins/specs/nvim-cmp.lua";
     };
     "neovim/lua/plugins/specs/nvim-tree.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-tree.lua";
       target = ".config/nvim/lua/plugins/specs/nvim-tree.lua";
+    };
+    "neovim/lua/plugins/specs/nvim-treesitter.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/nvim-treesitter.lua";
+      target = ".config/nvim/lua/plugins/specs/nvim-treesitter.lua";
     };
     "neovim/lua/plugins/specs/smart-splits.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/smart-splits.lua";
@@ -69,6 +89,10 @@
     "neovim/lua/plugins/specs/telescope.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/telescope.lua";
       target = ".config/nvim/lua/plugins/specs/telescope.lua";
+    };
+    "neovim/lua/plugins/specs/todo-comments.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/todo-comments.lua";
+      target = ".config/nvim/lua/plugins/specs/todo-comments.lua";
     };
     "neovim/lua/plugins/specs/tokyonight.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/tokyonight.lua";
