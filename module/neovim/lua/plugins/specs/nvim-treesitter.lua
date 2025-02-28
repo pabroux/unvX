@@ -1,10 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
-	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 	},
+	build = ":TSUpdate",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 
@@ -13,8 +13,8 @@ return {
 		-------------------------------------------------------------------------------
 
 		local keymaps = {
-			init_selection = "<C-space>",
-			node_incremental = "<C-space>",
+			init_selection = "<c-space>",
+			node_incremental = "<c-space>",
 			scope_incremental = false,
 			node_decremental = "<bs>",
 		}
@@ -39,7 +39,6 @@ return {
 				"bash",
 				"c",
 				"cmake",
-				"comment",
 				"css",
 				"dart",
 				"diff",

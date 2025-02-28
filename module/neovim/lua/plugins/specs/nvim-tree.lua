@@ -2,8 +2,8 @@ return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
-		local nvimtree = require("nvim-tree")
 		local keymap = vim.keymap
+		local nvimtree = require("nvim-tree")
 
 		-------------------------------------------------------------------------------
 		-- Key bindings
@@ -28,11 +28,11 @@ return {
 			api.config.mappings.default_on_attach(bufnr)
 
 			-- Override defaults
-			keymap.set("n", "<C-$>", api.tree.change_root_to_node, opts("CD"))
+			keymap.set("n", "<c-$>", api.tree.change_root_to_node, opts("CD"))
 			keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
 
 			-- Remove defaults
-			keymap.del("n", "<C-]>", { buffer = bufnr })
+			keymap.del("n", "<c-]>", { buffer = bufnr })
 			keymap.del("n", "g?", { buffer = bufnr })
 			keymap.del("n", "<2-LeftMouse>", { buffer = bufnr })
 			keymap.del("n", "<2-RightMouse>", { buffer = bufnr })

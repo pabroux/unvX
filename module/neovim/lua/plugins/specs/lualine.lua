@@ -2,8 +2,8 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
+		local codeium = require("codeium.virtual_text")
 		local lualine = require("lualine")
-		local lazy_status = require("lazy.status")
 
 		-------------------------------------------------------------------------------
 		-- Options
@@ -53,6 +53,26 @@ return {
 			},
 		}
 
+		function codeium_status()
+			local status = codeium.status()
+
+			if status.state == "idle" then
+				-- Clear output
+				return " "
+			end
+
+			if status.state == "waiting" then
+				-- Wait for response
+				return "Waiting..."
+			end
+
+			if status.state == "completions" and status.total > 0 then
+				return string.format("%d/%d", status.current, status.total)
+			end
+
+			return " 0 "
+		end
+
 		-- configure lualine with modified theme
 		lualine.setup({
 			options = {
@@ -62,6 +82,9 @@ return {
 			},
 			extensions = {
 				"nvim-tree",
+			},
+			sections = {
+				lualine_x = { codeium_status, "encoding", "fileformat", "filetype" },
 			},
 		})
 	end,
