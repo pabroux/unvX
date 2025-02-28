@@ -8,7 +8,7 @@ return {
 		-------------------------------------------------------------------------------
 
 		{
-			"<leader>ns",
+			"<leader>nl",
 			function()
 				Snacks.notifier.show_history()
 			end,
