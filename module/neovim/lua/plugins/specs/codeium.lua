@@ -16,7 +16,7 @@ return {
 			accept = "<c-cr>",
 			accept_word = false,
 			accept_line = false,
-			clear = false,
+			clear = "<c-bs>",
 			next = "<c-=>",
 			prev = "<c-:>",
 		}
