@@ -7,9 +7,9 @@ return {
 
 		-- Resize pane (the following keymaps accept a range)
 		{ mode = { "n" }, "<c-h>", "<cmd>SmartResizeLeft<cr>", desc = "resize pane left" },
-		{ mode = { "n" }, "<C-j>", "<cmd>SmartResizeDown<cr>", desc = "Resize pane down" },
-		{ mode = { "n" }, "<C-k>", "<cmd>SmartResizeUp<cr>", desc = "Resize pane up" },
-		{ mode = { "n" }, "<C-l>", "<cmd>SmartResizeRight<cr>", desc = "Resize pane right" },
+		{ mode = { "n" }, "<c-j>", "<cmd>SmartResizeDown<cr>", desc = "Resize pane down" },
+		{ mode = { "n" }, "<c-k>", "<cmd>SmartResizeUp<cr>", desc = "Resize pane up" },
+		{ mode = { "n" }, "<c-l>", "<cmd>SmartResizeRight<cr>", desc = "Resize pane right" },
 
 		-- Focus pane (the following keymaps accept a range)
 		{ mode = { "n" }, "Ì", "<cmd>SmartCursorMoveLeft<cr>", desc = "Focus pane left" },

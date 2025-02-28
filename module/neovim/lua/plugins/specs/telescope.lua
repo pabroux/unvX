@@ -5,12 +5,13 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		"folke/todo-comments.nvim",
 	},
 	config = function()
-		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local transform_mod = require("telescope.actions.mt").transform_mod
 		local keymap = vim.keymap
+		local telescope = require("telescope")
+		local transform_mod = require("telescope.actions.mt").transform_mod
 
 		-------------------------------------------------------------------------------
 		-- Key Bindings
@@ -27,6 +28,7 @@ return {
 		)
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
 		-------------------------------------------------------------------------------
 		-- Options
@@ -42,9 +44,9 @@ return {
 			defaults = {
 				mappings = {
 					i = {
-						["<C-k>"] = actions.move_selection_previous,
-						["<C-j>"] = actions.move_selection_next,
-						["<C-q>"] = actions.smart_send_to_qflist + custom_actions.open_quickfix,
+						["<c-k>"] = actions.move_selection_previous,
+						["<c-j>"] = actions.move_selection_next,
+						["<c-q>"] = actions.smart_send_to_qflist + custom_actions.open_quickfix,
 					},
 				},
 			},
