@@ -14,8 +14,8 @@ keymap.set("n", "<C-$>", "<C-]>", { desc = "Navigate forward" })
 -- ↳ Tab management
 keymap.set("n", "<leader>t", "<cmd>tabnew<cr>", { desc = "Open new tab" })
 keymap.set("n", "<leader>W", "<cmd>tabclose<cr>", { desc = "Close current tab" })
-keymap.set("n", "<leader>l", "<cmd>tabn<cr>", { desc = "Go to next tab" })
-keymap.set("n", "<leader>h", "<cmd>tabp<cr>", { desc = "Go to previous tab" })
+keymap.set("n", "<leader>l", "<cmd>tabn<cr>", { desc = "Next tab" })
+keymap.set("n", "<leader>h", "<cmd>tabp<cr>", { desc = "Prev tab" })
 keymap.set("n", "<leader>T", "<cmd>tabnew %<cr>", { desc = "Open current buffer in new tab" })
 -- ↳ Window management
 keymap.set("n", "<leader>d", "<C-w>v", { desc = "Split window vertically" })

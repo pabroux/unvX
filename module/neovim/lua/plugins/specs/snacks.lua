@@ -12,7 +12,7 @@ return {
 			function()
 				Snacks.notifier.show_history()
 			end,
-			desc = "Notification History",
+			desc = "List notifications",
 		},
 	},
 	opts = {
