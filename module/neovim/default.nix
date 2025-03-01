@@ -86,6 +86,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/snacks.lua";
       target = ".config/nvim/lua/plugins/specs/snacks.lua";
     };
+    "neovim/lua/plugins/specs/substitute.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/substitute.lua";
+      target = ".config/nvim/lua/plugins/specs/substitute.lua";
+    };
     "neovim/lua/plugins/specs/telescope.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/telescope.lua";
       target = ".config/nvim/lua/plugins/specs/telescope.lua";
