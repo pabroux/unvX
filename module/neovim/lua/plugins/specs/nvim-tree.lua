@@ -9,7 +9,7 @@ return {
 		-- Key bindings
 		-------------------------------------------------------------------------------
 
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
+		keymap.set("n", "<leader>e<leader>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
 		keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<cr>", { desc = "Focus file explorer" })
 		keymap.set(
 			"n",
