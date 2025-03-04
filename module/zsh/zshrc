@@ -26,6 +26,9 @@ alias kbc="kubectl"
 # Coreutils
 alias ls="gls --color --group-directories-first"
 
+# Lazygit
+alias lg="lazygit"
+
 # Minikube
 alias mnkb="minikube"
 
