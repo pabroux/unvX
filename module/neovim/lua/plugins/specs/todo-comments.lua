@@ -15,7 +15,7 @@ return {
 
 		keymap.set("n", "[t", function()
 			todo_comments.jump_prev()
-		end, { desc = "Prev todo comment" })
+		end, { desc = "Previous todo comment" })
 
 		-------------------------------------------------------------------------------
 		-- Options

@@ -19,12 +19,12 @@ return {
 
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-		keymap.set("n", "<leader>fl", "<cmd>Telescope quickfix<cr>", { desc = "List items in the quickfix list" })
+		keymap.set("n", "<leader>fqq", "<cmd>Telescope quickfix<cr>", { desc = "Find items in the quickfix list" })
 		keymap.set(
 			"n",
-			"<leader>fh",
+			"<leader>fqh",
 			"<cmd>Telescope quickfixhistory<cr>",
-			{ desc = "List all quickfix lists in your history" }
+			{ desc = "Find quickfix lists in your history" }
 		)
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
