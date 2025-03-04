@@ -10,7 +10,6 @@ return {
 		--- Key Bindings
 		-------------------------------------------------------------------------------
 
-		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New File", "<cmd>ene<cr>"),
 			dashboard.button("SPC eSPC", "  > Toggle file explorer", "<cmd>NvimTreeToggle<cr>"),
@@ -25,7 +24,6 @@ return {
 		-- Options
 		-------------------------------------------------------------------------------
 
-		-- Set header
 		dashboard.section.header.val = {
 			"                                                     ",
 			"  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
@@ -37,7 +35,6 @@ return {
 			"                                                     ",
 		}
 
-		-- Send config to alpha
 		alpha.setup(dashboard.opts)
 
 		-- Disable folding on alpha buffer

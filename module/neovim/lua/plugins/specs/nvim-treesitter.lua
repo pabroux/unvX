@@ -27,13 +27,13 @@ return {
 			highlight = {
 				enable = true,
 			},
-			-- enable indentation
+			-- Enable indentation
 			indent = { enable = true },
-			-- enable autotagging with nvim-ts-autotag plugin
+			-- Enable autotagging with nvim-ts-autotag plugin
 			autotag = {
 				enable = true,
 			},
-			-- ensure these language parsers are installed
+			-- Ensure these language parsers are installed
 			ensure_installed = {
 				"angular",
 				"bash",

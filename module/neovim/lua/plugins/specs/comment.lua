@@ -13,7 +13,7 @@ return {
 		-------------------------------------------------------------------------------
 
 		comment.setup({
-			-- for commenting tsx, jsx, svelte, html files
+			-- Required for commenting tsx, jsx, svelte and html files
 			pre_hook = ts_context_commentstring.create_pre_hook(),
 		})
 	end,
