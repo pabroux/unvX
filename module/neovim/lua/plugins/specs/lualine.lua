@@ -84,6 +84,11 @@ return {
 				"nvim-tree",
 			},
 			sections = {
+				lualine_b = {
+					{ "branch", icon = "" },
+					{ "diff" },
+					{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
+				},
 				lualine_x = { codeium_status, "encoding", "fileformat", "filetype" },
 			},
 		})
