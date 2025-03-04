@@ -25,6 +25,7 @@
     "github-cli"
     "homebrew"
     "htop"
+    "lazygit"
     "minikube"
     "neovim"
     "nodejs"
