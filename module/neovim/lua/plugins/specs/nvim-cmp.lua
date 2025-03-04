@@ -24,12 +24,12 @@ return {
 		-------------------------------------------------------------------------------
 
 		local keymaps = cmp.mapping.preset.insert({
-			["<c-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-			["<c-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+			["<c-k>"] = cmp.mapping.select_prev_item(),
+			["<c-j>"] = cmp.mapping.select_next_item(),
 			["<c-;>"] = cmp.mapping.scroll_docs(-4),
 			["<c-,>"] = cmp.mapping.scroll_docs(4),
-			["<c-space>"] = cmp.mapping.complete(), -- show completion suggestions
-			["<c-e>"] = cmp.mapping.abort(), -- close completion window
+			["<c-space>"] = cmp.mapping.complete(),
+			["<c-e>"] = cmp.mapping.abort(),
 			["<cr>"] = cmp.mapping.confirm({ select = false }),
 		})
 
@@ -41,19 +41,21 @@ return {
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
-			snippet = { -- configure how nvim-cmp interacts with snippet engine
+			-- Configure how nvim-cmp interacts with snippet engine
+			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
 			},
 			mapping = keymaps,
-			-- sources for autocompletion
+			-- Sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "luasnip" }, -- snippets
-				{ name = "buffer" }, -- text within current buffer
-				{ name = "path" }, -- file system paths
+				{ name = "nvim_lsp" }, -- LSP
+				{ name = "luasnip" }, -- Snippets
+				{ name = "buffer" }, -- Text within current buffer
+				{ name = "path" }, -- File system paths
 			}),
-			-- configure lspkind for vs-code like pictograms in completion menu
+			-- Configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
 				format = lspkind.cmp_format({
 					maxwidth = 50,

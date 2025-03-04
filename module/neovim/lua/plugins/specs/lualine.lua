@@ -57,12 +57,10 @@ return {
 			local status = codeium.status()
 
 			if status.state == "idle" then
-				-- Clear output
 				return "󰚩 "
 			end
 
 			if status.state == "waiting" then
-				-- Wait for response
 				return "󰚩  󱥸 "
 			end
 
@@ -73,7 +71,6 @@ return {
 			return "󰚩  0"
 		end
 
-		-- configure lualine with modified theme
 		lualine.setup({
 			options = {
 				theme = lualine_theme,
