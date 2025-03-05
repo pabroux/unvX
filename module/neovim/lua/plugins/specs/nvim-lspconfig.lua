@@ -22,9 +22,9 @@ return {
 			local opts = { buffer = ev.buf, silent = true }
 
 			opts.desc = "Previous diagnostic"
-			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+			keymap.set("n", "[x", vim.diagnostic.goto_prev, opts)
 			opts.desc = "Next diagnostic"
-			keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+			keymap.set("n", "]x", vim.diagnostic.goto_next, opts)
 
 			opts.desc = "Find LSP definitions"
 			keymap.set("n", "<leader>fld", "<cmd>Telescope lsp_definitions<cr>", opts)
@@ -62,6 +62,9 @@ return {
 				vim.diagnostic.disable()
 			end
 		end
+
+		keymap.del("n", "[d")
+		keymap.del("n", "]d")
 
 		keymap.set(
 			"n",
