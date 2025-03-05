@@ -27,15 +27,15 @@ return {
 
 			api.config.mappings.default_on_attach(bufnr)
 
-			-- Override defaults
-			keymap.set("n", "<c-$>", api.tree.change_root_to_node, opts("CD"))
-			keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
-
 			-- Remove defaults
 			keymap.del("n", "<c-]>", { buffer = bufnr })
 			keymap.del("n", "g?", { buffer = bufnr })
 			keymap.del("n", "<2-LeftMouse>", { buffer = bufnr })
 			keymap.del("n", "<2-RightMouse>", { buffer = bufnr })
+
+			-- Override defaults
+			keymap.set("n", "<c-$>", api.tree.change_root_to_node, opts("CD"))
+			keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
 		end
 
 		-------------------------------------------------------------------------------
