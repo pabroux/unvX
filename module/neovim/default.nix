@@ -53,25 +53,21 @@ in {
         source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/keybinds.lua";
         target = ".config/nvim/lua/core/keybinds.lua";
       };
+      "neovim/lua/core/lazy.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/lazy.lua";
+        target = ".config/nvim/lua/core/lazy.lua";
+      };
       "neovim/lua/core/options.lua" = {
         source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/options.lua";
         target = ".config/nvim/lua/core/options.lua";
       };
-      "neovim/lua/plugins/init.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/init.lua";
-        target = ".config/nvim/lua/plugins/init.lua";
-      };
-      "neovim/lua/plugins/lazy.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/lazy.lua";
-        target = ".config/nvim/lua/plugins/lazy.lua";
-      };
     }
     // builtins.listToAttrs (map (plugin: {
-        name = "neovim/lua/plugins/specs/${plugin}.lua";
+        name = "neovim/lua/plugins/${plugin}.lua";
         value =
           (plugin: {
-            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/specs/${plugin}.lua";
-            target = ".config/nvim/lua/plugins/specs/${plugin}.lua";
+            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/${plugin}.lua";
+            target = ".config/nvim/lua/plugins/${plugin}.lua";
           })
           plugin;
       })

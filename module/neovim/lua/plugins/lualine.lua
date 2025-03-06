@@ -15,6 +15,7 @@ return {
 			violet = "#cc7fff",
 			yellow = "#ffd542",
 			red = "#fe605a",
+			orange = "#fa902d",
 			fg = "#c3ccdc",
 			bg = "#112638",
 			inactive_bg = "#2c3043",
@@ -43,6 +44,11 @@ return {
 			},
 			replace = {
 				a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+				b = { bg = colors.bg, fg = colors.fg },
+				c = { bg = colors.bg, fg = colors.fg },
+			},
+			terminal = {
+				a = { bg = colors.orange, fg = colors.bg, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.fg },
 				c = { bg = colors.bg, fg = colors.fg },
 			},
