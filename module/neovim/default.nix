@@ -32,7 +32,6 @@
     "tokyonight"
     "trouble"
     "which-key"
-    "zen-mode"
   ];
 in {
   home.packages = [
