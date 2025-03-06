@@ -29,6 +29,7 @@
     "substitute"
     "telescope"
     "todo-comments"
+    "toggleterm"
     "tokyonight"
     "trouble"
     "which-key"
