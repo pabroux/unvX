@@ -19,7 +19,12 @@ return {
 
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-		keymap.set("n", "<leader>fqq", "<cmd>Telescope quickfix<cr>", { desc = "Find items in the quickfix list" })
+		keymap.set(
+			"n",
+			"<leader>fq<leader>",
+			"<cmd>Telescope quickfix<cr>",
+			{ desc = "Find items in the quickfix list" }
+		)
 		keymap.set(
 			"n",
 			"<leader>fqh",
