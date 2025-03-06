@@ -25,4 +25,4 @@ keymap.set("n", "<leader>w", "<cmd>close<cr>", { desc = "Close current split" })
 
 -- Terminal mode
 -- ↳ Exit terminal mode
-keymap.set("t", "<esc>", [[<c-\><c-n>]], { desc = "Escape terminal mode" })
+keymap.set("t", "<c-d>", [[<c-\><c-n>]], { desc = "Escape terminal mode" })
