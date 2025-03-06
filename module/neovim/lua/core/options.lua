@@ -1,3 +1,4 @@
+local api = vim.api
 local opt = vim.opt
 
 -- Appearance
@@ -13,6 +14,9 @@ opt.clipboard:append("unnamedplus")
 
 -- Cursor
 opt.guicursor = ""
+
+-- Cursor color
+api.nvim_set_hl(0, "TermCursor", { fg = vim.api.nvim_get_hl_by_name("Normal", true).background, bg = "#ffffff" })
 
 -- Cursor line
 opt.cursorline = true
@@ -31,7 +35,7 @@ opt.relativenumber = true
 opt.wrap = false
 
 -- Netrw
-vim.cmd("let g:netrw_liststyle = 3")
+api.nvim_set_var("netrw_liststyle", 3)
 
 -- Search
 opt.ignorecase = true
