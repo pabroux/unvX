@@ -46,7 +46,7 @@ alias nxs="nix shell"
 alias tx="tmux"
 alias txa="tmux attach"
 alias txat="tmux attach -t"
-alias txkill="tmux kill-session -t"
+alias txk="tmux kill-session -t"
 alias txls="tmux list-sessions"
 
 ###############################################################################
