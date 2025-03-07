@@ -9,7 +9,10 @@
     <img src="https://img.shields.io/github/license/pabroux/unvX.svg" alt="License Badge">
   </a>
 </p>
-
+<p align="center">
+  <img src="https://github.com/pabroux/unvX/actions/workflows/code_quality_checker.yml/badge.svg" alt="Code Quality Checker Badge">
+  <img src="https://github.com/pabroux/unvX/actions/workflows/secret_scanner.yml/badge.svg" alt="Secret Scanner Badge">
+</p>
 
 ## About 
 unvX is a standalone [Home Manager](https://github.com/nix-community/home-manager) configuration using pure Nix flakes to install software and manage dotfiles. It employs symlinks for dotfile management, allowing immediate feedback on any change made.
