@@ -10,8 +10,8 @@
   </a>
 </p>
 <p align="center">
-  <img src="https://github.com/pabroux/unvX/actions/workflows/code_quality_checker.yml/badge.svg" alt="Code Quality Checker Badge">
-  <img src="https://github.com/pabroux/unvX/actions/workflows/secret_scanner.yml/badge.svg" alt="Secret Scanner Badge">
+  <img src="https://github.com/pabroux/unvX/actions/workflows/code-quality-checker.yml/badge.svg" alt="Code Quality Checker Badge">
+  <img src="https://github.com/pabroux/unvX/actions/workflows/secret-scanner.yml/badge.svg" alt="Secret Scanner Badge">
 </p>
 
 ## About 
