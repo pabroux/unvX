@@ -9,7 +9,7 @@ repos:
         files: \.nix$
       - id: shfmt
         name: Sh (shell formatter)
-        description: This hook checks shell files with Stylua.
+        description: This hook checks shell files with shfmt.
         entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#shfmt --command shfmt -w $arg; done;' --
         language: system
         types_or: [ash, bash, dash, ksh, sh, zsh]
