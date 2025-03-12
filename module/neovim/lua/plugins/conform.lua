@@ -39,11 +39,16 @@ return {
 				json = { "prettier" },
 				lua = { "stylua" },
 				markdown = { "prettier" },
-				python = { "isort", "black" },
+				python = { "black", "isort" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				svelte = { "prettier" },
 				yaml = { "prettier" },
+			},
+			formatters = {
+				isort = {
+					prepend_args = { "--profile", "black" },
+				},
 			},
 		})
 	end,
