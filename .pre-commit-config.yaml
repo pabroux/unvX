@@ -22,6 +22,6 @@ repos:
       - id: gitleaks
         name: Gitleaks (secret scanner)
         description: This hook checks the existence of secrets.
-        entry: bash -c 'nix shell nixpkgs#gitleaks --command gitleaks git --pre-commit --redact --staged --no-banner --verbose 2> /dev/null; nix shell nixpkgs#gitleaks --command gitleaks dir --redact --no-banner --verbose 2> /dev/null'
+        entry: bash -c 'nix shell nixpkgs#gitleaks --command gitleaks git --pre-commit --staged --redact --no-banner --verbose 2> /dev/null; nix shell nixpkgs#gitleaks --command gitleaks git --redact --no-banner --verbose 2> /dev/null'
         language: system
         pass_filenames: false
