@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
-      - name: Check format of Nix files
+      - name: Check format of Nix files (Alejandra)
         run: nix shell nixpkgs#alejandra --command alejandra -q -c .
-      - name: Check format of shell files
+      - name: Check format of shell files (shfmt)
         run: nix shell nixpkgs#shfmt --command shfmt -d .
-      - name: Check format of Lua files
+      - name: Check format of Lua files (Stylua)
         run: nix shell nixpkgs#stylua --command stylua -c .
