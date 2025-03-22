@@ -1,4 +1,4 @@
-name: Secret scanner
+name: Code security checker
 on:
   push:
     branches: [ "master" ]

@@ -17,9 +17,9 @@
       <img src="https://github.com/pabroux/unvX/actions/workflows/code-quality-checker.yml/badge.svg" alt="Code Quality Checker Badge">
     </picture>
   </a>
-  <a href="https://github.com/pabroux/unvX/actions/workflows/secret-scanner.yml">
+  <a href="https://github.com/pabroux/unvX/actions/workflows/code-security-checker.yml">
     <picture>
-      <img src="https://github.com/pabroux/unvX/actions/workflows/secret-scanner.yml/badge.svg" alt="Secret Scanner Badge">
+      <img src="https://github.com/pabroux/unvX/actions/workflows/code-security-checker.yml/badge.svg" alt="Code Security Checker Badge">
     </picture>
   </a>
 </p>
