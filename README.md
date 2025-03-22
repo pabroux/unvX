@@ -6,12 +6,22 @@
 </p>
 <p align="center">
   <a href="https://github.com/pabroux/unvX/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/pabroux/unvX.svg" alt="License Badge">
+    <picture>
+      <img src="https://img.shields.io/github/license/pabroux/unvX.svg?label=Licence" alt="License Badge">
+    </picture>
   </a>
 </p>
 <p align="center">
-  <img src="https://github.com/pabroux/unvX/actions/workflows/code-quality-checker.yml/badge.svg" alt="Code Quality Checker Badge">
-  <img src="https://github.com/pabroux/unvX/actions/workflows/secret-scanner.yml/badge.svg" alt="Secret Scanner Badge">
+  <a href="https://github.com/pabroux/unvX/actions/workflows/code-quality-checker.yml">
+    <picture>
+      <img src="https://github.com/pabroux/unvX/actions/workflows/code-quality-checker.yml/badge.svg" alt="Code Quality Checker Badge">
+    </picture>
+  </a>
+  <a href="https://github.com/pabroux/unvX/actions/workflows/secret-scanner.yml">
+    <picture>
+      <img src="https://github.com/pabroux/unvX/actions/workflows/secret-scanner.yml/badge.svg" alt="Secret Scanner Badge">
+    </picture>
+  </a>
 </p>
 
 ## About 
