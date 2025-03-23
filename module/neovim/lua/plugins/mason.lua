@@ -26,12 +26,12 @@ return {
 			ensure_installed = {
 				"angularls",
 				"ansiblels",
+				"basedpyright",
 				"bashls",
 				"clangd",
 				"cssls",
 				"dockerls",
 				"graphql",
-				"harper_ls",
 				"intelephense",
 				"jsonls",
 				"ltex",
