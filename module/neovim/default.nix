@@ -75,7 +75,7 @@ in {
 
   home.activation = {
     installNeovimPlugins =
-      lib.hm.dag.entryAfter ["installPackages"]
+      lib.hm.dag.entryAfter ["installPackages" "linkGeneration"]
       "(
         PATH=$HOME/.nix-profile/bin:$PATH
         if [[ -v DRY_RUN ]]; then
