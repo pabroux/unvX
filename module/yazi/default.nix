@@ -18,6 +18,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/keymap.toml";
       target = ".config/yazi/keymap.toml";
     };
+    "yazi/package.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/package.toml";
+      target = ".config/yazi/package.toml";
+    };
     "yazi/theme.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/theme.toml";
       target = ".config/yazi/theme.toml";
@@ -30,17 +34,14 @@
 
   home.activation = {
     installYaziPlugins =
-      lib.hm.dag.entryAfter ["writeBoundary"]
+      lib.hm.dag.entryAfter ["installPackages" "linkGeneration"]
       "(
-        PATH=$HOME/.nix-profile/bin:$PATH
+        PATH=$HOME/.nix-profile/bin:/usr/bin:$PATH
         if [[ -v DRY_RUN ]]; then
-          echo \"ya pack -a yazi-rs/plugins:full-border &> /dev/null\"
           echo \"ya pack -u &> /dev/null\"
         elif [[ -v VERBOSE ]]; then
-          ya pack -a yazi-rs/plugins:full-border
           ya pack -u
         else
-          ya pack -a yazi-rs/plugins:full-border &> /dev/null
           ya pack -u &> /dev/null
         fi
       )";
