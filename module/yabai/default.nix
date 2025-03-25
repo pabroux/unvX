@@ -18,7 +18,7 @@
 
   home.activation = {
     setupYabai =
-      lib.hm.dag.entryAfter ["writeBoundary"]
+      lib.hm.dag.entryAfter ["installPackages"]
       "(
         PATH=$HOME/.nix-profile/bin:/usr/bin:/bin:$PATH
         echo -n 'Do you want to setup the yabai scripting addition (superuser privileges required)? [y/n]: '
