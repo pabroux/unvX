@@ -36,6 +36,7 @@
     "tmux"
     "vim"
     "yabai"
+    "yazi"
     "zoxide"
     "zsh"
     "zsh-autosuggestions"
