@@ -29,7 +29,7 @@
     installVimPlugins =
       lib.hm.dag.entryAfter ["installPackages"]
       "(
-        PATH=/usr/bin/:$PATH
+        PATH=/usr/bin:$PATH
         if [[ -v DRY_RUN ]]; then
           echo 'echo | echo | vim +PluginInstall +qall &> /dev/null'
         elif [[ -v VERBOSE ]]; then
