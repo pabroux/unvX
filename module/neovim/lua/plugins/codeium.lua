@@ -30,6 +30,9 @@ return {
 			quiet = true,
 			virtual_text = {
 				enabled = true,
+				filetypes = {
+					TelescopePrompt = false,
+				},
 				key_bindings = keymaps,
 			},
 		})
