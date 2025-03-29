@@ -15,6 +15,9 @@ alias cols="conda list"
 alias dk="docker"
 alias dkc="docker compose"
 
+# Git
+alias g="git"
+
 # Home Manager
 alias hmn="home-manager news"
 alias hms="home-manager switch"
@@ -24,11 +27,14 @@ alias hmsq="yes 'n' | hms"
 # Kubernetes
 alias kbc="kubectl"
 
-# Coreutils
-alias ls="gls --color --group-directories-first"
+# Lazydocker
+alias ldk="lazydocker"
 
 # Lazygit
 alias lg="lazygit"
+
+# Coreutils
+alias ls="gls --color --group-directories-first"
 
 # Minikube
 alias mnkb="minikube"
