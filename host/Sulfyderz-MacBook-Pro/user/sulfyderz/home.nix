@@ -25,6 +25,7 @@
     "github-cli"
     "homebrew"
     "htop"
+    "lazydocker"
     "lazygit"
     "minikube"
     "neovim"
