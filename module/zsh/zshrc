@@ -46,6 +46,7 @@ alias nv="nvim"
 alias nxg="nix-collect-garbage"
 alias nxgf="nix-collect-garbage --delete-old"
 alias nxf="nix flake"
+alias nxfu="nix flake update"
 alias nxr="nix run"
 alias nxs="nix shell"
 
