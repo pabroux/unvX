@@ -14,9 +14,9 @@
       "(
         PATH=/opt/homebrew/bin:$PATH
         if [[ -v DRY_RUN ]]; then
-          echo 'pixi config set change-ps1 false'
+          echo 'pixi config set shell.change-ps1 false'
         else
-          pixi config set change-ps1 false
+          pixi config set shell.change-ps1 false
         fi
       )";
   };
