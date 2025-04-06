@@ -13,7 +13,6 @@
     "gimp"
     "keepassxc"
     "linear-linear"
-    "miniconda"
     "notion"
     "nvidia-geforce-now"
     "onyx"
