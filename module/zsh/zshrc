@@ -44,6 +44,9 @@ alias nxfu="nix flake update"
 alias nxr="nix run"
 alias nxs="nix shell"
 
+# Pixi
+alias px="pixi"
+
 # Tmux
 alias tx="tmux"
 alias txa="tmux attach"
