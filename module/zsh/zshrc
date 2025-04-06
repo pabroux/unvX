@@ -46,6 +46,7 @@ alias nxs="nix shell"
 
 # Pixi
 alias px="pixi"
+alias pxs="pixi shell"
 
 # Tmux
 alias tx="tmux"
