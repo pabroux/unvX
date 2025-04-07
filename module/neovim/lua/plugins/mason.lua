@@ -35,7 +35,6 @@ return {
 				"graphql",
 				"intelephense",
 				"jsonls",
-				"ltex",
 				"sqlls",
 				"svelte",
 				"tailwindcss",
