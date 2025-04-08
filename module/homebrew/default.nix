@@ -15,6 +15,7 @@
     "linear-linear"
     "notion"
     "nvidia-geforce-now"
+    "obsidian"
     "onyx"
     "raycast"
     "slack"
