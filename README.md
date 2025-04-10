@@ -60,8 +60,8 @@ To install, use the following command inside the unvX folder:
 
 > [!NOTE]
 > This command will do three things:
-> - Configure your Git Hooks to invoke [pre-commit](https://pre-commit.com) using Nix;
-> - Generate a `unvX.nix` file;
+> - Configure your Git Hooks to invoke [pre-commit](https://pre-commit.com) using Nix.
+> - Generate a `unvX.nix` file.
 > - Link the Home Manager flakes regardless of the location of your unvX folder.
 
 
@@ -82,9 +82,9 @@ home-manager switch
 
 ## Structure
 Here is a brief description of the structure:
-- `flake.nix`: Entrypoint for profiles and Home Manager configurations. Home Manager will by default match first a `$USER@$(hostname)` profile. If not found, it will then default to a `$USER` profile;
-- `host`: Home Manager configurations for specific machines and users, specifying which Nix module in the `module` folder to use;
-- `module`: Nix modules dedicated to a specific software. These modules handle both the installation and configuration of the software and its extensions;
+- `flake.nix`: Entrypoint for profiles and Home Manager configurations. Home Manager will by default match first a `$USER@$(hostname)` profile. If not found, it will then default to a `$USER` profile.
+- `host`: Home Manager configurations for specific machines and users, specifying which Nix module in the `module` folder to use.
+- `module`: Nix modules dedicated to a specific software. These modules handle both the installation and configuration of the software and its extensions.
 - `unvX.nix`: Generated during the installation, a file that contains information about your unvX installation, such as the unvX location on your host machine. The content of that file is configured to be read by Home Manager and to be passed into all your Nix module under the `unvX` attribute name. `unvX.nix` is mainly used to symlink your dotfiles.
 
 > [!NOTE]
@@ -94,8 +94,8 @@ Here is a brief description of the structure:
 ## Resources
 Useful resources to learn Nix:
 
-- [Nix language basics](https://nix.dev/tutorials/nix-language);
-- [Packaging existing software with Nix](https://nix.dev/tutorials/packaging-existing-software);
-- [Nix modules](https://nix.dev/tutorials/module-system/);
-- [Nix flakes](https://zero-to-nix.com/concepts/flakes/). 
+- [Nix language basics](https://nix.dev/tutorials/nix-language)
+- [Packaging existing software with Nix](https://nix.dev/tutorials/packaging-existing-software)
+- [Nix modules](https://nix.dev/tutorials/module-system/)
+- [Nix flakes](https://zero-to-nix.com/concepts/flakes/) 
 
