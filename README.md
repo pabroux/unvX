@@ -24,14 +24,12 @@
   </a>
 </p>
 
-
 ## About
 
 unvX is a standalone [Home Manager](https://github.com/nix-community/home-manager) configuration using pure Nix flakes to install software and manage dotfiles. It employs symlinks for dotfile management, allowing immediate feedback on any change made.
 
 > [!IMPORTANT]
 > unvX serves as a source of inspiration.
-
 
 ## Table of contents
 
@@ -41,7 +39,6 @@ unvX is a standalone [Home Manager](https://github.com/nix-community/home-manage
 - [Structure](#structure)
 - [Resources](#resources)
 
-
 ## Requirements
 
 To use unvX, you will need:
@@ -50,7 +47,6 @@ To use unvX, you will need:
 
 > [!TIP]
 > Use the [Nix installer](https://github.com/DeterminateSystems/nix-installer) by Determinate Systems to install Nix with the Nix flake feature enabled.
-
 
 ## Install
 To install, use the following command inside the unvX folder:
@@ -63,7 +59,6 @@ To install, use the following command inside the unvX folder:
 > - Configure your Git Hooks to invoke [pre-commit](https://pre-commit.com) using Nix.
 > - Generate a `unvX.nix` file.
 > - Link the Home Manager flakes regardless of the location of your unvX folder.
-
 
 ## Usage
 For first-time installation, call the following command:
@@ -79,7 +74,6 @@ Otherwise, as any Home Manager configuration, call the following command to appl
 home-manager switch
 ```
 
-
 ## Structure
 Here is a brief description of the structure:
 - `flake.nix`: Entrypoint for profiles and Home Manager configurations. Home Manager will by default match first a `$USER@$(hostname)` profile. If not found, it will then default to a `$USER` profile.
@@ -90,12 +84,10 @@ Here is a brief description of the structure:
 > [!NOTE]
 > Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a `homebrew` Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything. If you plan to use the `homebrew` Nix module, make sure to have Homebrew installed.
 
-
 ## Resources
 Useful resources to learn Nix:
 
 - [Nix language basics](https://nix.dev/tutorials/nix-language)
 - [Packaging existing software with Nix](https://nix.dev/tutorials/packaging-existing-software)
 - [Nix modules](https://nix.dev/tutorials/module-system/)
-- [Nix flakes](https://zero-to-nix.com/concepts/flakes/) 
-
+- [Nix flakes](https://zero-to-nix.com/concepts/flakes/)
