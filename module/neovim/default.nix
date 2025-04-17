@@ -9,7 +9,6 @@
     "alpha-nvim"
     "auto-session"
     "bufferline"
-    "codeium"
     "comment"
     "conform"
     "gitsigns"
@@ -33,6 +32,7 @@
     "tokyonight"
     "trouble"
     "which-key"
+    "windsurf"
   ];
 in {
   home.packages = [

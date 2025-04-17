@@ -1,12 +1,12 @@
 return {
-	"Exafunction/codeium.nvim",
+	"Exafunction/windsurf.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
 	build = ":Codeium Auth",
 	event = "InsertEnter",
 	config = function()
-		local codeium = require("codeium")
+		local windsurf = require("codeium")
 
 		-------------------------------------------------------------------------------
 		-- Key bindings
@@ -25,7 +25,7 @@ return {
 		-- Options
 		-------------------------------------------------------------------------------
 
-		codeium.setup({
+		windsurf.setup({
 			enable_cmp_source = false,
 			quiet = true,
 			virtual_text = {
