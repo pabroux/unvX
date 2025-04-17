@@ -18,10 +18,6 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/keymap.toml";
       target = ".config/yazi/keymap.toml";
     };
-    "yazi/package.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/package.toml";
-      target = ".config/yazi/package.toml";
-    };
     "yazi/theme.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/theme.toml";
       target = ".config/yazi/theme.toml";
