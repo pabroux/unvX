@@ -34,11 +34,11 @@
       "(
         PATH=$HOME/.nix-profile/bin:/usr/bin:$PATH
         if [[ -v DRY_RUN ]]; then
-          echo \"ya pack -u &> /dev/null\"
+          echo \"ya pack -a yazi-rs/plugins:full-border &> /dev/null || ya pack -u &> /dev/null\"
         elif [[ -v VERBOSE ]]; then
-          ya pack -u
+          ya pack -a yazi-rs/plugins:full-border || ya pack -u
         else
-          ya pack -u &> /dev/null
+          ya pack -a yazi-rs/plugins:full-border &> /dev/null || ya pack -u &> /dev/null
         fi
       )";
   };
