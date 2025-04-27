@@ -8,6 +8,7 @@
     "discord"
     "docker"
     "edrawmind"
+    "figma"
     "font-sf-mono"
     "ghostty"
     "gimp"
