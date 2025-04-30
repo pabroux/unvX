@@ -213,6 +213,10 @@ symbol = 'php'
 format = '\[[$symbol( $channel)]($style)\]'
 symbol = 'pijul'
 
+[pixi]
+format = '\[[$symbol( $version)( \($environment\))]($style)\]'
+symbol = 'pixi'
+
 [pulumi]
 format = '\[[$symbol( $stack)]($style)\]'
 symbol = 'pulumi'
