@@ -50,6 +50,14 @@ alias pxls="pixi list"
 alias pxs="pixi shell"
 alias pxu="pixi upgrade"
 
+# Terraform
+alias tf="terraform"
+alias tfa="terraform apply"
+alias tfi="terraform init"
+alias tfls="terraform state list"
+alias tfs="terraform show"
+alias tfw="terraform workspace"
+
 # Tmux
 alias tx="tmux"
 alias txa="tmux attach"
