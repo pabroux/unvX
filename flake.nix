@@ -22,6 +22,7 @@
       # Specify your Home Manager profiles. Home Manager will by
       # default match first `$USER@$(hostname)`. If not found, it
       # will then default to `$USER`.
+
       packages.homeConfigurations = {
         "sulfyderz@Sulfyderz-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
