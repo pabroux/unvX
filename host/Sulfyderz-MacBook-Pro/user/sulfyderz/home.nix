@@ -22,6 +22,7 @@
     "ripgrep"
     "skhd"
     "starship"
+    "terraform"
     "tmux"
     "uv"
     "vim"
@@ -47,6 +48,8 @@ in {
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = map (x: ../../../../module + "/${x}") modules;
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) modules;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
