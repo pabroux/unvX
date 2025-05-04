@@ -23,7 +23,6 @@
     "fzf"
     "git"
     "github-cli"
-    "gobuster"
     "homebrew"
     "htop"
     "lazydocker"
