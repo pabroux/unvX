@@ -12,6 +12,7 @@
     "github-cli"
     "homebrew"
     "htop"
+    "huggingface-cli"
     "lazydocker"
     "lazygit"
     "minikube"
