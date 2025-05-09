@@ -50,6 +50,7 @@ alias nxs="nix shell"
 # Pixi
 alias px="pixi"
 alias pxls="pixi list"
+alias pxr="pixi run"
 alias pxs="pixi shell"
 alias pxu="pixi upgrade"
 
