@@ -11,12 +11,7 @@ return {
 
 		keymap.set("n", "<leader>e<leader>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
 		keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<cr>", { desc = "Focus file explorer" })
-		keymap.set(
-			"n",
-			"<leader>e.",
-			"<cmd>NvimTreeFindFileToggle<cr>",
-			{ desc = "Toggle file explorer on current file" }
-		)
+		keymap.set("n", "<leader>e.", "<cmd>NvimTreeFindFile<cr>", { desc = "Toggle file explorer on current file" })
 
 		local function on_attach(bufnr)
 			local api = require("nvim-tree.api")
