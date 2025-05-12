@@ -5,6 +5,7 @@
   ...
 }: let
   modules = [
+    "aws-cli"
     "coreutils"
     "deno"
     "fzf"
