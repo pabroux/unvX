@@ -46,6 +46,7 @@ alias nxf="nix flake"
 alias nxfu="nix flake update"
 alias nxr="nix run"
 alias nxs="nix shell"
+alias nxsh="nix search nixpkgs"
 
 # Pixi
 alias px="pixi"
