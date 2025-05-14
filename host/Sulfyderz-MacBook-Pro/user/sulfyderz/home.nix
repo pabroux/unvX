@@ -17,6 +17,7 @@
     "lazydocker"
     "lazygit"
     "minikube"
+    "mongosh"
     "neovim"
     "nodejs"
     "ollama"
