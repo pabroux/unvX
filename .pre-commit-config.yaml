@@ -1,5 +1,5 @@
 repos:
-  - repo: local 
+  - repo: local
     hooks:
       - id: alejandra
         name: Alejandra (Nix formatter)
@@ -19,6 +19,12 @@ repos:
         entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#stylua --command stylua $arg; done;' --
         language: system
         files: \.lua$
+      - id: yamlfmt
+        name: Yamlfmt (YAML formatter)
+        description: This hook checks YAML files with yamlfmt.
+        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#yamlfmt --command yamlfmt $arg; done;' --
+        language: system
+        types: [yaml]
       - id: gitleaks
         name: Gitleaks (secret scanner)
         description: This hook checks the existence of secrets.
