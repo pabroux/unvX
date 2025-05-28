@@ -40,7 +40,6 @@ return {
 				"tailwindcss",
 				"terraformls",
 				"vimls",
-				"volar",
 				"yamlls",
 			},
 		})
