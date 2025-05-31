@@ -46,7 +46,7 @@ To use unvX, you will need:
 - [Nix](https://nixos.org) with the Nix flake experimental feature enabled.
 
 > [!TIP]
-> Use the [Nix installer](https://github.com/DeterminateSystems/nix-installer) by Determinate Systems to install Nix with the Nix flake feature enabled.
+> Use the [Nix installer](https://github.com/DeterminateSystems/nix-installer) by Determinate Systems to install Nix with the Nix flake feature enabled by default.
 
 ## Install
 To install, use the following command inside the unvX folder:
