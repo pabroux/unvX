@@ -16,6 +16,7 @@ alias g="git"
 alias hf="huggingface-cli"
 
 # Home Manager
+alias hm="home-manager"
 alias hmn="home-manager news"
 alias hms="home-manager switch"
 alias hmsv="home-manager -v switch"
@@ -40,6 +41,7 @@ alias mnkb="minikube"
 alias nv="nvim"
 
 # Nix
+alias nx="nix"
 alias nxg="nix-collect-garbage"
 alias nxgf="nix-collect-garbage --delete-old"
 alias nxf="nix flake"
