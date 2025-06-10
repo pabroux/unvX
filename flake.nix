@@ -2,8 +2,12 @@
   description = "unvX: a simple Home Manager configuration";
 
   inputs = {
-    # nixpkgs, home-manager and flake-utils are by default loaded since they are
-    # available in the global flake registry.
+    # Determinate Nix deprecates the default loading of nixpkgs, home-manager,
+    # and flake-utils from the global flake registry, encouraging explicit input
+    # specification instead.
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
