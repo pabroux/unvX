@@ -25,18 +25,14 @@ return {
 		mason_lspconfig.setup({
 			-- LSP servers
 			ensure_installed = {
-				"angularls",
-				"ansiblels",
 				"basedpyright",
 				"bashls",
 				"clangd",
 				"cssls",
 				"dockerls",
-				"graphql",
 				"intelephense",
 				"jsonls",
 				"sqlls",
-				"svelte",
 				"tailwindcss",
 				"terraformls",
 				"vimls",
