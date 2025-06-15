@@ -29,7 +29,7 @@
 unvX is a standalone [Home Manager](https://github.com/nix-community/home-manager) configuration using pure Nix flakes to install software and manage dotfiles. It employs symlinks for dotfile management, allowing immediate feedback on any change made.
 
 > [!IMPORTANT]
-> unvX serves as a source of inspiration.
+> unvX serves as a source of inspiration. If it receives enough stars, I'll develop a unvX builder tool designed to help you configure and manage your own Home Manager more easily.
 
 ## Table of contents
 
