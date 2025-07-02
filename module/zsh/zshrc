@@ -53,11 +53,11 @@ alias nxsh="nix search nixpkgs"
 # Pixi
 alias px="pixi"
 alias pxa="pixi add"
-alias pxap="pixi add --pypi"
 alias pxi="pixi init"
 alias pxip="pixi init --format pyproject"
 alias pxls="pixi list"
 alias pxr="pixi run"
+alias pxrm="pixi rm"
 alias pxs="pixi shell"
 alias pxu="pixi upgrade"
 
