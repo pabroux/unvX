@@ -10,8 +10,6 @@
       <img src="https://img.shields.io/github/license/pabroux/unvX.svg?label=Licence" alt="License Badge">
     </picture>
   </a>
-</p>
-<p align="center">
   <a href="https://github.com/pabroux/unvX/actions/workflows/ci.yml">
     <picture>
       <img src="https://github.com/pabroux/unvX/actions/workflows/ci.yml/badge.svg" alt="CI Badge">
