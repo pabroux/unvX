@@ -1,4 +1,4 @@
-name: Code quality checker
+name: CI
 on:
   push:
     branches: ["master"]
@@ -10,7 +10,7 @@ concurrency:
 permissions:
   contents: read
 jobs:
-  code-quality-checker:
+  QA:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,3 +25,5 @@ jobs:
         run: nix shell nixpkgs#stylua --command stylua -c .
       - name: Check format of YAML files (yamlfmt)
         run: nix shell nixpkgs#yamlfmt --command yamlfmt -quiet -lint .
+      - name: Scan secrets
+        run: nix shell nixpkgs#gitleaks --command gitleaks git --no-banner --verbose
