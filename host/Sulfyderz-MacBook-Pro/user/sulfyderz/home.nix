@@ -21,6 +21,7 @@
     "nodejs"
     "ollama"
     "pixi"
+    "psql"
     "ripgrep"
     "skhd"
     "starship"
