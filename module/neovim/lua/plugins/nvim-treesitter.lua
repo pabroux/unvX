@@ -13,8 +13,8 @@ return {
 		-------------------------------------------------------------------------------
 
 		local keymaps = {
-			init_selection = "<c-space>",
-			node_incremental = "<c-space>",
+			init_selection = "<c-a>",
+			node_incremental = "<c-a>",
 			scope_incremental = false,
 			node_decremental = "<bs>",
 		}
