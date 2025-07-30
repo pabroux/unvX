@@ -11,6 +11,7 @@
     "bufferline"
     "comment"
     "conform"
+    "flash"
     "gitsigns"
     "indent-blankline"
     "lazygit"
