@@ -6,6 +6,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/pabroux/unvX/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pabroux/unvX.svg?label=License" alt="License Badge"></a>
+  <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-green?logo=pre-commit" alt="pre-commit Badge"></a>
   <a href="https://github.com/pabroux/unvX/actions/workflows/ci.yml"><img src="https://github.com/pabroux/unvX/actions/workflows/ci.yml/badge.svg" alt="CI Badge"></a>
 </p>
 
