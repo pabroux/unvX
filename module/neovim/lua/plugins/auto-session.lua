@@ -5,9 +5,9 @@ return {
 		-- Key bindings
 		-------------------------------------------------------------------------------
 
-		{ mode = { "n" }, "<leader>sl", "<cmd>SessionSearch<cr>", desc = "List sessions" },
-		{ mode = { "n" }, "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore session for cwd" },
-		{ mode = { "n" }, "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save session for auto session root dir" },
+		{ mode = { "n" }, "<leader>sl", "<cmd>AutoSession search<cr>", desc = "List sessions" },
+		{ mode = { "n" }, "<leader>sr", "<cmd>AutoSession restore<cr>", desc = "Restore session for cwd" },
+		{ mode = { "n" }, "<leader>ss", "<cmd>AutoSession save<cr>", desc = "Save session for auto session root dir" },
 	},
 	opts = {
 		-------------------------------------------------------------------------------
