@@ -7,6 +7,7 @@
   modules = [
     "aws-cli"
     "coreutils"
+    "fd"
     "fzf"
     "git"
     "github-cli"
