@@ -25,6 +25,12 @@ repos:
         entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#yamlfmt --command yamlfmt $arg; done;' --
         language: system
         types: [yaml]
+      - id: gitlint
+        name: Gitlint (git commit message linter)
+        description: This hook checks git commit messages with gitlint.
+        entry: nix shell nixpkgs#gitlint --command gitlint --staged --msg-filename
+        language: system
+        stages: [commit-msg]
       - id: gitleaks
         name: Gitleaks (secret scanner)
         description: This hook checks the existence of secrets.
