@@ -24,12 +24,12 @@ STR_UNVX="\033[1munvX\033[0m"
 # Install Git hook scripts
 configure_git_hooks() {
 	file_pre_commit="$DIR_CUR"/.git/hooks/pre-commit
-    file_commit_msg="$DIR_CUR"/.git/hooks/commit-msg
+	file_commit_msg="$DIR_CUR"/.git/hooks/commit-msg
 
-    create_hook() {
-        local hook_type="$1"
-        local file="$2"
-        local content="#!/usr/bin/env nix
+	create_hook() {
+		local hook_type="$1"
+		local file="$2"
+		local content="#!/usr/bin/env nix
 #! nix shell nixpkgs#pre-commit --command bash
 
 ARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=$hook_type)
@@ -37,13 +37,13 @@ HERE=\"\$(cd \"\$(dirname \"\$0\")\" && pwd)\"
 ARGS+=(--hook-dir \"\$HERE\" -- \"\$@\")
 
 exec pre-commit \"\${ARGS[@]}\""
-        echo -e "$content" >"$file"
-        chmod a+x "$file"
-    }
+		echo -e "$content" >"$file"
+		chmod a+x "$file"
+	}
 
-    create_hook "pre-commit" "$file_pre_commit"
-    create_hook "commit-msg" "$file_commit_msg"
-    echo -e "$STR_UNVX $STR_CONF Git Hooks: $STR_DONE"
+	create_hook "pre-commit" "$file_pre_commit"
+	create_hook "commit-msg" "$file_commit_msg"
+	echo -e "$STR_UNVX $STR_CONF Git Hooks: $STR_DONE"
 }
 
 # Display a tip for the next step
