@@ -3,7 +3,7 @@
 ignore=T3,B6
 
 # Enable specific community contributed rules
-contrib=contrib-title-conventional-commits
+contrib=CT1
 
 [title-max-length]
 line-length=80 
