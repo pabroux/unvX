@@ -32,23 +32,19 @@ in {
     installHomebrewCasks =
       lib.hm.dag.entryAfter ["installPackages"]
       (
-        lib.strings.concatLines
         (
-          map
-          (
-            cask: "(
-                    PATH=/opt/homebrew/bin:$PATH
-                    if [[ -v DRY_RUN ]]; then
-                      echo 'brew install --cask ${cask}'
-                    elif [[ -v VERBOSE ]]; then
-                      brew install --cask ${cask}
-                    else
-                      brew install --quiet --cask ${cask} &> /dev/null
-                    fi
-                  )"
-          )
-          casks
+          cask: "(
+                  PATH=/opt/homebrew/bin:$PATH
+                  if [[ -v DRY_RUN ]]; then
+                    echo 'brew install --cask ${cask}'
+                  elif [[ -v VERBOSE ]]; then
+                    brew install --cask ${cask}
+                  else
+                    brew install --quiet --cask ${cask} &> /dev/null
+                  fi
+                )"
         )
+        (lib.strings.concatStringsSep " " casks)
       );
   };
 }
