@@ -14,6 +14,7 @@
     "gimp"
     "keepassxc"
     "linear-linear"
+    "logi-options+"
     "notion"
     "nvidia-geforce-now"
     "obsidian"
