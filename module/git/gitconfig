@@ -8,6 +8,7 @@
 [alias]
 	br = branch
 	ci = commit
+  cl = clone
 	co = checkout
 	lg = log
  	ph = push
