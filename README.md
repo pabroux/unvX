@@ -36,6 +36,7 @@ To use unvX, you will need:
 > Use the [Nix installer](https://github.com/DeterminateSystems/nix-installer) by Determinate Systems to install Nix with the Nix flake feature enabled by default.
 
 ## Install
+
 To install, use the following command inside the unvX folder:
 ```
 ./install
@@ -48,6 +49,7 @@ To install, use the following command inside the unvX folder:
 > - Link the Home Manager flakes regardless of the location of your unvX folder.
 
 ## Usage
+
 For first-time installation, call the following command:
 ```
 nix run home-manager -- switch
@@ -62,6 +64,7 @@ home-manager switch
 ```
 
 ## Structure
+
 Here is a brief description of the structure:
 - `flake.nix`: Entrypoint for profiles and Home Manager configurations. Home Manager will by default match first a `$USER@$(hostname)` profile. If not found, it will then default to a `$USER` profile.
 - `host`: Home Manager configurations for specific machines and users, specifying which Nix module in the `module` folder to use.
@@ -72,6 +75,7 @@ Here is a brief description of the structure:
 > Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a `homebrew` Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything. If you plan to use the `homebrew` Nix module, make sure to have Homebrew installed.
 
 ## Resources
+
 Useful resources to learn Nix:
 
 - [Nix language basics](https://nix.dev/tutorials/nix-language)
