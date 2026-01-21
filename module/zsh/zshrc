@@ -12,9 +12,6 @@ alias dkc="docker compose"
 # Git
 alias g="git"
 
-# Hugging Face
-alias hf="huggingface-cli"
-
 # Home Manager
 alias hm="home-manager"
 alias hmn="home-manager news"
