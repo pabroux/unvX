@@ -6,6 +6,7 @@
 }: let
   modules = [
     "aws-cli"
+    "bun"
     "coreutils"
     "fd"
     "fzf"
