@@ -34,11 +34,11 @@
       "(
         PATH=$HOME/.nix-profile/bin:/usr/bin:$PATH
         if [[ -v DRY_RUN ]]; then
-          echo \"ya pack -a yazi-rs/plugins:full-border &> /dev/null || ya pack -u &> /dev/null\"
+          echo \"ya pkg add yazi-rs/plugins:full-border &> /dev/null || ya pkg upgrade &> /dev/null\"
         elif [[ -v VERBOSE ]]; then
-          ya pack -a yazi-rs/plugins:full-border || ya pack -u
+          ya pkg add yazi-rs/plugins:full-border || ya pkg upgrade
         else
-          ya pack -a yazi-rs/plugins:full-border &> /dev/null || ya pack -u &> /dev/null
+          ya pkg add yazi-rs/plugins:full-border &> /dev/null || ya pkg upgrade &> /dev/null
         fi
       )";
   };
