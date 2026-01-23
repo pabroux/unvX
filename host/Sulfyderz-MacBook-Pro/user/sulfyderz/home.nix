@@ -19,6 +19,7 @@
     "lazygit"
     "minikube"
     "mongosh"
+    "mise"
     "neovim"
     "nodejs"
     "ollama"
