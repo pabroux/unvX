@@ -5,7 +5,7 @@
     # Determinate Nix deprecates the default loading of nixpkgs, home-manager,
     # and flake-utils from the global flake registry, encouraging explicit input
     # specification instead.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
