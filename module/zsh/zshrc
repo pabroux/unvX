@@ -16,8 +16,8 @@ alias g="git"
 alias hm="home-manager"
 alias hmn="home-manager news"
 alias hms="home-manager switch"
-alias hmsv="home-manager -v switch"
-alias hmsq="yes 'n' | hms"
+alias hmsv="home-manager switch -v"
+alias hmsq="yes 'n' | home-manager switch"
 
 # Kubernetes
 alias kbc="kubectl"
@@ -31,6 +31,14 @@ alias lg="lazygit"
 # Coreutils
 alias ls="gls --color --group-directories-first"
 
+# Mise
+alias ms="mise"
+alias mse="mise exec"
+alias msp="mise prune"
+alias mss="mise search"
+alias mssh="mise shell"
+alias msu="mise use"
+
 # Minikube
 alias mnkb="minikube"
 
@@ -39,23 +47,20 @@ alias nv="nvim"
 
 # Nix
 alias nx="nix"
-alias nxg="nix-collect-garbage"
-alias nxgf="nix-collect-garbage --delete-old"
+alias nxg="nix-collect-garbage --delete-old"
 alias nxf="nix flake"
 alias nxfu="nix flake update"
 alias nxr="nix run"
-alias nxs="nix shell"
-alias nxsh="nix search nixpkgs"
+alias nxs="nix search nixpkgs"
+alias nxsh="nix shell"
 
 # Pixi
 alias px="pixi"
 alias pxa="pixi add"
 alias pxi="pixi init"
 alias pxip="pixi init --format pyproject"
-alias pxls="pixi list"
 alias pxr="pixi run"
-alias pxrm="pixi rm"
-alias pxs="pixi shell"
+alias pxsh="pixi shell"
 alias pxu="pixi upgrade"
 
 # Terraform
@@ -71,7 +76,6 @@ alias tx="tmux"
 alias txa="tmux attach"
 alias txat="tmux attach -t"
 alias txk="tmux kill-session -t"
-alias txls="tmux list-sessions"
 
 ###############################################################################
 # Functions
@@ -151,6 +155,8 @@ source $HOME/.nix-profile/share/fzf/completion.zsh 2> /dev/null
 source $HOME/.nix-profile/share/fzf/key-bindings.zsh 2> /dev/null
 # ↳ Git
 export GIT_CONFIG_SYSTEM=$HOME/.config/git/gitconfig
+# ↳ Mise
+eval "$(mise activate zsh)"
 # ↳ Starship
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init zsh 2> /dev/null)"
