@@ -37,7 +37,7 @@ alias mnkb="minikube"
 # Mise
 alias ms="mise"
 alias mse="mise exec"
-alias msp="mise prune"
+alias msp="mise prune -y"
 alias mss="mise search"
 alias mssh="mise shell"
 alias msu="mise use"
