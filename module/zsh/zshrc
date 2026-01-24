@@ -31,6 +31,9 @@ alias lg="lazygit"
 # Coreutils
 alias ls="gls --color --group-directories-first"
 
+# Minikube
+alias mnkb="minikube"
+
 # Mise
 alias ms="mise"
 alias mse="mise exec"
@@ -38,9 +41,6 @@ alias msp="mise prune"
 alias mss="mise search"
 alias mssh="mise shell"
 alias msu="mise use"
-
-# Minikube
-alias mnkb="minikube"
 
 # Neovim
 alias nv="nvim"
