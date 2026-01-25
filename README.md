@@ -24,6 +24,7 @@ unvX is a standalone [Home Manager](https://github.com/nix-community/home-manage
 - [Install](#install)
 - [Usage](#usage)
 - [Structure](#structure)
+- [Recommendations](#recommendations)
 - [Resources](#resources)
 
 ## Requirements
@@ -73,6 +74,19 @@ Here is a brief description of the structure:
 
 > [!NOTE]
 > Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a `homebrew` Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything. If you plan to use the `homebrew` Nix module, make sure to have Homebrew installed.
+
+## Recommendations
+
+When configuring your environment, I recommend a hybrid approach:
+
+- Use unvX for foundations: Install your essential, "always-on" tools here (e.g., zsh, git, neovim, tmux). If it shapes your shell behavior or OS integration, it belongs in your Home Manager config.
+
+- Use [Mise](https://github.com/jdx/mise) for runtimes: For project-specific languages (Node, Python, Go) that require frequent version switching, use Mise.
+
+Why? Nix provides a rock-solid, reproducible base, but can feel rigid for rapid version hopping. Mise excels at managing dynamic per-directory runtimes, giving you the best of both worlds: a stable environment and developer agility.
+
+> [!NOTE]
+> A `mise` Nix module is available in the `module` folder. 
 
 ## Resources
 
