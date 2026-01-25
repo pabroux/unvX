@@ -79,7 +79,7 @@ Here is a brief description of the structure:
 
 When configuring your environment, I recommend a hybrid approach:
 
-- **Use unvX for foundations:** Install your essential, "always-on" tools here (e.g., zsh, git, neovim, tmux). If it shapes your shell behavior or OS integration, it belongs in your Home Manager config.
+- **Use unvX for foundations:** Install your essential, "always-on" tools here (e.g., zsh, git, neovim, tmux). If it shapes your shell behavior or OS integration, it belongs in your Home Manager configuration.
 
 - **Use [Mise](https://github.com/jdx/mise) for runtimes:** For project-specific languages (Node, Python, Go) that require frequent version switching, use Mise.
 
