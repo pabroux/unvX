@@ -6,36 +6,36 @@ repos:
       - id: alejandra
         name: Alejandra (Nix formatter)
         description: This hook checks Nix files with Alejandra.
-        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#alejandra --command bash -c 'for f in "$@"; do alejandra -q "$f"; done' --
+        entry: nix develop . -c bash -c 'for f in "$@"; do alejandra -q "$f"; done' --
         language: system
         files: \.nix$
       - id: shfmt
         name: Sh (shell formatter)
         description: This hook checks shell files with shfmt.
-        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#shfmt --command bash -c 'for f in "$@"; do shfmt -w "$f"; done' --
+        entry: nix develop . -c bash -c 'for f in "$@"; do shfmt -w "$f"; done' --
         language: system
         types: [shell]
       - id: stylua
         name: Stylua (Lua formatter)
         description: This hook checks Lua files with Stylua.
-        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#stylua --command stylua
+        entry: nix develop . -c stylua
         language: system
         files: \.lua$
       - id: yamlfmt
         name: Yamlfmt (YAML formatter)
         description: This hook checks YAML files with yamlfmt.
-        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#yamlfmt --command yamlfmt
+        entry: nix develop . -c yamlfmt
         language: system
         types: [yaml]
       - id: gitlint
         name: Gitlint (git commit message linter)
         description: This hook checks git commit messages with gitlint.
-        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#gitlint --command gitlint --staged --msg-filename
+        entry: nix develop . -c gitlint --staged --msg-filename
         language: system
         stages: [commit-msg]
       - id: gitleaks
         name: Gitleaks (secret scanner)
         description: This hook checks the existence of secrets.
-        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#gitleaks --command gitleaks git --pre-commit --staged --redact --no-banner --verbose
+        entry: nix develop . -c gitleaks git --pre-commit --staged --redact --no-banner --verbose
         language: system
         pass_filenames: false

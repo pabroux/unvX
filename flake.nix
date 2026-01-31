@@ -6,6 +6,7 @@
     # and flake-utils from the global flake registry, encouraging explicit input
     # specification instead
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,6 +16,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     flake-utils,
     ...
@@ -28,7 +30,6 @@
       # Specify your Home Manager profiles. Home Manager will by
       # default match first `$USER@$(hostname)`. If not found, it
       # will then default to `$USER`
-
       packages.homeConfigurations = {
         "sulfyderz@Sulfyderz-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
@@ -39,6 +40,19 @@
           # Specify extra arguments to pass through your configurations
           extraSpecialArgs = {inherit unvX;};
         };
+      };
+
+      # Specify your development shell with tools you want for CI/CD (optional)
+      devShells.default = nixpkgs-stable.legacyPackages.${system}.mkShell {
+        buildInputs = with nixpkgs-stable.legacyPackages.${system}; [
+          alejandra
+          gitleaks
+          gitlint
+          pre-commit
+          shfmt
+          stylua
+          yamlfmt
+        ];
       };
     });
 }
