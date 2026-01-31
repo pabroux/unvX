@@ -1,5 +1,5 @@
 <p align="center">
-  <img width=275 src="https://github.com/user-attachments/assets/e57a9184-5af4-4694-9b88-c7a099d51f6a">
+  <img width=245 src="https://github.com/user-attachments/assets/e57a9184-5af4-4694-9b88-c7a099d51f6a">
 </p>
 <p align="center">
   <b>A simple Home Manager configuration</b>
