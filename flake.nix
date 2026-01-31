@@ -26,13 +26,15 @@
     # your machine)
     unvX = import ./unvX.nix;
   in
-    flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: {
-      # Specify your Home Manager profiles. Home Manager will by
-      # default match first `$USER@$(hostname)`. If not found, it
-      # will then default to `$USER`
+    flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+    in {
+      # Specify your Home Manager profiles. Home Manager will by default match
+      # first `$USER@$(hostname)`. If not found, it will then default to `$USER`
       packages.homeConfigurations = {
         "sulfyderz@Sulfyderz-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = pkgs;
 
           # Specify your Home Manager configurations
           modules = [./host/Sulfyderz-MacBook-Pro/user/sulfyderz/home.nix];
@@ -42,9 +44,10 @@
         };
       };
 
-      # Specify your development shell with tools you want for CI/CD (optional)
-      devShells.default = nixpkgs-stable.legacyPackages.${system}.mkShell {
-        buildInputs = with nixpkgs-stable.legacyPackages.${system}; [
+      # Specify your development shell with tools you want for CI/CD (optional).
+      # This is currenlty used by `pre-commit`
+      devShells.default = pkgs-stable.mkShell {
+        buildInputs = with pkgs-stable; [
           alejandra
           gitleaks
           gitlint
