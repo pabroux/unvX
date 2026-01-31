@@ -9,11 +9,11 @@ concurrency:
   cancel-in-progress: true
 permissions:
   contents: read
+env:
+  NIXPKGS: github:NixOS/nixpkgs/nixos-25.11
 jobs:
   QA:
     runs-on: ubuntu-latest
-    env:
-      NIXPKGS: github:NixOS/nixpkgs/nixos-25.11
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
