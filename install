@@ -30,7 +30,7 @@ configure_git_hooks() {
 		local hook_type="$1"
 		local file="$2"
 		local content="#!/usr/bin/env nix
-#! nix shell nixpkgs#pre-commit --command bash
+#! nix shell github:NixOS/nixpkgs/nixos-25.11#pre-commit --command bash
 
 ARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=$hook_type)
 HERE=\"\$(cd \"\$(dirname \"\$0\")\" && pwd)\"

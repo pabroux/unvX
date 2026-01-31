@@ -6,36 +6,36 @@ repos:
       - id: alejandra
         name: Alejandra (Nix formatter)
         description: This hook checks Nix files with Alejandra.
-        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#alejandra --command alejandra -q $arg; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell github:NixOS/nixpkgs/nixos-25.11#alejandra --command alejandra -q $arg; done;' --
         language: system
         files: \.nix$
       - id: shfmt
         name: Sh (shell formatter)
         description: This hook checks shell files with shfmt.
-        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#shfmt --command shfmt -w $arg; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell github:NixOS/nixpkgs/nixos-25.11#shfmt --command shfmt -w $arg; done;' --
         language: system
         types: [shell]
       - id: stylua
         name: Stylua (Lua formatter)
         description: This hook checks Lua files with Stylua.
-        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#stylua --command stylua $arg; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell github:NixOS/nixpkgs/nixos-25.11#stylua --command stylua $arg; done;' --
         language: system
         files: \.lua$
       - id: yamlfmt
         name: Yamlfmt (YAML formatter)
         description: This hook checks YAML files with yamlfmt.
-        entry: bash -c 'for arg in "$@"; do nix shell nixpkgs#yamlfmt --command yamlfmt $arg; done;' --
+        entry: bash -c 'for arg in "$@"; do nix shell github:NixOS/nixpkgs/nixos-25.11#yamlfmt --command yamlfmt $arg; done;' --
         language: system
         types: [yaml]
       - id: gitlint
         name: Gitlint (git commit message linter)
         description: This hook checks git commit messages with gitlint.
-        entry: nix shell nixpkgs#gitlint --command gitlint --staged --msg-filename
+        entry: nix shell github:NixOS/nixpkgs/nixos-25.11#gitlint --command gitlint --staged --msg-filename
         language: system
         stages: [commit-msg]
       - id: gitleaks
         name: Gitleaks (secret scanner)
         description: This hook checks the existence of secrets.
-        entry: bash -c 'nix shell nixpkgs#gitleaks --command gitleaks git --pre-commit --staged --redact --no-banner --verbose 2> /dev/null; nix shell nixpkgs#gitleaks --command gitleaks git --redact --no-banner --verbose 2> /dev/null'
+        entry: bash -c 'nix shell github:NixOS/nixpkgs/nixos-25.11#gitleaks --command gitleaks git --pre-commit --staged --redact --no-banner --verbose 2> /dev/null; nix shell github:NixOS/nixpkgs/nixos-25.11#gitleaks --command gitleaks git --redact --no-banner --verbose 2> /dev/null'
         language: system
         pass_filenames: false
