@@ -9,25 +9,17 @@ concurrency:
   cancel-in-progress: true
 permissions:
   contents: read
-env:
-  NIXPKGS: github:NixOS/nixpkgs/nixos-25.11
 jobs:
   QA:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Install Nix
         uses: DeterminateSystems/determinate-nix-action@v3.15.2
-      - name: Check format of Nix files (Alejandra)
-        run: nix shell ${{ env.NIXPKGS }}#alejandra --command alejandra -q -c .
-      - name: Check format of shell files (shfmt)
-        run: nix shell ${{ env.NIXPKGS }}#shfmt --command shfmt -d .
-      - name: Check format of Lua files (Stylua)
-        run: nix shell ${{ env.NIXPKGS }}#stylua --command stylua -c .
-      - name: Check format of YAML files (yamlfmt)
-        run: nix shell ${{ env.NIXPKGS }}#yamlfmt --command yamlfmt -quiet -lint .
-      - name: Check format of git commit messages (gitlint)
-        run: nix shell ${{ env.NIXPKGS }}#gitlint --command gitlint --commit "$(git log --format=format:%H --no-merges -1)"
-      - name: Scan secrets
-        run: nix shell ${{ env.NIXPKGS }}#gitleaks --command gitleaks git --no-banner --verbose
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Pre-commit Hooks
+        run: nix develop . -c pre-commit run -a
