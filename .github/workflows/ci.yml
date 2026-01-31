@@ -12,20 +12,22 @@ permissions:
 jobs:
   QA:
     runs-on: ubuntu-latest
+    env:
+      NIXPKGS: github:NixOS/nixpkgs/nixos-25.11
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: DeterminateSystems/determinate-nix-action@v3.15.2
       - name: Check format of Nix files (Alejandra)
-        run: nix shell nixpkgs#alejandra --command alejandra -q -c .
+        run: nix shell ${{ env.NIXPKGS }}#alejandra --command alejandra -q -c .
       - name: Check format of shell files (shfmt)
-        run: nix shell nixpkgs#shfmt --command shfmt -d .
+        run: nix shell ${{ env.NIXPKGS }}#shfmt --command shfmt -d .
       - name: Check format of Lua files (Stylua)
-        run: nix shell nixpkgs#stylua --command stylua -c .
+        run: nix shell ${{ env.NIXPKGS }}#stylua --command stylua -c .
       - name: Check format of YAML files (yamlfmt)
-        run: nix shell nixpkgs#yamlfmt --command yamlfmt -quiet -lint .
+        run: nix shell ${{ env.NIXPKGS }}#yamlfmt --command yamlfmt -quiet -lint .
       - name: Check format of git commit messages (gitlint)
-        run: nix shell nixpkgs#gitlint --command gitlint --commit "$(git log --format=format:%H --no-merges -1)"
+        run: nix shell ${{ env.NIXPKGS }}#gitlint --command gitlint --commit "$(git log --format=format:%H --no-merges -1)"
       - name: Scan secrets
-        run: nix shell nixpkgs#gitleaks --command gitleaks git --no-banner --verbose
+        run: nix shell ${{ env.NIXPKGS }}#gitleaks --command gitleaks git --no-banner --verbose
