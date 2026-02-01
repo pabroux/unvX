@@ -81,7 +81,7 @@ When configuring your environment, I recommend a hybrid approach:
 
 - **Use unvX for foundations:** Install your essential, "always-on" tools here (e.g., zsh, git, neovim, tmux). If it shapes your shell behavior or OS integration, it belongs in your Home Manager configuration.
 
-- **Use [Mise](https://github.com/jdx/mise) for runtimes:** For project-specific languages (Node, Python, Go) that require frequent version switching, use Mise.
+- **Use [Mise](https://mise.jdx.dev) for runtimes:** For project-specific languages (Node, Python, Go) that require frequent version switching, use Mise.
 
 **Why?** Nix provides a rock-solid, reproducible base, but can feel rigid for rapid version hopping. Mise excels at managing dynamic per-directory runtimes, giving you the best of both worlds: a stable environment and developer agility.
 
