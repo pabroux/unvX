@@ -21,7 +21,7 @@ unvX is a standalone [Home Manager](https://github.com/nix-community/home-manage
 ## Table of contents
 
 - [Requirements](#requirements)
-- [Install](#install)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Structure](#structure)
 - [Recommendations](#recommendations)
@@ -36,7 +36,7 @@ To use unvX, you will need:
 > [!TIP]
 > Use the [Nix installer](https://github.com/DeterminateSystems/nix-installer) by Determinate Systems to install Nix with the Nix flake feature enabled by default.
 
-## Install
+## Installation
 
 To install, use the following command inside the unvX folder:
 ```
