@@ -20,6 +20,6 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/determinate-nix-action@v3.15.2
       - name: Magic Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
+        uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Pre-commit Hooks
         run: nix develop . -c pre-commit run -a
