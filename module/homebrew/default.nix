@@ -25,7 +25,6 @@
     "sublime-text"
     "visual-studio-code"
     "whatsapp"
-    "zed"
   ];
 in {
   imports = builtins.filter (caskConfigDir: builtins.pathExists caskConfigDir) (map (caskConfigDir: ./. + "/app/${caskConfigDir}") casks);
