@@ -113,6 +113,9 @@ bindkey \^U backward-kill-line
 # Environment variables
 # ↳ XDG
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
 # ↳ Color
 export CLICOLOR=1
 export LSCOLORS="GxgxxxxxxxxxxxxxxxHxHx"
@@ -150,20 +153,20 @@ eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)"
 
 # Normal priority
 # ↳ Bun
-export BUN_INSTALL="$HOME/.config/bun"
+export BUN_INSTALL=$XDG_CONFIG_HOME/bun
 # ↳ Claude
-export CLAUDE_CONFIG_DIR=$HOME/.config/claude
+export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
+# ↳ Docker
+export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 # ↳ Fzf
 export FZF_ALT_C_COMMAND='find . -type d | sed '\''s/^.\///'\'''
 export FZF_DEFAULT_OPTS='--height 30% -m --border --reverse --prompt="❯ " --pointer="❯" --marker="❯" --color="prompt:15,spinner:#fe605a,info:#fe605a,marker:#fe605a,pointer:#60f6ff"'
 source $HOME/.nix-profile/share/fzf/completion.zsh 2> /dev/null
 source $HOME/.nix-profile/share/fzf/key-bindings.zsh 2> /dev/null
-# ↳ Git
-export GIT_CONFIG_SYSTEM=$HOME/.config/git/gitconfig
 # ↳ Mise
 eval "$(mise activate zsh)"
 # ↳ Starship
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init zsh 2> /dev/null)"
 # ↳ Zoxide
 eval "$(zoxide init zsh)"
