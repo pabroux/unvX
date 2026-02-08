@@ -10,9 +10,13 @@
   ];
 
   home.file = {
-    "git/gitconfig" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/git/gitconfig";
-      target = ".config/git/gitconfig";
+    "git/config" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/git/config";
+      target = ".config/git/config";
+    };
+    "git/ignore" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/git/ignore";
+      target = ".config/git/ignore";
     };
   };
 }
