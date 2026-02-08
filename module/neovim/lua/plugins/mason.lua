@@ -26,15 +26,7 @@ return {
 			-- LSP servers
 			ensure_installed = {
 				"basedpyright",
-				"bashls",
-				"clangd",
-				"cssls",
-				"dockerls",
-				"jsonls",
 				"lua_ls",
-				"sqlls",
-				"vimls",
-				"yamlls",
 			},
 		})
 	end,
