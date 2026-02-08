@@ -26,7 +26,7 @@ return {
 			-- LSP servers
 			ensure_installed = {
 				"basedpyright",
-				"lua_ls",
+				"quick_lint_js",
 			},
 		})
 	end,
