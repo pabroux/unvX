@@ -4,38 +4,7 @@
   lib,
   unvX,
   ...
-}: let
-  plugins = [
-    "alpha-nvim"
-    "auto-session"
-    "bufferline"
-    "comment"
-    "conform"
-    "flash"
-    "gitsigns"
-    "indent-blankline"
-    "lazygit"
-    "lualine"
-    "mason"
-    "nvim-autopairs"
-    "nvim-cmp"
-    "nvim-lint"
-    "nvim-lspconfig"
-    "nvim-surround"
-    "nvim-tree"
-    "nvim-treesitter"
-    "smart-splits"
-    "snacks"
-    "substitute"
-    "telescope"
-    "todo-comments"
-    "toggleterm"
-    "tokyonight"
-    "trouble"
-    "which-key"
-    "windsurf"
-  ];
-in {
+}: {
   home.packages = [
     pkgs.neovim
   ];
@@ -64,15 +33,15 @@ in {
       };
     }
     // builtins.listToAttrs (map (plugin: {
-        name = "neovim/lua/plugins/${plugin}.lua";
+        name = "neovim/lua/plugins/${plugin}";
         value =
           (plugin: {
-            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/${plugin}.lua";
-            target = ".config/nvim/lua/plugins/${plugin}.lua";
+            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/${plugin}";
+            target = ".config/nvim/lua/plugins/${plugin}";
           })
           plugin;
       })
-      plugins);
+      (builtins.attrNames (builtins.readDir ./lua/plugins)));
 
   home.activation = {
     installNeovimPlugins =
