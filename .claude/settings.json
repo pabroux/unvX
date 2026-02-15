@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "nix develop . -c pre-commit run alejandra -a"
+          },
+          {
+            "type": "command",
+            "command": "nix develop . -c pre-commit run shfmt -a"
+          },
+          {
+            "type": "command",
+            "command": "nix develop . -c pre-commit run stylua -a"
+          },
+          {
+            "type": "command",
+            "command": "nix develop . -c pre-commit run yamlfmt -a"
+          }
+        ]
+      }
+    ]
+  }
+}
