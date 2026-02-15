@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Edit(**/.env)"
+    ]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true
+  }
+}
