@@ -6,6 +6,7 @@
 }: let
   modules = [
     "aws-cli"
+    "claude-code"
     "coreutils"
     "fd"
     "fzf"
@@ -19,6 +20,7 @@
     "minikube"
     "mise"
     "neovim"
+    "nodejs"
     "ollama"
     "pixi"
     "ripgrep"
