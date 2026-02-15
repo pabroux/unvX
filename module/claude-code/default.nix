@@ -4,11 +4,7 @@
   lib,
   unvX,
   ...
-}: let
-  agents = [
-    "DocsExplorer"
-  ];
-in {
+}: {
   home.packages = [
     pkgs.claude-code
   ];
@@ -21,13 +17,11 @@ in {
       };
     }
     // builtins.listToAttrs (map (agent: {
-        name = "claude/agents/${agent}.md";
-        value =
-          (agent: {
-            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/agents/${agent}.md";
-            target = ".config/claude/agents/${agent}.md";
-          })
-          agent;
+        name = "claude/agents/${agent}";
+        value = {
+          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/agents/${agent}";
+          target = ".config/claude/agents/${agent}";
+        };
       })
-      agents);
+      (builtins.attrNames (builtins.readDir ./agents)));
 }
