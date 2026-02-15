@@ -1,8 +1,9 @@
 {
   "permissions": {
     "deny": [
+      "Edit(**/.env)",
       "Read(**/.env)",
-      "Edit(**/.env)"
+      "Write(**/.env)"
     ]
   },
   "enabledPlugins": {
