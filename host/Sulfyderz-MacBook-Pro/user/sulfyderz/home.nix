@@ -50,6 +50,8 @@ in {
 
   imports = map (x: ../../../../module + "/${x}") modules;
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) modules;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
