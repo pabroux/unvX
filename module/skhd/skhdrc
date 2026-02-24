@@ -22,7 +22,7 @@ default < fn - j : yabai -m window --insert south
 default < fn - k : yabai -m window --insert north
 default < fn - l : yabai -m window --insert east
 # ↳ Toggle float
-default < fn - s : yabai -m window --toggle float
+default < fn - x : yabai -m window --toggle float
 # ↳ Float / unfloat window and center on screen
 default < fn - t : yabai -m window --toggle float;\
 		yabai -m window --grid 5:5:1:1:3:3
