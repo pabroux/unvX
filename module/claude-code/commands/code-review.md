@@ -9,7 +9,7 @@ If Mode is one of the following, adjust the review as described:
 
 - MODE == BUGS: Focus ONLY on logical or other bugs.
 - MODE == SECURITY: Focus ONLY on security issues.
-- MODE = PERFORMANCE: Focus ONLY performance issues.
+- MODE == PERFORMANCE: Focus ONLY performance issues.
 
 MODE can also be set to a combination like "BUGS,SECURITY" etc => Perform the combined review in that case.
 
