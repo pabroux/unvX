@@ -24,12 +24,21 @@
         };
       })
       (builtins.attrNames (builtins.readDir ./agents)))
-    // builtins.listToAttrs (map (command: {
-        name = "claude/commands/${command}";
+    // builtins.listToAttrs (
+      map (skillFile: {
+        name = "claude/skills/${skillFile}";
         value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/commands/${command}";
-          target = ".config/claude/commands/${command}";
+          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/skills/${skillFile}";
+          target = ".config/claude/skills/${skillFile}";
         };
       })
-      (builtins.attrNames (builtins.readDir ./commands)));
+      (builtins.concatLists (
+        map (
+          skillDir:
+            map (file: "${skillDir}/${file}")
+            (builtins.attrNames (builtins.readDir ./skills/${skillDir}))
+        )
+        (builtins.attrNames (builtins.readDir ./skills))
+      ))
+    );
 }

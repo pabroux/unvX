@@ -1,6 +1,8 @@
 ---
-allowed-tools: Read(*)
+name: code-review
 description: Perform a code-review
+disable-model-invocation: true
+allowed-tools: Read
 ---
 
 MODE: $ARGUMENTS
