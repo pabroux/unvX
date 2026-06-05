@@ -1,4 +1,4 @@
-name: CI
+name: ci
 on:
   push:
     branches: ["master"]
@@ -10,7 +10,7 @@ concurrency:
 permissions:
   contents: read
 jobs:
-  QA:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
