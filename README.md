@@ -6,7 +6,7 @@
 </p>
 <p align="center">
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/conventional%20commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white" alt="Conventional Commits Badge"></a>
-  <a href="https://pre-commit.com"><img src="https://img.shields.io/badge/pre--commit-enabled-green?logo=pre-commit" alt="pre-commit Badge"></a>
+  <a href="https://prek.j178.dev/"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/j178/prek/master/docs/assets/badge-v0.json" alt="prek Badge"></a>
   <a href="https://code.claude.com/docs/en/overview"><img src="https://img.shields.io/badge/claude-enabled-green?logo=claude" alt="Claude Badge"></a>
   <a href="https://github.com/pabroux/unvX/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pabroux/unvX.svg" alt="License Badge"></a>
   <a href="https://github.com/pabroux/unvX/actions/workflows/ci.yml"><img src="https://github.com/pabroux/unvX/actions/workflows/ci.yml/badge.svg" alt="CI Badge"></a>
@@ -46,7 +46,7 @@ To install, use the following command inside the unvX folder:
 
 > [!NOTE]
 > This command will do three things:
-> - Configure your Git Hooks to invoke [pre-commit](https://pre-commit.com) using Nix.
+> - Configure your Git Hooks to invoke [prek](https://prek.j178.dev/) using Nix.
 > - Generate a `unvX.nix` file.
 > - Link the Home Manager flakes regardless of the location of your unvX folder.
 

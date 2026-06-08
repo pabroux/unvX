@@ -42,13 +42,13 @@
       };
 
       # Specify your development shell with tools you want for CI/CD (optional).
-      # This is currenlty used by `pre-commit`
+      # This is currently used by `prek`
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           alejandra
-          gitleaks
+          betterleaks
           gitlint
-          pre-commit
+          prek
           shfmt
           stylua
           yamlfmt
