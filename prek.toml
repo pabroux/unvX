@@ -1,0 +1,62 @@
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+#:schema https://www.schemastore.org/prek.json
+
+default_stages = ["pre-commit"]
+default_install_hook_types = [
+  "pre-commit",
+  "commit-msg"
+  ]
+
+[[repos]]
+repo = "local"
+hooks = [
+  {
+    id = "alejandra",
+    name = "Alejandra",
+    description = "This hook checks Nix files with Alejandra.",
+    entry = "alejandra -q",
+    language = "system",
+    files = '\.nix$'
+  },
+  {
+    id = "shfmt",
+    name = "Sh",
+    description = "This hook checks shell files with shfmt.",
+    entry = "shfmt -w",
+    language = "system",
+    types = ["shell"]
+  },
+  {
+    id = "stylua",
+    name = "Stylua",
+    description = "This hook checks Lua files with Stylua.",
+    entry = "stylua",
+    language = "system",
+    files = '\.lua$'
+  },
+  {
+    id = "yamlfmt",
+    name = "Yamlfmt",
+    description = "This hook checks YAML files with yamlfmt.",
+    entry = "yamlfmt",
+    language = "system",
+    types = ["yaml"]
+  },
+  {
+    id = "betterleaks-staged",
+    name = "Betterleaks (staged)",
+    description = "This hook checks the existence of secrets.",
+    entry = "betterleaks git --staged --redact --no-banner --verbose",
+    language = "system",
+    pass_filenames = false
+  },
+  {
+    id = "betterleaks-history",
+    name = "Betterleaks (history)",
+    description = "This hook checks the existence of secrets.",
+    entry = "betterleaks git --redact --no-banner --verbose",
+    language = "system",
+    pass_filenames = false
+  }
+]
