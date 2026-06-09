@@ -1,5 +1,8 @@
 <p align="center">
-  <img width=245 src="https://github.com/user-attachments/assets/e57a9184-5af4-4694-9b88-c7a099d51f6a">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b076fdd5-48a9-43b7-b9d5-2b4429ddcf7d">
+    <img width="245" alt="unvX" src="https://github.com/user-attachments/assets/5fd3be21-755e-4a83-b7f8-4a09cd93e096">
+  </picture>
 </p>
 <p align="center">
   <b>A simple Home Manager configuration</b>
