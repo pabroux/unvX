@@ -49,7 +49,7 @@ To install, use the following command inside the unvX folder:
 
 > [!NOTE]
 > This command will do three things:
-> - Configure your Git Hooks to invoke [prek](https://prek.j178.dev/) using Nix.
+> - Configure your git hooks to invoke [prek](https://prek.j178.dev/) using Nix.
 > - Generate a `unvX.nix` file.
 > - Link the Home Manager flakes regardless of the location of your unvX folder.
 
@@ -85,7 +85,7 @@ When configuring your environment, I recommend a hybrid approach:
 
 - **Use unvX for foundations:** Install your essential, "always-on" tools here (e.g., zsh, git, neovim, tmux). If it shapes your shell behavior or OS integration, it belongs in your Home Manager configuration.
 
-- **Use [Mise](https://mise.jdx.dev) for runtimes:** For project-specific languages (Node, Python, Go) that require frequent version switching, use Mise.
+- **Use [mise](https://mise.jdx.dev) for runtimes:** For project-specific languages (e.g., Node, Python, Go) that require frequent version switching, use mise.
 
 **Why?** Nix provides a rock-solid, reproducible base, but can feel rigid for rapid version hopping. Mise excels at managing dynamic per-directory runtimes, giving you the best of both worlds: a stable environment and developer agility.
 
