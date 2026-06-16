@@ -2,7 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		local codeium = require("codeium.virtual_text")
 		local lualine = require("lualine")
 
 		-------------------------------------------------------------------------------
@@ -59,24 +58,6 @@ return {
 			},
 		}
 
-		function codeium_status()
-			local status = codeium.status()
-
-			if status.state == "idle" then
-				return "󰚩 "
-			end
-
-			if status.state == "waiting" then
-				return "󰚩  󱥸 "
-			end
-
-			if status.state == "completions" and status.total > 0 then
-				return string.format("󰚩  %d/%d", status.current, status.total)
-			end
-
-			return "󰚩  0"
-		end
-
 		lualine.setup({
 			options = {
 				theme = lualine_theme,
@@ -92,7 +73,7 @@ return {
 					{ "diff" },
 					{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
 				},
-				lualine_x = { codeium_status, "encoding", "fileformat", "filetype" },
+				lualine_x = { "encoding", "fileformat", "filetype" },
 			},
 		})
 	end,
