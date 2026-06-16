@@ -5,6 +5,7 @@
   ...
 }: let
   casks = [
+    "claude"
     "discord"
     "docker"
     "edrawmind"
