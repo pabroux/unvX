@@ -13,7 +13,7 @@ repo = "local"
 hooks = [
   {
     id = "alejandra",
-    name = "Alejandra",
+    name = "alejandra",
     description = "This hook checks Nix files with Alejandra.",
     entry = "alejandra -q",
     language = "system",
@@ -21,15 +21,15 @@ hooks = [
   },
   {
     id = "shfmt",
-    name = "Sh",
-    description = "This hook checks shell files with shfmt.",
+    name = "shfmt",
+    description = "This hook checks shell files with Shfmt.",
     entry = "shfmt -w",
     language = "system",
     types = ["shell"]
   },
   {
     id = "stylua",
-    name = "Stylua",
+    name = "stylua",
     description = "This hook checks Lua files with Stylua.",
     entry = "stylua",
     language = "system",
@@ -37,24 +37,24 @@ hooks = [
   },
   {
     id = "yamlfmt",
-    name = "Yamlfmt",
-    description = "This hook checks YAML files with yamlfmt.",
+    name = "yamlfmt",
+    description = "This hook checks YAML files with Yamlfmt.",
     entry = "yamlfmt",
     language = "system",
     types = ["yaml"]
   },
   {
     id = "betterleaks-staged",
-    name = "Betterleaks (staged)",
-    description = "This hook checks the existence of secrets.",
+    name = "betterleaks (staged)",
+    description = "This hook checks the existence of secrets in staged files.",
     entry = "betterleaks git --staged --redact --no-banner --verbose",
     language = "system",
     pass_filenames = false
   },
   {
     id = "betterleaks-history",
-    name = "Betterleaks (history)",
-    description = "This hook checks the existence of secrets.",
+    name = "betterleaks (history)",
+    description = "This hook checks the existence of secrets in git history.",
     entry = "betterleaks git --redact --no-banner --verbose",
     language = "system",
     pass_filenames = false
