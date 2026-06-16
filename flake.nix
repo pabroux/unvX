@@ -47,6 +47,7 @@
         buildInputs = with pkgs; [
           alejandra
           betterleaks
+          git
           gitlint
           prek
           shfmt
