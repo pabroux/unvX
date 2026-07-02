@@ -6,9 +6,10 @@
       "Write(**/.env)"
     ]
   },
+  "model": "opus",
   "enabledPlugins": {
     "context7@claude-plugins-official": true
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "voiceEnabled": true
 }

@@ -7,6 +7,7 @@
 }: {
   home.packages = [
     pkgs.claude-code
+    pkgs.rtk
   ];
 
   home.file =
