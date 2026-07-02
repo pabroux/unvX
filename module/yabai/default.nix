@@ -21,7 +21,7 @@
       lib.hm.dag.entryAfter ["installPackages"]
       "(
         PATH=$HOME/.nix-profile/bin:/usr/bin:/bin:$PATH
-        echo -n 'Do you want to setup the yabai scripting addition (superuser privileges required)? [y/n]: '
+        echo -n 'Do you want to setup the yabai scripting addition (superuser privileges required)? [y/N]: '
         read -r reply
         [ ! -t 0 ] && echo
         if [[ $reply =~ ^[Yy]$ ]]; then

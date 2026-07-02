@@ -9,7 +9,7 @@
       lib.hm.dag.entryAfter ["installHomebrewCasks"]
       "(
         PATH=/usr/bin:$PATH
-        echo -n 'Do you want to import raycast config? [y/n]: '
+        echo -n 'Do you want to import raycast config? [y/N]: '
         read -r reply
         [ ! -t 0 ] && echo
         if [[ $reply =~ ^[Yy]$ ]]; then
