@@ -20,7 +20,6 @@
     "minikube"
     "mise"
     "neovim"
-    "nodejs"
     "ollama"
     "pixi"
     "ripgrep"
