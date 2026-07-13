@@ -7,6 +7,7 @@
 }: {
   home.packages = [
     pkgs.neovim
+    pkgs.nodejs
   ];
 
   home.file =
