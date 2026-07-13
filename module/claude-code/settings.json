@@ -11,5 +11,6 @@
     "context7@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "tui": "fullscreen"
 }
