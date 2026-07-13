@@ -10,6 +10,6 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "voiceEnabled": true
 }
