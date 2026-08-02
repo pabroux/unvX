@@ -10,7 +10,7 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
-  "voiceEnabled": true,
-  "tui": "fullscreen"
+  "effortLevel": "medium",
+  "tui": "fullscreen",
+  "voiceEnabled": true
 }
