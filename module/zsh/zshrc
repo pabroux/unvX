@@ -17,10 +17,7 @@ alias g="git"
 
 # Home Manager
 alias hm="home-manager"
-alias hmn="home-manager news"
-alias hms="home-manager switch"
-alias hmsv="home-manager switch -v"
-alias hmsq="yes 'n' | home-manager switch"
+alias hms="yes 'n' | home-manager switch"
 
 # Kubernetes
 alias kbc="kubectl"
@@ -35,7 +32,7 @@ alias lg="lazygit"
 alias ls="gls --color --group-directories-first"
 
 # Minikube
-alias mnkb="minikube"
+alias mkb="minikube"
 
 # Mise
 alias ms="mise"
