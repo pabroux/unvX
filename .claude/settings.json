@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix develop . -c prek run alejandra shfmt stylua yamlfmt -a"
+            "command": "nix develop . -c prek run alejandra biome shfmt stylua yamlfmt -a"
           }
         ]
       }

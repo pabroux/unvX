@@ -47,6 +47,7 @@
         buildInputs = with pkgs; [
           alejandra
           betterleaks
+          biome
           git
           gitlint
           prek

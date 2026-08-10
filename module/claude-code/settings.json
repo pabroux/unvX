@@ -13,7 +13,11 @@
   "sandbox": {
     "enabled": true,
     "filesystem": {
-      "denyRead": ["**/.env", "**/.env.*", "**/.ssh/**"]
+      "denyRead": [
+        "**/.env",
+        "**/.env.*",
+        "**/.ssh/**"
+      ]
     }
   },
   "tui": "fullscreen",

@@ -20,6 +20,14 @@ hooks = [
     files = '\.nix$'
   },
   {
+    id = "biome",
+    name = "biome",
+    description = "This hook checks JSON files with Biome.",
+    entry = "biome format --write --indent-style=space --indent-width=2 --expand=always",
+    language = "system",
+    types = ["json"]
+  },
+  {
     id = "shfmt",
     name = "shfmt",
     description = "This hook checks shell files with Shfmt.",
