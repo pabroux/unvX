@@ -2,8 +2,7 @@
   "permissions": {
     "deny": [
       "Edit(**/.env)",
-      "Read(**/.env)",
-      "Write(**/.env)"
+      "Read(**/.env)"
     ]
   },
   "model": "opus",
@@ -11,6 +10,12 @@
     "context7@claude-plugins-official": true
   },
   "effortLevel": "medium",
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": ["**/.env", "**/.env.*", "**/.ssh/**"]
+    }
+  },
   "tui": "fullscreen",
   "voiceEnabled": true
 }
