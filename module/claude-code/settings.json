@@ -1,13 +1,28 @@
 {
+  "effortLevel": "medium",
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/sulfyderz/.config/claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "model": "opus",
   "permissions": {
     "deny": [
       "Edit(**/.env)",
       "Read(**/.env)"
     ]
-  },
-  "model": "opus",
-  "enabledPlugins": {
-    "context7@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
@@ -19,7 +34,6 @@
       ]
     }
   },
-  "effortLevel": "medium",
   "tui": "fullscreen",
   "voiceEnabled": true
 }
