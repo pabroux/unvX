@@ -16,6 +16,9 @@ alias dkc="docker compose"
 alias g="git"
 alias gw="git worktree"
 
+# Herdr
+alias hr="herdr"
+
 # Home Manager
 alias hm="home-manager"
 alias hms="home-manager switch"
