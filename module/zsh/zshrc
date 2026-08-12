@@ -17,7 +17,7 @@ alias g="git"
 
 # Home Manager
 alias hm="home-manager"
-alias hms="yes 'n' | home-manager switch"
+alias hms="home-manager switch"
 
 # Kubernetes
 alias kbc="kubectl"
