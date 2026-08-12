@@ -12,6 +12,7 @@
     "fzf"
     "git"
     "github-cli"
+    "herdr"
     "homebrew"
     "htop"
     "huggingface-cli"
