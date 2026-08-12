@@ -9,7 +9,6 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true
   },
-  "effortLevel": "medium",
   "sandbox": {
     "enabled": true,
     "filesystem": {
@@ -20,6 +19,7 @@
       ]
     }
   },
+  "effortLevel": "medium",
   "tui": "fullscreen",
   "voiceEnabled": true
 }

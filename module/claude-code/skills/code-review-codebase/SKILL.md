@@ -1,6 +1,6 @@
 ---
-name: code-review
-description: Perform a code-review
+name: code-review-codebase
+description: Perform a code-review of the entire codebase
 disable-model-invocation: true
 allowed-tools: Read
 ---
