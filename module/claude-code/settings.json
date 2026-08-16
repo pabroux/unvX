@@ -20,17 +20,32 @@
   "model": "opus",
   "permissions": {
     "deny": [
-      "Edit(**/.env)",
-      "Read(**/.env)"
+      "Edit(//**/.env)",
+      "Edit(//**/.env.*)",
+      "Edit(~/.ssh/**)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Read(~/.ssh/**)"
     ]
   },
   "sandbox": {
+    "credentials": {
+      "files": [
+        {
+          "path": "~/.aws/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.ssh",
+          "mode": "deny"
+        }
+      ]
+    },
     "enabled": true,
     "filesystem": {
       "denyRead": [
-        "**/.env",
-        "**/.env.*",
-        "**/.ssh/**"
+        "/**/.env",
+        "/**/.env.*"
       ]
     }
   },
