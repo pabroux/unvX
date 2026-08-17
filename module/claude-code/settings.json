@@ -1,23 +1,4 @@
 {
-  "effortLevel": "medium",
-  "enabledPlugins": {
-    "context7@claude-plugins-official": true
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "bash '/Users/sulfyderz/.config/claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ]
-  },
-  "model": "opus",
   "permissions": {
     "deny": [
       "Edit(//**/.env)",
@@ -28,7 +9,32 @@
       "Read(~/.ssh/**)"
     ]
   },
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/sulfyderz/.config/claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true
+  },
   "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": [
+        "/**/.env",
+        "/**/.env.*"
+      ]
+    },
     "credentials": {
       "files": [
         {
@@ -40,15 +46,14 @@
           "mode": "deny"
         }
       ]
-    },
-    "enabled": true,
-    "filesystem": {
-      "denyRead": [
-        "/**/.env",
-        "/**/.env.*"
-      ]
     }
   },
+  "effortLevel": "medium",
   "tui": "fullscreen",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "autoMode": {
+    "environment": [
+      "$defaults"
+    ]
+  }
 }
