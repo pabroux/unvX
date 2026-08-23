@@ -5,25 +5,25 @@
   ...
 }: let
   modules = [
-    "aws-cli"
-    "claude-code"
+    "aws"
+    "brew"
+    "claude"
     "coreutils"
     "fd"
     "fzf"
+    "gh"
     "git"
-    "github-cli"
     "herdr"
-    "homebrew"
+    "hf"
     "htop"
-    "huggingface-cli"
     "lazydocker"
     "lazygit"
     "minikube"
     "mise"
-    "neovim"
+    "nvim"
     "ollama"
     "pixi"
-    "ripgrep"
+    "rg"
     "skhd"
     "starship"
     "tmux"
@@ -51,8 +51,6 @@ in {
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
   imports = map (x: ../../../../module + "/${x}") modules;
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) modules;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

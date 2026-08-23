@@ -10,17 +10,21 @@
     pkgs.rtk
   ];
 
+  nixpkgs.config.allowUnfreePackages = [
+    "claude-code"
+  ];
+
   home.file =
     {
       "claude/settings.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/settings.json";
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/settings.json";
         target = ".config/claude/settings.json";
       };
     }
     // builtins.listToAttrs (map (agent: {
         name = "claude/agents/${agent}";
         value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/agents/${agent}";
+          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/agents/${agent}";
           target = ".config/claude/agents/${agent}";
         };
       })
@@ -29,7 +33,7 @@
       map (skillFile: {
         name = "claude/skills/${skillFile}";
         value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude-code/skills/${skillFile}";
+          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/skills/${skillFile}";
           target = ".config/claude/skills/${skillFile}";
         };
       })

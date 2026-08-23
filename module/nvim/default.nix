@@ -12,32 +12,32 @@
 
   home.file =
     {
-      "neovim/init.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/init.lua";
+      "nvim/init.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/init.lua";
         target = ".config/nvim/init.lua";
       };
-      "neovim/lua/core/init.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/init.lua";
+      "nvim/lua/core/init.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/lua/core/init.lua";
         target = ".config/nvim/lua/core/init.lua";
       };
-      "neovim/lua/core/keybinds.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/keybinds.lua";
+      "nvim/lua/core/keybinds.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/lua/core/keybinds.lua";
         target = ".config/nvim/lua/core/keybinds.lua";
       };
-      "neovim/lua/core/lazy.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/lazy.lua";
+      "nvim/lua/core/lazy.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/lua/core/lazy.lua";
         target = ".config/nvim/lua/core/lazy.lua";
       };
-      "neovim/lua/core/options.lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/core/options.lua";
+      "nvim/lua/core/options.lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/lua/core/options.lua";
         target = ".config/nvim/lua/core/options.lua";
       };
     }
     // builtins.listToAttrs (map (plugin: {
-        name = "neovim/lua/plugins/${plugin}";
+        name = "nvim/lua/plugins/${plugin}";
         value =
           (plugin: {
-            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/neovim/lua/plugins/${plugin}";
+            source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/lua/plugins/${plugin}";
             target = ".config/nvim/lua/plugins/${plugin}";
           })
           plugin;

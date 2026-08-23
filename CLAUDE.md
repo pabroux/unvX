@@ -79,15 +79,15 @@ home.activation.<hookName> = lib.hm.dag.entryAfter ["installPackages"] ''...''
 1. Create `module/<name>/default.nix`
 2. Add `"<name>"` to the `modules` list in `host/.../home.nix` (alphabetically)
 
-The `modules` list is also reused by `allowUnfreePredicate` — adding a module name automatically allows its unfree packages.
+If the module installs an unfree package, it declares that itself — `nixpkgs.config.allowUnfreePackages = ["<pname>"];` in its `default.nix`, where `<pname>` is the nixpkgs package name (`lib.getName`), not the folder name. Home Manager concatenates this list across modules.
 
 ### Dynamic Loading via `builtins.readDir`
 
 Three modules auto-wire files from directories — drop a file in the right place and it's picked up without editing `default.nix`:
 
-- **neovim**: Every `.lua` in `module/neovim/lua/plugins/` is symlinked to `~/.config/nvim/lua/plugins/`
-- **claude-code**: All files in `agents/` and nested `skills/<dir>/` are symlinked to `~/.config/claude/`
-- **homebrew**: Only imports `app/<cask>/default.nix` for casks that have a config subdirectory (`builtins.filter ... builtins.pathExists`)
+- **nvim**: Every `.lua` in `module/nvim/lua/plugins/` is symlinked to `~/.config/nvim/lua/plugins/`
+- **claude**: All files in `agents/` and nested `skills/<dir>/` are symlinked to `~/.config/claude/`
+- **brew**: Only imports `app/<cask>/default.nix` for casks that have a config subdirectory (`builtins.filter ... builtins.pathExists`)
 
 ### Git Hooks
 
@@ -96,15 +96,17 @@ The `install` script generates `.git/hooks/{pre-commit,commit-msg}` using a **ni
 ### Two `settings.json` Scopes
 
 - **`.claude/settings.json`** (project-level): PostToolUse hooks that auto-format on Write/Edit during development
-- **`module/claude-code/settings.json`** (user-level): Deployed to `~/.config/claude/settings.json` — permissions, plugins, global preferences
+- **`module/claude/settings.json`** (user-level): Deployed to `~/.config/claude/settings.json` — permissions, plugins, global preferences
 
 ### Hybrid Environment Strategy
 
 - **Nix (unvX)**: Foundation tools (shell, editor, git, tmux)
 - **Mise**: Per-directory runtime versions (Node, Python, Go)
-- **Homebrew**: macOS GUI applications (managed via homebrew module)
+- **Homebrew**: macOS GUI applications (managed via the `brew` module)
 
 ## Conventions
 
+- **Module names**: A module folder is named after the command it provides (`rg`, not `ripgrep`; `gh`, not `github-cli`), not after the nixpkgs attribute
+- **Unfree packages**: Declared per-module via `nixpkgs.config.allowUnfreePackages` (a built-in nixpkgs config key listing package names) — never inferred from folder names
 - **Commits**: Conventional Commits format enforced via gitlint (`<type>(<scope>): <subject>`)
 - **Prek hooks**: alejandra, shfmt, stylua, yamlfmt, gitlint, betterleaks
