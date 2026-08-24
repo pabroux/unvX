@@ -2,17 +2,10 @@
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Vundle configuration
+" Plugins are declared in `module/vim/default.nix` and symlinked into
+" `pack/nix/start/`, where Vim's native package system loads them
 set nocompatible
-filetype off
-set rtp+=$HOME/.nix-profile/share/vim-plugins/Vundle.vim
-call vundle#begin("$HOME/.local/share/vim/")
-Plugin 'VundleVim/Vundle.vim'
-" ↳ Plugins
-Plugin 'fatih/molokai'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-commentary'
-call vundle#end()
+set packpath^=$HOME/.local/share/vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options

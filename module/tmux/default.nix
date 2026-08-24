@@ -1,20 +1,22 @@
 {
   config,
   pkgs,
+  lib,
   unvX,
   ...
-}: {
-  home.packages = [
-    pkgs.tmux
-    pkgs.tmuxPlugins.resurrect
-    pkgs.tmuxPlugins.tmux-nova
-    pkgs.tmuxPlugins.yank
-  ];
+}: let
+  tmuxPlugins = with pkgs.tmuxPlugins; [resurrect tmux-nova yank];
+in {
+  home.packages = [pkgs.tmux];
 
   home.file = {
     "tmux/tmux.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/tmux/tmux.conf";
       target = ".config/tmux/tmux.conf";
+    };
+    "tmux/plugins.conf" = {
+      text = lib.concatMapStrings (plugin: "run-shell ${plugin.rtp}\n") tmuxPlugins;
+      target = ".config/tmux/plugins.conf";
     };
   };
 }

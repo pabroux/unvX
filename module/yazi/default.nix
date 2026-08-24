@@ -26,20 +26,9 @@
       source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/yazi/yazi.toml";
       target = ".config/yazi/yazi.toml";
     };
-  };
-
-  home.activation = {
-    installYaziPlugins =
-      lib.hm.dag.entryAfter ["installPackages" "linkGeneration"]
-      "(
-        PATH=$HOME/.nix-profile/bin:/usr/bin:$PATH
-        if [[ -v DRY_RUN ]]; then
-          echo \"ya pkg add yazi-rs/plugins:full-border &> /dev/null || ya pkg upgrade &> /dev/null\"
-        elif [[ -v VERBOSE ]]; then
-          ya pkg add yazi-rs/plugins:full-border || ya pkg upgrade
-        else
-          ya pkg add yazi-rs/plugins:full-border &> /dev/null || ya pkg upgrade &> /dev/null
-        fi
-      )";
+    "yazi/plugins/full-border.yazi" = {
+      source = pkgs.yaziPlugins.full-border;
+      target = ".config/yazi/plugins/full-border.yazi";
+    };
   };
 }
