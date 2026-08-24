@@ -48,5 +48,5 @@ shell-integration-features = "no-cursor"
 
 # Window padding
 window-padding-balance = true
-window-padding-color = "extend"
+window-padding-color = "background"
 window-padding-y = 4
