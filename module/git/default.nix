@@ -3,20 +3,24 @@
   pkgs,
   unvX,
   ...
-}: {
+}: let
+  linkFile = files:
+    builtins.listToAttrs (map (file: {
+        name = "git/${file}";
+        value = {
+          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/git/${file}";
+          target = ".config/git/${file}";
+        };
+      })
+      files);
+in {
   home.packages = [
     pkgs.git-filter-repo
     pkgs.git-lfs
   ];
 
-  home.file = {
-    "git/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/git/config";
-      target = ".config/git/config";
-    };
-    "git/ignore" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/git/ignore";
-      target = ".config/git/ignore";
-    };
-  };
+  home.file = linkFile [
+    "config"
+    "ignore"
+  ];
 }

@@ -1,10 +1,33 @@
 {
   config,
   pkgs,
-  lib,
   unvX,
   ...
-}: {
+}: let
+  linkFile = files:
+    builtins.listToAttrs (map (file: {
+        name = "claude/${file}";
+        value = {
+          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/${file}";
+          target = ".config/claude/${file}";
+        };
+      })
+      files);
+
+  linkDir = directory: let
+    entries = builtins.readDir (./. + "/${directory}");
+  in
+    builtins.foldl' (
+      links: entry:
+        links
+        // (
+          if entries.${entry} == "directory"
+          then linkDir "${directory}/${entry}"
+          else linkFile ["${directory}/${entry}"]
+        )
+    ) {}
+    (builtins.attrNames entries);
+in {
   home.packages = [
     pkgs.claude-code
     pkgs.rtk
@@ -15,35 +38,9 @@
   ];
 
   home.file =
-    {
-      "claude/settings.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/settings.json";
-        target = ".config/claude/settings.json";
-      };
-    }
-    // builtins.listToAttrs (map (agent: {
-        name = "claude/agents/${agent}";
-        value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/agents/${agent}";
-          target = ".config/claude/agents/${agent}";
-        };
-      })
-      (builtins.attrNames (builtins.readDir ./agents)))
-    // builtins.listToAttrs (
-      map (skillFile: {
-        name = "claude/skills/${skillFile}";
-        value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/skills/${skillFile}";
-          target = ".config/claude/skills/${skillFile}";
-        };
-      })
-      (builtins.concatLists (
-        map (
-          skillDir:
-            map (file: "${skillDir}/${file}")
-            (builtins.attrNames (builtins.readDir ./skills/${skillDir}))
-        )
-        (builtins.attrNames (builtins.readDir ./skills))
-      ))
-    );
+    linkFile [
+      "settings.json"
+    ]
+    // linkDir "agents"
+    // linkDir "skills";
 }
