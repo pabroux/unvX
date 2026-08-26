@@ -1,13 +1,14 @@
 return {
 	"folke/which-key.nvim",
-	event = "VeryLazy",
 	opts = {
 		-------------------------------------------------------------------------------
 		-- Options
 		-------------------------------------------------------------------------------
 
-		icons = {
-			mappings = false,
+		-- Clear LazyVim's groups so the config/keymaps.lua mappings fire and keep their own description
+		spec = {
+			{ "<leader>d" },
+			{ "<leader>w" },
 		},
 	},
 }

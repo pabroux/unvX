@@ -1,49 +1,54 @@
+-------------------------------------------------------------------------------
+-- Options
+-------------------------------------------------------------------------------
+
+local palette = require("config.palette")
+
+-- Command mode accent, shared with lualine
+local cmdline = palette.yellow
+
 return {
-	"folke/tokyonight.nvim",
-	priority = 1000,
-	config = function()
-		local tokyonight = require("tokyonight")
-
-		-------------------------------------------------------------------------------
-		-- Options
-		-------------------------------------------------------------------------------
-
-		local bg = "#011628"
-		local bg_dark = "#000f1c"
-		local bg_highlight = "#143652"
-		local bg_search = "#0a64ac"
-		local bg_visual = "#275378"
-		local fg = "#cbe0f0"
-		local fg_dark = "#b4d0e9"
-		local fg_gutter = "#627e97"
-		local border = "#000f1c"
-
-		tokyonight.setup({
+	{
+		"folke/tokyonight.nvim",
+		opts = {
 			style = "night",
 			styles = {
 				comments = {},
 				keywords = { italic = false },
 			},
 			on_colors = function(colors)
-				colors.bg = bg
-				colors.bg_dark = bg_dark
-				colors.bg_float = bg_dark
-				colors.bg_highlight = bg_highlight
-				colors.bg_popup = bg_dark
-				colors.bg_search = bg_search
-				colors.bg_sidebar = bg_dark
-				colors.bg_statusline = bg_dark
-				colors.bg_visual = bg_visual
-				colors.border = border
-				colors.fg = fg
-				colors.fg_dark = fg_dark
-				colors.fg_float = fg
-				colors.fg_gutter = fg_gutter
-				colors.fg_sidebar = fg_dark
+				colors.bg = palette.normal_bg
+				colors.bg_dark = palette.float_bg
+				colors.bg_float = palette.float_bg
+				colors.bg_highlight = palette.cursorline_bg
+				colors.bg_popup = palette.float_bg
+				colors.bg_search = palette.search_bg
+				colors.bg_sidebar = palette.float_bg
+				colors.bg_statusline = palette.statusline_bg
+				colors.bg_visual = palette.visual_bg
+				colors.border = palette.float_bg
+				colors.fg = palette.normal_fg
+				colors.fg_dark = palette.muted_fg
+				colors.fg_float = palette.normal_fg
+				colors.fg_gutter = palette.gutter_fg
+				colors.fg_sidebar = palette.muted_fg
 			end,
-		})
-
-		-- Load the colorscheme
-		vim.cmd([[colorscheme tokyonight]])
-	end,
+			on_highlights = function(highlights, colors)
+				-- Noice registers its groups with `default = true`, so these win
+				highlights.NoiceCmdlinePopupBorder = { fg = cmdline }
+				highlights.NoiceCmdlinePopupBorderCmdline = { fg = cmdline }
+				highlights.NoiceCmdlinePopupTitle = { fg = cmdline }
+				highlights.NoiceCmdlineIcon = { fg = cmdline }
+				highlights.NoiceCmdlineIconCmdline = { fg = cmdline }
+				highlights.NoiceCmdlineIconFilter = { fg = cmdline }
+				highlights.SnacksDashboardHeader = { fg = colors.blue1 }
+			end,
+		},
+	},
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "tokyonight",
+		},
+	},
 }
