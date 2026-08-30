@@ -25,7 +25,16 @@
     ]
   },
   "enabledPlugins": {
-    "context7@claude-plugins-official": true
+    "context7@claude-plugins-official": true,
+    "andrej-karpathy-skills@karpathy-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
@@ -50,10 +59,10 @@
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
-  "voiceEnabled": true,
   "autoMode": {
     "environment": [
       "$defaults"
     ]
-  }
+  },
+  "voiceEnabled": true
 }
