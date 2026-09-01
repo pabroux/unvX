@@ -26,6 +26,7 @@
     "rg"
     "skhd"
     "starship"
+    "tailscale"
     "tmux"
     "uv"
     "vim"

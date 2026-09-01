@@ -68,6 +68,9 @@ alias pxr="pixi run"
 alias pxsh="pixi shell"
 alias pxu="pixi upgrade"
 
+# Tailscale
+alias ts="tailscale"
+
 # Terraform
 alias tf="terraform"
 alias tfa="terraform apply"
