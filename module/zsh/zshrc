@@ -103,7 +103,7 @@ function y() {
 # Key Bindings
 ###############################################################################
 
-# Emacs keybindings 
+# Emacs keybindings
 bindkey -e
 
 # Completion using arrow keys based on history
@@ -177,6 +177,6 @@ export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init zsh 2> /dev/null)"
 # ↳ Zoxide
 eval "$(zoxide init zsh)"
-# ↳ Zsh-autosuggestions 
+# ↳ Zsh-autosuggestions
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
