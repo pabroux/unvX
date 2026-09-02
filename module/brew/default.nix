@@ -24,6 +24,7 @@
     "slack"
     "spotify"
     "sublime-text"
+    "tailscale"
     "visual-studio-code"
     "whatsapp"
   ];
