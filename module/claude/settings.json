@@ -1,11 +1,16 @@
 {
   "permissions": {
+    "ask": [
+      "Bash(dangerouslyDisableSandbox:true)"
+    ],
     "deny": [
       "Edit(//**/.env)",
       "Edit(//**/.env.*)",
+      "Edit(~/.aws/**)",
       "Edit(~/.ssh/**)",
       "Read(//**/.env)",
       "Read(//**/.env.*)",
+      "Read(~/.aws/**)",
       "Read(~/.ssh/**)"
     ]
   },
@@ -38,8 +43,13 @@
   },
   "sandbox": {
     "enabled": true,
+    "failIfUnavailable": true,
     "filesystem": {
       "denyRead": [
+        "/**/.env",
+        "/**/.env.*"
+      ],
+      "denyWrite": [
         "/**/.env",
         "/**/.env.*"
       ]
@@ -47,7 +57,7 @@
     "credentials": {
       "files": [
         {
-          "path": "~/.aws/credentials",
+          "path": "~/.aws",
           "mode": "deny"
         },
         {
