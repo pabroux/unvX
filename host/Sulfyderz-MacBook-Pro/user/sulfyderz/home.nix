@@ -14,7 +14,6 @@
     "gh"
     "git"
     "herdr"
-    "hf"
     "htop"
     "lazydocker"
     "lazygit"

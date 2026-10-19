@@ -1,7 +1,4 @@
 gui:
-  authorColors: {'pabroux': '#fe605a', 'Pierre-Alexandre Broux': '#fe605a', '*': '#892e2d'}
-  branchColors: {}
-  branchColorPatterns: {}
   customIcons:
     filenames: {}
     extensions: {}
@@ -22,8 +19,8 @@ gui:
   expandedSidePanelWeight: 2
   mainPanelSplitMode: flexible
   enlargedSideViewLocation: left
-  wrapLinesInStagingView: true
-  useHunkModeInStagingView: true
+  wrapLinesInDiffView: true
+  useHunkModeInDiffView: true
   language: auto
   timeFormat: 02 Jan 06
   shortTimeFormat: 3:04PM
@@ -54,6 +51,8 @@ gui:
       - '#fe605a'
     defaultFgColor:
       - default
+    authorColors: {'pabroux': '#fe605a', 'Pierre-Alexandre Broux': '#fe605a', '*': '#892e2d'}
+    branchColorPatterns: {}
   commitLength:
     show: true
   showListFooter: true
