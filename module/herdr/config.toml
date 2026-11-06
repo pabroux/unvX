@@ -129,12 +129,6 @@ zoom = "prefix+enter"       # legacy alias: fullscreen
 # width = "80%"
 # height = "80%"
 
-[[keys.command]]
-key = "prefix+q"
-type = "shell"
-command = "herdr server stop"
-description = "stop server and exit"
-
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
@@ -156,7 +150,7 @@ description = "stop server and exit"
 # sidebar_max_width = 36
 
 # Start with the sidebar collapsed. Changes take effect on the next launch.
-sidebar_start_collapsed = true
+# sidebar_start_collapsed = false
 
 # Collapsed sidebar presentation: "compact" keeps the narrow status rail, "hidden" uses zero width.
 # sidebar_collapsed_mode = "compact"

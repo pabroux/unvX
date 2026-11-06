@@ -1,0 +1,9 @@
+{
+  "place": "none",
+  "title": "Stop herdr-core",
+  "overlay": {
+    "kind": "dialog",
+    "width": 420,
+    "height": 170
+  }
+}

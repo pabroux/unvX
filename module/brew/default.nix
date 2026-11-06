@@ -13,6 +13,7 @@
     "font-sf-mono"
     "ghostty"
     "gimp"
+    "herdr-app"
     "keepassxc"
     "linear-linear"
     "logi-options+"
