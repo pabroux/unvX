@@ -27,6 +27,28 @@ name = "tokyo-night"
 # green = "#a6e3a1"
 
 auto_switch = false
+
+[theme.custom]
+# Mirrors herdr-app/themes/tokyo-night.json
+accent = "#4bc3cc"        # accent
+panel_bg = "#011628"      # background
+sidebar_bg = "#000f1c"    # chrome
+active_row_bg = "#143652" # selected
+selection_bg = "#275378"  # selection
+surface0 = "#112638"      # raised
+surface1 = "#143652"      # hover
+surface_dim = "#000f1c"   # canvas
+overlay0 = "#627e97"      # dim
+overlay1 = "#627e97"      # dim
+text = "#cbe0f0"          # foreground
+subtext0 = "#b4d0e9"      # muted
+red = "#cc6666"           # ansi 1
+green = "#b5bd68"         # ansi 2
+yellow = "#f0c674"        # ansi 3
+blue = "#81a2be"          # ansi 4
+mauve = "#b294bb"         # ansi 5
+teal = "#8abeb7"          # ansi 6
+
 [terminal]
 # Executable used for new interactive panes.
 # Empty means $SHELL, then /bin/sh.
