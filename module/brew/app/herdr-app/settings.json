@@ -2,7 +2,7 @@
   "zoom": 1,
   "theme": "tokyo-night",
   "sounds": {
-    "enabled": false
+    "enabled": true
   },
   "font_ligatures": false,
   "minimum_contrast": 1,
