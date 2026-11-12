@@ -1,8 +1,5 @@
 {
   "permissions": {
-    "ask": [
-      "Bash(dangerouslyDisableSandbox:true)"
-    ],
     "deny": [
       "Edit(//**/.env)",
       "Edit(//**/.env.*)",
@@ -12,6 +9,9 @@
       "Read(//**/.env.*)",
       "Read(~/.aws/**)",
       "Read(~/.ssh/**)"
+    ],
+    "ask": [
+      "Bash(dangerouslyDisableSandbox:true)"
     ]
   },
   "model": "opus",
@@ -42,7 +42,8 @@
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
-    "andrej-karpathy-skills@karpathy-skills": true
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "cc-plugin-you-should-know@builtin": true
   },
   "extraKnownMarketplaces": {
     "karpathy-skills": {
@@ -56,11 +57,11 @@
     "enabled": true,
     "failIfUnavailable": true,
     "filesystem": {
-      "denyRead": [
+      "denyWrite": [
         "/**/.env",
         "/**/.env.*"
       ],
-      "denyWrite": [
+      "denyRead": [
         "/**/.env",
         "/**/.env.*"
       ]
