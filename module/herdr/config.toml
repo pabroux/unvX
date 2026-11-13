@@ -29,7 +29,7 @@ name = "tokyo-night"
 auto_switch = false
 
 [theme.custom]
-# Mirrors herdr-app/themes/tokyo-night.json
+# Mirrors herdr-app/themes/unvx.json
 accent = "#4bc3cc"        # accent
 panel_bg = "#011628"      # background
 sidebar_bg = "#000f1c"    # chrome

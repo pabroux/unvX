@@ -1,12 +1,12 @@
 {
   config,
   pkgs,
-  unvX,
+  unvx,
   ...
 }: {
   home.file = {
     "zsh/.zshrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/zsh/zshrc";
+      source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/zsh/zshrc";
       target = ".zshrc";
     };
   };

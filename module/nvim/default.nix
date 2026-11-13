@@ -2,14 +2,14 @@
   config,
   pkgs,
   lib,
-  unvX,
+  unvx,
   ...
 }: let
   linkFile = files:
     builtins.listToAttrs (map (file: {
         name = "nvim/${file}";
         value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/nvim/${file}";
+          source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/nvim/${file}";
           target = ".config/nvim/${file}";
         };
       })
@@ -40,6 +40,7 @@ in {
       "lazy-lock.json"
       "lazyvim.json"
     ]
+    // linkDir "colors"
     // linkDir "lua/config"
     // linkDir "lua/plugins";
 

@@ -2,12 +2,12 @@
   config,
   pkgs,
   lib,
-  unvX,
+  unvx,
   ...
 }: {
   home.file = {
     "ghostty/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/brew/app/ghostty/config";
+      source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/brew/app/ghostty/config";
       target = ".config/ghostty/config";
     };
   };

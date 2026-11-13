@@ -16,8 +16,9 @@ set backspace=indent,eol,start
 
 " Color activation
 syntax enable
-let g:molokai_original=1
-colorscheme molokai
+set termguicolors
+set background=dark
+colorscheme unvx
 
 " Drop home message
 set shortmess=I
@@ -63,3 +64,15 @@ set splitright
 set laststatus=2
 set noshowmode
 set showcmd
+let g:lightline = {
+  \ 'colorscheme': 'unvx',
+  \ 'separator': {'left': '', 'right': ''},
+  \ 'subseparator': {'left': '', 'right': ''},
+  \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Escape terminal mode
+tnoremap <C-d> <C-w>N

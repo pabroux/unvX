@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  unvX,
+  unvx,
   ...
 }: {
   home.packages = [
@@ -10,7 +10,7 @@
 
   home.file = {
     "herdr/config.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/herdr/config.toml";
+      source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/herdr/config.toml";
       target = ".config/herdr/config.toml";
     };
   };

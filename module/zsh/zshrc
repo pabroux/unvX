@@ -94,7 +94,7 @@ function y() {
 # Key Bindings
 ###############################################################################
 
-# Emacs keybindings
+# Emacs keymap
 bindkey -e
 
 # Completion using arrow keys based on history

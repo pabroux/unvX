@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  unvX,
+  unvx,
   ...
 }: let
   tmuxPlugins = with pkgs.tmuxPlugins; [resurrect tmux-nova yank];
@@ -11,7 +11,7 @@ in {
 
   home.file = {
     "tmux/tmux.conf" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/tmux/tmux.conf";
+      source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/tmux/tmux.conf";
       target = ".config/tmux/tmux.conf";
     };
     "tmux/plugins.conf" = {

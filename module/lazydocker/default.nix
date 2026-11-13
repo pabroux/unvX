@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  unvX,
+  unvx,
   ...
 }: {
   home.packages = [
@@ -10,7 +10,7 @@
 
   home.file = {
     "lazydocker/config.yml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/lazydocker/config.yml";
+      source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/lazydocker/config.yml";
       target = ".config/lazydocker/config.yml";
     };
   };

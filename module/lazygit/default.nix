@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  unvX,
+  unvx,
   ...
 }: {
   home.packages = [
@@ -10,7 +10,7 @@
 
   home.file = {
     "lazygit/config.yml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/lazygit/config.yml";
+      source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/lazygit/config.yml";
       target = ".config/lazygit/config.yml";
     };
   };

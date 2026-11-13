@@ -1,14 +1,14 @@
 {
   config,
   pkgs,
-  unvX,
+  unvx,
   ...
 }: let
   linkFile = files:
     builtins.listToAttrs (map (file: {
         name = "claude/${file}";
         value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${unvX.directory.module}/claude/${file}";
+          source = config.lib.file.mkOutOfStoreSymlink "${unvx.directory.module}/claude/${file}";
           target = ".config/claude/${file}";
         };
       })

@@ -8,8 +8,8 @@
   <b>A simple Home Manager configuration</b>
 </p>
 <p align="center">
-  <a href="https://github.com/pabroux/unvX/actions/workflows/ci.yml"><img src="https://github.com/pabroux/unvX/actions/workflows/ci.yml/badge.svg" alt="CI Badge"></a>
-  <a href="https://github.com/pabroux/unvX/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pabroux/unvX.svg" alt="License Badge"></a>
+  <a href="https://github.com/pabroux/unvx/actions/workflows/ci.yml"><img src="https://github.com/pabroux/unvx/actions/workflows/ci.yml/badge.svg" alt="CI Badge"></a>
+  <a href="https://github.com/pabroux/unvx/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pabroux/unvx.svg" alt="License Badge"></a>
   <a href="https://code.claude.com/docs/en/overview"><img src="https://img.shields.io/badge/claude-enabled-green?logo=claude" alt="Claude Badge"></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/conventional%20commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white" alt="Conventional Commits Badge"></a>
   <a href="https://prek.j178.dev"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/j178/prek/master/docs/assets/badge-v0.json" alt="prek Badge"></a>
@@ -50,7 +50,7 @@ To install, use the following command inside the unvX folder:
 > [!NOTE]
 > This command will do three things:
 > - Configure your git hooks to invoke [prek](https://prek.j178.dev/) using Nix.
-> - Generate a `unvX.nix` file.
+> - Generate a `unvx.nix` file.
 > - Link the Home Manager flakes regardless of the location of your unvX folder.
 
 ## Usage
@@ -74,7 +74,7 @@ Here is a brief description of the structure:
 - `flake.nix`: Entrypoint for profiles and Home Manager configurations. Home Manager will by default match first a `$USER@$(hostname)` profile. If not found, it will then default to a `$USER` profile.
 - `host`: Home Manager configurations for specific machines and users, specifying which Nix module in the `module` folder to use.
 - `module`: Nix modules dedicated to a specific software. These modules handle both the installation and configuration of the software and its extensions.
-- `unvX.nix`: Generated during the installation, a file that contains information about your unvX installation, such as the unvX location on your host machine. The content of that file is configured to be read by Home Manager and to be passed into all your Nix module under the `unvX` attribute name. `unvX.nix` is mainly used to symlink your dotfiles.
+- `unvx.nix`: Generated during the installation, a file that contains information about your unvX installation, such as the unvX location on your host machine. The content of that file is configured to be read by Home Manager and to be passed into all your Nix module under the `unvX` attribute name. `unvx.nix` is mainly used to symlink your dotfiles.
 
 > [!NOTE]
 > Since [Homebrew](https://brew.sh) is better suited to install applications for macOS (e.g. [Raycast](https://www.raycast.com)), a `brew` Nix module using it behind the scenes is available in the `module` folder. Thus, you don't have to worry about managing two commands to update everything. If you plan to use the `brew` Nix module, make sure to have Homebrew installed.

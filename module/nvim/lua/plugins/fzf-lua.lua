@@ -6,7 +6,7 @@ return {
 		local actions = fzf.actions
 
 		-------------------------------------------------------------------------------
-		-- Key bindings
+		-- Keymaps
 		-------------------------------------------------------------------------------
 
 		config.defaults.actions.files["Ì"] = { fn = actions.toggle_hidden, reuse = true, header = false }
