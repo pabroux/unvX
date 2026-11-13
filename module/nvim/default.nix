@@ -48,13 +48,7 @@ in {
       lib.hm.dag.entryAfter ["installPackages" "linkGeneration"]
       "(
         PATH=${lib.makeBinPath [pkgs.git]}:$HOME/.nix-profile/bin:$PATH
-        if [[ -v DRY_RUN ]]; then
-          echo \"nvim --headless '+Lazy! install' '+Lazy! restore' +qa &> /dev/null\"
-        elif [[ -v VERBOSE ]]; then
-          nvim --headless '+Lazy! install' '+Lazy! restore' +qa
-        else
-          nvim --headless '+Lazy! install' '+Lazy! restore' +qa &> /dev/null
-        fi
+        run --quiet nvim --headless '+Lazy! install' '+Lazy! restore' +qa
       )";
   };
 }

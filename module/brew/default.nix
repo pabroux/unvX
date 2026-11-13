@@ -7,7 +7,7 @@
   casks = [
     "claude"
     "discord"
-    "docker"
+    "docker-desktop"
     "edrawmind"
     "figma"
     "font-sf-mono"
@@ -15,7 +15,7 @@
     "gimp"
     "herdr-app"
     "keepassxc"
-    "linear-linear"
+    "linear"
     "logi-options+"
     "notion"
     "nvidia-geforce-now"
@@ -25,7 +25,7 @@
     "slack"
     "spotify"
     "sublime-text"
-    "tailscale"
+    "tailscale-app"
     "visual-studio-code"
     "whatsapp"
   ];
@@ -35,20 +35,10 @@ in {
   home.activation = {
     installHomebrewCasks =
       lib.hm.dag.entryAfter ["installPackages"]
-      (
-        (
-          cask: "(
-                  PATH=/opt/homebrew/bin:$PATH
-                  if [[ -v DRY_RUN ]]; then
-                    echo 'brew install --cask ${cask}'
-                  elif [[ -v VERBOSE ]]; then
-                    brew install --cask ${cask}
-                  else
-                    brew install --quiet --cask ${cask} &> /dev/null
-                  fi
-                )"
-        )
-        (lib.strings.concatStringsSep " " casks)
-      );
+      "(
+        PATH=/opt/homebrew/bin:$PATH
+        run --quiet env HOMEBREW_NO_INSTALL_UPGRADE=1 brew install --cask ${lib.strings.concatStringsSep " " casks}
+        run --quiet env HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1 brew upgrade --cask
+      )";
   };
 }
