@@ -34,6 +34,5 @@ in {
       "keys.json"
       "settings.json"
     ]
-    // linkDir "mods"
     // linkDir "themes";
 }
