@@ -59,15 +59,6 @@ alias nxr="nix run"
 alias nxs="nix search nixpkgs"
 alias nxsh="nix shell"
 
-# Pixi
-alias px="pixi"
-alias pxa="pixi add"
-alias pxi="pixi init"
-alias pxip="pixi init --format pyproject"
-alias pxr="pixi run"
-alias pxsh="pixi shell"
-alias pxu="pixi upgrade"
-
 # Tailscale
 alias ts="tailscale"
 

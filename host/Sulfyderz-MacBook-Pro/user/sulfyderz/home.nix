@@ -21,7 +21,6 @@
     "mise"
     "nvim"
     "ollama"
-    "pixi"
     "rg"
     "skhd"
     "starship"
